@@ -38,11 +38,11 @@
 
 ## Gameplay
 
-<details>
-<Summary>Gameplay Settings</Summary>
-
 ### Difficulty
-	
+
+<details>
+<Summary>Difficulty Settings</Summary>
+
 1. fDifficultyDamageMultiplier
 	* Default: 5.00
 	* Description: Difficulty affects how much damage the player does in combat, and how much damage they receive. Damage of all types is affected by Difficulty. 
@@ -65,8 +65,16 @@
 4. fDifficultyMinValue
 	* Default: -1.0
 	* Description: The minimum difficulty value.
+	
+</details>
+
 
 ### Skills
+
+
+<details>
+<Summary>Skills Settings</Summary>
+
 
 fSkillUseMinorMult
 	* Default (RE): 0.875
@@ -75,10 +83,10 @@ fSkillUseMinorMult
 
 ## Damage
 
-<details>
-<Summary>Damage Game Settings</summary>
-
 ### Damage Formula
+
+<details>
+<Summary>Damage Formula Settings</summary>
 
 [Complete Damage Formula](https://en.uesp.net/wiki/Oblivion:The_Complete_Damage_Formula#Modifiable_Settings)
 
@@ -131,14 +139,23 @@ fSkillUseMinorMult
 	* This variable has no effect on spell damage.
 	* Example: a value of 1.5 will triple the damage of all weapons, in the game. A sword with 10 damage, will become a 30 damage sword. The altered value will display correctly in the game text.
 
-### Power attack
+</details>
+
+### Power Attack
+
+<details>
+<Summary>Power Attack Settings</summary>
 
 1. fPowerAttackDelay
 	* Default: 0.3000
 	* Description: The amount of time the attack button must be held before a power attack will be executed, and also affects how long a power attack takes. 
 
+</details>
 
 ### Power Attack Maneuvers
+
+<details>
+<Summary>Power Attack Maneuvers Settings</summary>
 
 1. fDamagePowerAttackBackBonus
 	* Default: 2.50
@@ -167,7 +184,6 @@ fSkillUseMinorMult
 <details>
 <Summary>Armor Game Settings</summary>
 
-
 1. fMaxArmorRating
 	* Default: 85.0
 	* Description: Determines the maximum amount of armor. This decimal value is used to determine the maximum armor contribution of all equipped items and effects. The default is 85.00. Since armor rating is the percentage of damage withheld from the target, the best that any combination of armor can do is remove 85% of damage done. It would be potentially dangerous to let this value get too close to 100.
@@ -178,16 +194,21 @@ fSkillUseMinorMult
 
 ## Stealth
 
-<details>
-<Summary>Stealth Game Settings</summary>
-
 ### Sneak Damage
+
+<details>
+<Summary>Sneak Damage Settings</summary>
 
 1. fDamageSneakAttackMult
 	* Default: 4.0
 	* Description: Multiplies the base attack by this value before applying the damage to an enemy. It is activated when a player initiates an attack while in sneak mode, thus the "Sneak Attack x#" message when you perform a sneak attack on an enemy. This value is a base value for sneak attacks and is further modified by a character's sneak skill, weapon type (melee or ranged), attack direction (front, back, side, sleep), and attack type (normal or power). Each of these modifiers has its own setting.
 
+</details>
+
 ### Sneak Mechanics
+
+<details>
+<Summary>Sneak Mechanic Settings</summary>
 
 1. fDetectionTimerSetting
 	* Default: 0.300
@@ -205,10 +226,10 @@ fSkillUseMinorMult
 
 ## Magic
 
-<details>
-<Summary>Magic Game Settings</summary>
-
 ### Magicka Cost
+
+<details>
+<Summary>Magicka Cost Settings</summary>
 
 [Spell Cost](https://cs.uesp.net/wiki/Category:Spell_Cost)
 
@@ -236,7 +257,12 @@ fSkillUseMinorMult
 	* Default: 1.2
 	* Description: The caster's effective skill (as a percentage) is multiplied by this value.
 
+</details>
+
 ### Magicka Regeneration
+
+<details>
+<Summary>Magicka Regeneration Settings</summary>
 
 1. fMagickaReturnBase
 	* Default: 0.75
@@ -248,7 +274,12 @@ fSkillUseMinorMult
 	* Description: Multiplier used to calculate magicka regeneration rate.
 	* Formula: MagickaRegenRate = 0.01 	* (fMagickaReturnBase + fMagickaReturnMult 	* Willpower) 	* TotalMagicka
 
+</details>
+
 ### Enchantment
+
+<details>
+<Summary>Enchantment Settings</summary>
 
 1. fMagicCEEnchantMagOffset
 	* Default: 5.0
@@ -269,7 +300,12 @@ fSkillUseMinorMult
 	* Description: Multiplier used to calculate the recharge cost for any enchanted item when taken to an enchanter service.
 	* Formula: (Charge_Max-Charge_Current) 	* fRechargeGoldMult
 
+</details>
+
 ### Soulgems
+
+<details>
+<Summary>Soulgems Settings</summary>
 
 1. iSoulLevelValuePetty
 	* Default: 150
@@ -311,8 +347,13 @@ fSkillUseMinorMult
 	* Default: 85.0
 	* Description: The maximum calculated Enchantment value. I.E. the Magicka limit for a single strike on a weapon.
 
+</details>
+
 
 ### Alchemy
+
+<details>
+<Summary>Alchemy Settings</summary>
 
 1. fPotionMortPestleMult
 	* Default: 0.25
@@ -382,8 +423,13 @@ iMagicMaxPotionsExpert
 
 iMagicMaxPotionsMaster
 	* Default (RE): 10
+
+</details>
 	
-### Spell level
+### Spell Level
+
+<details>
+<Summary>Spell Level Settings</summary>
 
 1. fMagicSpellLevelApprenticeMin
 	* Default: 25.5
@@ -401,7 +447,12 @@ iMagicMaxPotionsMaster
 	* Default: 399.5
 	* Description: These values are the base spell costs that separate spells into mastery tiers. Any spell whose base cost is greater than a particular threshold yet below the next threshold is considered to be of a particular tier.
 
+</details>
+
 ### Disease
+
+<details>
+<Summary>Disease Settings</summary>
 
 1. fMagicDiseaseTransferBase
 	* Default: 0.0
@@ -419,8 +470,13 @@ iMagicMaxPotionsMaster
 	* Default: 0.20
 	* Description: Used in the calculation for taking damage from the sun. This setting will reduce sun damage for being submerged under water.
 
+</details>
 
 ### Magic Lights
+
+<details>
+<Summary>Magic Lights Settings</summary>
+
 
 1. fMagicLightForwardOffset
 	* Default: 22.0
@@ -434,7 +490,12 @@ iMagicMaxPotionsMaster
 	* Default: 0.75
 	* Description: Affects Magic Night-Eye brightness. Higher value means brighter view.
 
+</details>
+
 ### Uncategorized
+
+<details>
+<Summary>Uncategorized Settings</summary>
 
 1. fMagicFatigueDrainBase
 	* Default: 1.0
@@ -573,7 +634,6 @@ iMagicMaxPotionsMaster
 ## NPC
 
 <details>
-
 <Summary>NPC Game Settings</Summary>
 
 1. fEnemyHealthBarTimer
@@ -608,8 +668,12 @@ iMagicMaxPotionsMaster
 	* Default: 300.00
 	* Description: The distance at which a hostile actor (NPC, creature) will attack, assuming the actor has detected the player.
 
+</details>
 
 ### Ranged Combat
+
+<details>
+<Summary>Ranged Combat Settings</Summary>
 
 1. fArrowOptimalDistance
 	* Default: 1000.0
@@ -664,8 +728,7 @@ iMagicMaxPotionsMaster
 ## Movement
 
 <details>
-
-<Summary>Movement Game Settings</Summary>
+<Summary>Movement Settings</Summary>
 
 1. fMoveCharWalkMin
 	* Default: 90.0
@@ -767,11 +830,10 @@ iMagicMaxPotionsMaster
 
 ## Physics
 
-<details>
-
-<summary>Physics Settings</summary>
-
 ### Death Force
+
+<details>
+<summary>Death Force Settings</summary>
 
 1. fDeathForceForceMin
 	* Default: 35.0
@@ -781,7 +843,12 @@ iMagicMaxPotionsMaster
 	* Default: 85.0
 	* Description: This, along with fDeathForceForceMin, determines how much force is allowed when someone dies.
 
+</details>
+
 ### Explosion Force
+
+<details>
+<summary>Explosion Force Settings</summary>
 
 1. fMagicExplosionPowerMax
 	* Default: 100.00
@@ -800,7 +867,6 @@ iMagicMaxPotionsMaster
 ## Miscellaneous Settings
 
 <details>
-
 <summary>Miscellaneous Settings</summary>
 
 1. fRemoveExcessiveDeadTime
@@ -819,13 +885,11 @@ iMagicMaxPotionsMaster
 	* Default: 3
 	* Description: The maximum number of dead bodies allowed in the loaded area before they fade out (dissapear) if the SetSceneIsComplex scripting function is used.
 
-
 </details>
 
 ## Unknown Unused and Broken Settings
 
 <details>
-
 <summary>Unused Settings</summary>
 
 1. fDemandMult
@@ -835,7 +899,6 @@ iMagicMaxPotionsMaster
 </details>
 
 <details>
-
 <summary>Unknown Use</summary>
 
 3. fEnchantmentEffectPointsMult
@@ -878,13 +941,10 @@ fMagicSunDamageScreenGlowRateUp
 
 </details>
 
-
 <details>
-
 <summary>Broken Settings</summary>
 
 1. fDefaultNoticeTextDisplayTime
 	* Description: Presumably should set the default time for which a message is displayed on screen, but apparently does not work. This at least is consistent with DisplaySeconds argument for message, which also does not work.
-
 
 </details>
