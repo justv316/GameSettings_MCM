@@ -2,12 +2,48 @@
 
 * [Comprehensive Settings List](https://cs.uesp.net/wiki/Comprehensive_Settings_List)
 
+# Table of Contents
+
+1. [Gameplay Settings](#Gameplay)
+2. [Damage Settings](#Damage)
+
 ## Gameplay
+
+<details>
+<Summary>Gameplay Settings</Summary>
+
+### Difficulty
 
 1. fDifficultyDamageMultiplier
 * Default: 5.00
-* Description: The difficulty slider affects how much damage the player does in combat, and how much damage they receive. Damage of all types, magical and mundane, is affected by the slider. This multiplier is the maximum amount the damage the player can do if the slider is set all the way to easy. 
-* It divides the amount of damage done to the player by the same value. If the slider is set all the way to hard, these values are inverted. This multiplier is reduced when the slider is set to in between values. The difficulty slider can be made more subtle by lowering this value, and more extreme by raising it.
+* Description: Difficulty affects how much damage the player does in combat, and how much damage they receive. Damage of all types is affected by Difficulty. 
+* This multiplier is the maximum amount the damage the player can do when difficulty is set to Novice. It divides the amount of damage done to the player by the same value. 
+* Difficulty Settings can be made more subtle by lowering this value, and more extreme by raising it.
+* (Player will receive 1/5th normal damage and deal 5x normal damage on Novice) 
+* (Player will receive 1/3.5th normal damage and deal 3.5x normal damage on Apprentice)
+* (Player will receive 1x normal damage and deal 1x normal damage on Adept)
+* (Player will receive 3.5x normal damage and deal 1/3.5th normal damage on Apprentice)
+* (Player will receive 5x normal damage and deal 1/5th normal damage on Master.) 
+
+2. fDifficultyDefaultValue
+* Default: 0.0
+* Description: The default difficulty value.
+
+3. fDifficultyMaxValue
+* Default: 1.0
+* Description: The maximum difficulty value.
+
+4. fDifficultyMinValue
+* Default: -1.0
+* Description: The minimum difficulty value.
+
+
+### Skills
+
+fSkillUseMinorMult
+* Default (RE): 0.875
+
+</details>
 
 ## Damage
 
@@ -67,13 +103,12 @@
 * This variable has no effect on spell damage.
 * Example: a value of 1.5 will triple the damage of all weapons, in the game. A sword with 10 damage, will become a 30 damage sword. The altered value will display correctly in the game text.
 
-### Armor
+### Power attack
 
-1. fMaxArmorRating
-* Default: 85.0
-* Description: Determines the maximum amount of armor. This decimal value is used to determine the maximum armor contribution of all equipped items and effects. The default is 85.00. Since armor rating is the percentage of damage withheld from the target, the best that any combination of armor can do is remove 85% of damage done. It would be potentially dangerous to let this value get too close to 100.[1]
+1. fPowerAttackDelay
+* Default: 0.3000
+* Description: The amount of time the attack button must be held before a power attack will be executed, and also affects how long a power attack takes. 
 
-* Fractional values are retained at all times. An actor's health is a floating point value, as are the weapon damage and armor rating. All calculations are made as floats. Every piece of armor contributes it's armor value directly to this value. Every % of shield and fire/shock/frost shield also adds 1 armor. A value of 0 removes the cap entirely (no limit to armor rating).
 
 ### Power Attack Maneuvers
 
@@ -99,6 +134,20 @@
 
 </details>
 
+### Armor
+
+<details>
+<Summary>Armor Game Settings</summary>
+
+
+1. fMaxArmorRating
+* Default: 85.0
+* Description: Determines the maximum amount of armor. This decimal value is used to determine the maximum armor contribution of all equipped items and effects. The default is 85.00. Since armor rating is the percentage of damage withheld from the target, the best that any combination of armor can do is remove 85% of damage done. It would be potentially dangerous to let this value get too close to 100.
+
+* Fractional values are retained at all times. An actor's health is a floating point value, as are the weapon damage and armor rating. All calculations are made as floats. Every piece of armor contributes it's armor value directly to this value. Every % of shield and fire/shock/frost shield also adds 1 armor. A value of 0 removes the cap entirely (no limit to armor rating).
+
+</details>
+
 ## Stealth
 
 <details>
@@ -108,7 +157,21 @@
 
 1. fDamageSneakAttackMult
 * Default: 4.0
-* Description:  multiplies the base attack by this value before applying the damage to an enemy. It is activated when a player initiates an attack while in sneak mode, thus the "Sneak Attack x#" message when you perform a sneak attack on an enemy. This value is a base value for sneak attacks and is further modified by a character's sneak skill, weapon type (melee or ranged), attack direction (front, back, side, sleep), and attack type (normal or power). Each of these modifiers has its own setting.
+* Description: Multiplies the base attack by this value before applying the damage to an enemy. It is activated when a player initiates an attack while in sneak mode, thus the "Sneak Attack x#" message when you perform a sneak attack on an enemy. This value is a base value for sneak attacks and is further modified by a character's sneak skill, weapon type (melee or ranged), attack direction (front, back, side, sleep), and attack type (normal or power). Each of these modifiers has its own setting.
+
+### Sneak Mechanics
+
+1. fDetectionTimerSetting
+* Default: 0.300
+* Description: This value represents how often in seconds an actor makes detection checks against all other actors within the max detection distance.
+
+2. fDetectionSneakLightMod
+* Default: -5.000
+* Description: This value is added to the light level on a target during Detection calculations.
+
+3. fDetectionNightEyeBonus
+* Default: 3.000
+* Description: Bonus multiplier to the light level on nearby actors during detection checks.
 
 </details>
 
@@ -283,6 +346,16 @@
 * Default: 0.0050
 * Description: Multiplier used to calculate the Magnitude of beneficial type 3 effects on player made potions made with a Retort. Type 3 effects are those with no duration (e.g. Dispel). Increasing it will increase the strength of the effect, and decreasing it will decrease the strength.
 
+iMagicMaxPotionsJourneyman
+* Default (RE): 6
+
+iMagicMaxPotionsExpert
+* Default (RE): 6
+
+iMagicMaxPotionsMaster
+* Default (RE): 10
+
+
 
 ### Magic Etc.
 
@@ -322,20 +395,6 @@
 * Default: 0.20
 * Description: Used in the calculation for taking damage from the sun. This setting will reduce sun damage for being submerged under water.
 
-#### Explosion Force
-
-
-1. fMagicExplosionPowerMax
-* Default: 100.00
-* Description: This value has to do with the maximum "kick" an explosion of magic uses. This is how far an actor of any type will be moved by magic. This seems to only affect actors that are dead or paralyzed. This also seems to affect movable in-game items, however they accelerate at a much greater distance and speed, so weight must be a factor too. This value is used as a maximum upper end if the game calculates a higher value. (My value is 128.000 which seems to be more than sufficient.)
-
-2. fMagicExplosionPowerMin
-* Default: 0.0
-* Description: Like fMagicExplosionPowerMax, this value seems to deal with the minimum force applied to an actor with magic. The game will use this absolute minimum if a calculated value falls below this range.
-
-3. fMagicExplosionPowerMult
-* Default: 0.40
-* Description: This setting is likely part of a formula the game uses to determine what "kick" a magic bolt or explosion has. The formula appears to be based on: The damage the spell does, the area of the spell, this value, and the weight of the object. This only seems to work when the target is paralyzed, dead, or a moveable object.
 
 #### Magic Lights
 
@@ -380,82 +439,108 @@
 
 [Fatigue Game Settings](https://cs.uesp.net/wiki/Fatigue_Game_Settings)
 
-fFatigueBase
+1. fFatigueBase
 * Default: 1.0
 * Description: Base impact of low fatigue
-fFatigueMult
+
+2. fFatigueMult
 * Default: 0.5
 * Description: Multiplier for impact of low fatigue
-fFatigueReturnBase
+
+3. fFatigueReturnBase
 * Default: 10.0
 * Description: Base fatigue regenerated per second
-fFatigueReturnMult
+
+4. fFatigueReturnMult
 * Default: 0.0
 * Description: Fatigue regenerated per second endurance multiplier
-fFatigueRunBase
+
+5. fFatigueRunBase
 * Default: 8.0
 * Description: Fatigue burned per second when running
-fFatigueRunMult
+
+6. fFatigueRunMult
 * Default: 0.0
 * Description: Fatigue burned per second when running encumberance multiplier
-fFatigueJumpBase
-* Default: 30.0
+
+7. fFatigueJumpBase
+* Default (OG): 30.0
+* Default (RE): 14.0
 * Description: Fatigue burned by jumping
-fFatigueJumpMult
+
+8. fFatigueJumpMult
 * Default: 0.0
 * Description: Fatigue burned by jumping encumberance multiplier
-fFatigueCastBase
+
+9. fFatigueCastBase
 * Default: 1.0
 * Description: Fatigue burned by spell casting
-fFatigueCastMult
+
+10. fFatigueCastMult
 * Default: 0.0
 * Description: Fatigue burned by spell casting multiplier, depended on the magic cost for the spell.
-fFatigueAttackWeaponBase
+
+11. fFatigueAttackWeaponBase
 * Default: 7.0
 * Description: Fatigue burned by attack
-fFatigueAttackWeaponMult
+
+12. fFatigueAttackWeaponMult
 * Default: 0.1
 * Description: Fatigue burned by attack weapon weight multiplier
-fFatigueBlockBase
+
+13. fFatigueBlockBase
 * Default: 0.0
 * Description: Fatigue burned by block base
-fFatigueBlockMult
+
+14. fFatigueBlockMult
 * Default: 1.0
 * Description: Fatigue burned by block skill/100 multiplier
-fFatigueBlockSkillBase
+
+15. fFatigueBlockSkillBase
 * Default: 20.0
 * Description: Fatigue burned by block base
-fFatigueBlockSkillMult
+
+16. fFatigueBlockSkillMult
 * Default: 0.0
 * Description: Fatigue burned by block skill multiplier
-fPowerAttackFatiguePenalty
+
+17. fPowerAttackFatiguePenalty
 * Default: 5.0
 * Description: Fatigue burned by a power attack multiplier
-fMarksmanFatigueBurnPerSecond
+
+18. fMarksmanFatigueBurnPerSecond
 * Default: 15.0
 * Description: Fatigue burned per second when bow drawn by novice marksman
-fMarksmanFatigueBurnPerShot
+
+19. fMarksmanFatigueBurnPerShot
 * Default: 5.0
 * Description: Fatigue burned per shot (by novice marksman???)
-iMarksmanFatigueBurnPerSecondSkill
+
+20. iMarksmanFatigueBurnPerSecondSkill
 * Default: 20
 * Description: Unknown. Does not define max skill below which fMarksmanFatigueBurnPerSecond takes affect.
-fPerkJumpFatigueExpertMult
+
+21. fPerkJumpFatigueExpertMult
 * Default: 0.5
 * Description: Acrobatics Perk multiplier for fatigue burn when jumping
-fPerkAthleticsNoviceFatigueMult
+
+22. fPerkAthleticsNoviceFatigueMult
 * Default: 1.0000
 * Description: Applies when actor's Athletics skill is less than iSkillApprenticeMin.
-fPerkAthleticsApprenticeFatigueMult
+
+23. fPerkAthleticsApprenticeFatigueMult
 * Default: 0.7500
 * Description: Applies when actor's Athletics skill ranges from iSkillApprenticeMin to iSkillJourneymanMin.
-fPerkAthleticsJourneymanFatigueMult
+
+24. fPerkAthleticsJourneymanFatigueMult
 * Default: 0.5000
 * Description: Applies when actor's Athletics skill ranges from iSkillJourneymanMin to iSkillExpertMin.
-fPerkAthleticsExpertFatigueMult
+
+25. fPerkAthleticsExpertFatigueMult
 * Default: 0.2500
 * Description: Applies when actor's Athletics skill ranges from iSkillExpertMin to iSkillMasterMin.
-fPerkAthleticsMasterFatigueMult
+
+26. fPerkAthleticsMasterFatigueMult
 * Default: 0.0000
 * Description: Applies when actor's Athletics skill is greater than or equal to iSkillMasterMin.
 
@@ -483,8 +568,24 @@ fPerkAthleticsMasterFatigueMult
 * Default: 10000.00
 * Description: When told to go to a point farther away than this distance, an NPC will use a horse if one is available. Any point closer than this distance, and they will simply walk.
 
-### Ranged Combat
+5. fFleeDistanceExterior
+* Default: 2000.00
+* Description: Controls how far away an actor (NPC, creature) will run when it flees. Once the actor reaches this distance it will stop fleeing and, usually, just stand there. If you close the distance the actor will continue to flee to this maximum distance.
 
+6. fFleeDistanceInterior
+* Default: 300.00
+* Description: Controls how far away an actor (NPC, creature) will run when it flees. Once the actor reaches this distance it will stop fleeing and, usually, just stand there. If you close the distance the actor will continue to flee to this maximum distance.
+
+7. fDistanceExteriorReactCombat
+* Default: 600.00
+* Description: The distance at which a hostile actor (NPC, creature) will attack, assuming the actor has detected the player.
+
+8. fDistanceInteriorReactCombat
+* Default: 300.00
+* Description: The distance at which a hostile actor (NPC, creature) will attack, assuming the actor has detected the player.
+
+
+### Ranged Combat
 
 1. fArrowOptimalDistance
 * Default: 1000.0
@@ -542,82 +643,172 @@ fPerkAthleticsMasterFatigueMult
 
 <Summary>Movement Game Settings</Summary>
 
-fMoveCharWalkMin
+1. fMoveCharWalkMin
 * Default: 90.0
 * Description: Minimum base walking speed
-fMoveCharWalkMax
+
+2. fMoveCharWalkMax
 * Default: 130.0
 * Description: Maximum base walking speed
-fMoveCreatureWalkMin
+
+3. fMoveCreatureWalkMin
 * Default: 5.0
 * Description: Minimum base walking speed for creatures
-fMoveCreatureWalkMax
+
+4. fMoveCreatureWalkMax
 * Default: 300.0
 * Description: Maximum base walking speed for creatures
-fMoveEncumEffect
+
+5. fMoveEncumEffect
 * Default: 0.4
 * Description: Worn armor/weapons encuberence affect with weapon ready
-fMoveEncumEffectNoWea
+
+6. fMoveEncumEffectNoWea
 * Default: 0.3
 * Description: Worn armor/weapons encuberence affect without weapon ready
-fMoveWeightMin
+
+7. fMoveWeightMin
 * Default: 0.0
 * Description: Movement encumberance minimum worn weight
-fMoveWeightMax
+
+8. fMoveWeightMax
 * Default: 150.0
 * Description: Movement encumberance maximum worn weight
-fMoveNoWeaponMult
+
+9. fMoveNoWeaponMult
 * Default: 1.1
 * Description: Speed multiplier without weapon ready
-fMoveRunMult
+
+10. fMoveRunMult
 * Default: 3.0
 * Description: Speed multiplier for being in run mode
-fMoveRunAthleticsMult
+
+11. fMoveRunAthleticsMult
 * Default: 1.0
 * Description: Speed multiplier for athletics when in run mode
-fMoveSneakMult
+
+12. fMoveSneakMult
 * Default: 0.6
 * Description: Speed multiplier for being in sneak mode
-fPerkHeavyArmorExpertSpeedMult
+
+13. fPerkHeavyArmorExpertSpeedMult
 * Default: 0.5
 * Description: Perk worn heavy armor weight multiplier??? (Initial value of 0.5 reduces worn armor weight by half)
-fPerkHeavyArmorMasterSpeedMult
+
+14. fPerkHeavyArmorMasterSpeedMult
 * Default: 0.0
 * Description: Perk worn heavy armor weight multiplier, replacing above??? (Initial value of 0 reduces worn armor weight to 0)
-fPerkHeavyArmorSinkGravityMult
+
+15. fPerkHeavyArmorSinkGravityMult
 * Default: 15.0
 * Description: Unknown impact perk
-fPerkLightArmorExpertSpeedMult
+
+16. fPerkLightArmorExpertSpeedMult
 * Default: 0.0
 * Description: Perk worn light armor weight multiplier??? (Initial value of 0 reduces worn armor weight to 0)
-fArmorWeightLightMaxMod
+
+17. fArmorWeightLightMaxMod
 * Default: 0.6
 * Description: Unknown impact setting
-fMoveSwimWalkBase
+
+18. fMoveSwimWalkBase
 * Default: 0.5
 * Description: Unknown impact setting
-fMoveSwimWalkAthleticsMult
+
+19. fMoveSwimWalkAthleticsMult
 * Default: 0.02
 * Description: Unknown impact setting
-fMoveSwimRunBase
+
+20. fMoveSwimRunBase
 * Default: 0.5
 * Description: Unknown impact setting
-fMoveSwimRunAthleticsMult
+
+21. fMoveSwimRunAthleticsMult
 * Default: 0.1
 * Description: Unknown impact setting
-fSubmergedMaxSpeed
+
+22. fSubmergedMaxSpeed
 * Default: 2.0
 * Description: Unknown impact setting
-fMoveMinFlySpeed
+
+23. fMoveMinFlySpeed
 * Default: 5.0
 * Description: Minimum flying speed
-fMoveMaxFlySpeed
+
+24. fMoveMaxFlySpeed
 * Default: 300.0
 * Description: Maximum flying speed
 
 </details>
 
-## Unknown Settings
+## Physics Settings
+
+<details>
+
+<summary>Physics Settings</summary>
+
+### Death Force
+
+1. fDeathForceForceMin
+* Default: 35.0
+* Description: This, along with fDeathForceForceMax, determines how much force is allowed when someone dies.
+
+2. fDeathForceForceMax
+* Default: 85.0
+* Description: This, along with fDeathForceForceMin, determines how much force is allowed when someone dies.
+
+### Explosion Force
+
+1. fMagicExplosionPowerMax
+* Default: 100.00
+* Description: This value has to do with the maximum "kick" an explosion of magic uses. This is how far an actor of any type will be moved by magic. This seems to only affect actors that are dead or paralyzed. This also seems to affect movable in-game items, however they accelerate at a much greater distance and speed, so weight must be a factor too. This value is used as a maximum upper end if the game calculates a higher value. (My value is 128.000 which seems to be more than sufficient.)
+
+2. fMagicExplosionPowerMin
+* Default: 0.0
+* Description: Like fMagicExplosionPowerMax, this value seems to deal with the minimum force applied to an actor with magic. The game will use this absolute minimum if a calculated value falls below this range.
+
+3. fMagicExplosionPowerMult
+* Default: 0.40
+* Description: This setting is likely part of a formula the game uses to determine what "kick" a magic bolt or explosion has. The formula appears to be based on: The damage the spell does, the area of the spell, this value, and the weight of the object. This only seems to work when the target is paralyzed, dead, or a moveable object.
+
+</details>
+
+## Miscellaneous Settings
+
+<details>
+
+<summary>Miscellaneous Settings</summary>
+
+1. fRemoveExcessiveDeadTime
+* Default: 10.0
+* Description: The amount of time between checks to iRemoveExcessDeadCount. Used to remove excess corpses during periods of heavy combat between many actors, to increase performance.
+
+2. iRemoveExcessDeadCount
+* Default: 15
+* Description: The maximum number of dead bodies allowed in the loaded area before they fade out (dissapear).
+
+3. fRemoveExcessiveComplexDeadTime
+* Default: 2.5
+* Description: The amount of time between checks to iRemoveExcessDeadComplexCount when SetSceneIsComplex is used. Used to remove excess corpses during periods of heavy combat between many actors, to increase performance.
+
+4. iRemoveExcessDeadComplexCount
+* Default: 3
+* Description: The maximum number of dead bodies allowed in the loaded area before they fade out (dissapear) if the SetSceneIsComplex scripting function is used.
+
+
+</details>
+
+## Unknown, Unused and broken Settings
+
+<details>
+
+<summary>Unused Settings</summary>
+
+1. fDemandMult
+2. fDemandBase
+
+
+</details>
 
 <details>
 
@@ -660,5 +851,16 @@ fMagicSunDamagePainTimer
 fMagicSunDamageScreenGlowMult
 fMagicSunDamageScreenGlowRateDown
 fMagicSunDamageScreenGlowRateUp
+
+</details>
+
+
+<details>
+
+<summary>Broken Settings</summary>
+
+1. fDefaultNoticeTextDisplayTime
+* Description: Presumably should set the default time for which a message is displayed on screen, but apparently does not work. This at least is consistent with DisplaySeconds argument for message, which also does not work.
+
 
 </details>
