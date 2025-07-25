@@ -1,6 +1,6 @@
 # Game Settings
 
-	* [Comprehensive Settings List](https://cs.uesp.net/wiki/Comprehensive_Settings_List)
+* [Comprehensive Settings List](https://cs.uesp.net/wiki/Comprehensive_Settings_List)
 
 # Table of Contents
 
@@ -8,6 +8,8 @@
 	* [Difficulty Settings](#Difficulty)
 	* [Skill Settings](#Skills)
 2. [Damage Settings](#Damage)
+	* [Damage Formula](#Damage_Formula)
+	* [Power Attack](#Power_Attack)
 
 ## Gameplay
 
@@ -38,7 +40,6 @@
 4. fDifficultyMinValue
 	* Default: -1.0
 	* Description: The minimum difficulty value.
-
 
 ### Skills
 
