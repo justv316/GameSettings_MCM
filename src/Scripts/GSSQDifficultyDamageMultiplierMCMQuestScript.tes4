@@ -1,0 +1,33 @@
+scn GSSQDifficultyDamageMultiplierMCMQuestScript
+
+; This Script is being handled by Mad ObScript Extender
+; Setting: fDifficultyDamageMultiplier
+; Default: 5.0
+
+float fQuestDelayTime
+float fTimer
+float fCheckedMCM
+float fLastCheckedMCM
+float fDefaultDifficultyDamageMultiplier
+float fNewDifficultyDamageMultiplier
+
+Begin GameMode
+	set fQuestDelayTime to 0.5
+	if fDefaultDifficultyDamageMultiplier != 5.0
+		set fDefaultDifficultyDamageMultiplier to 5.0
+	endif
+	set fCheckedMCM to GSfMCMDifficultyDamageMultiplier
+	if fCheckedMCM != fLastCheckedMCM
+		set fNewDifficultyDamageMultiplier to fCheckedMCM
+		if GSfNewDifficultyDamageMultiplier != fNewDifficultyDamageMultiplier
+			set GSfNewDifficultyDamageMultiplier to fNewDifficultyDamageMultiplier
+			set fTimer to 1
+		endif
+		if fTimer > 0
+			set fTimer to fTimer - GetSecondsPassed
+		else
+			message "ConsoleCommand SetGameSetting fDifficultyDamageMultiplier ((GetGlobalValue GSfNewDifficultyDamageMultiplier))"
+			set fLastCheckedMCM to fCheckedMCM
+		endif
+	endif
+end
