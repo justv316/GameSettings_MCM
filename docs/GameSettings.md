@@ -21,19 +21,23 @@
 	* [Enchantment](#Enchantment)
 	* [Soulgems](#Soulgems)
 	* [Alchemy](#Alchemy)
+	* [Wortcraft](#Wortcraft)
 	* [Spell Level](#Spell-Level)
 	* [Disease](#Disease)
 	* [Magic Lights](#Magic-Lights)
-	* [Uncategorized](#Uncategorized)
-6. [Fatigue Settings](#Fatigue)
-7. [NPC Settings](#NPC)
+	* [Uncategorized Magic](#Uncategorized-Magic)
+7. [Health Settings](#Health)
+8. [Fatigue Settings](#Fatigue)
+9. [Repair Settings](#Repair)
+10. [NPC Settings](#NPC)
 	* [Ranged Combat](#Ranged-Combat)
-8. [Movement Settings](#Movement)
-9. [Physics Settings](#Physics)
+11. [Movement Settings](#Movement)
+12. [Physics Settings](#Physics)
 	* [Death Force](#Death-Force)
 	* [Explosion Force](#Explosion-Force)
-10. [Miscellaneous Settings](#Miscellaneous-Settings)
-11. [Unknown Unused and Broken Settings](#Unknown-Unused-and-Broken-Settings)
+13. [Camera Settings](#Camera)
+14. [Miscellaneous Settings](#Miscellaneous)
+15. [Unknown Unused and Broken Settings](#Unknown-Unused-and-Broken)
 	
 
 ## Gameplay
@@ -68,16 +72,19 @@
 	
 </details>
 
-
 ### Skills
-
 
 <details>
 <Summary>Skills Settings</Summary>
 
+1. fTrainingCostMult
+	* Default: 10.0
+	* Description: Modifies the cost of training. A higher value means higher training costs.
 
-fSkillUseMinorMult
+2. fSkillUseMinorMult
+	* Default (OG): -1.0
 	* Default (RE): 0.875
+	* Description: 
 
 </details>
 
@@ -425,6 +432,21 @@ iMagicMaxPotionsMaster
 	* Default (RE): 10
 
 </details>
+
+### Wortcraft
+
+<details>
+<Summary>Wortcraft Settings</summary>
+
+1. fWortAlchMult
+	* Default: 1.0
+	* Description: When using wortcraft, the player's Alchemy is multiplied by this setting, then divided by 5. (Divisor possibly controlled by another setting?) The wortcraft effect is calculated as a potion created by an alchemist with the resulting skill and no equipment bonuses.
+	
+2. fWortcraftFatigueMag
+	* Default: 5.0
+	* Description: When an ingredient with the Food property is eaten, the normal wortcraft calculation is skipped and it instead produces an effect with a duration of 1 second and magnitude equal to this setting. (Don't be confused by the name: most food has the Restore Fatigue effect, but this setting affects all food, and non-food Restore Fatigue ingredients are not affected.) Note: Setting the duration of the ingredient effect to zero appears to double the resulting magnitude. Bread, for example, has its Restore Fatigue effect duration set to 0, unlike the majority of ingredients. It restores 10 fatigue instead of 5.
+
+</details>
 	
 ### Spell Level
 
@@ -492,10 +514,10 @@ iMagicMaxPotionsMaster
 
 </details>
 
-### Uncategorized
+### Uncategorized Magic
 
 <details>
-<Summary>Uncategorized Settings</summary>
+<Summary>Uncategorized Magic Settings</summary>
 
 1. fMagicFatigueDrainBase
 	* Default: 1.0
@@ -517,10 +539,34 @@ iMagicMaxPotionsMaster
 
 </details>
 
+## Health
+
+<details>
+<summary>Health Settings</Summary>
+
+[Health](https://cs.uesp.net/wiki/Health)
+
+1. fPCBaseHealthMult
+	* Default: 2.0
+	* Description: Affects the health of the player at the start of the game. Value is multiplied by the player's endurance to calculate starting health. Has no effect on health when the player levels up unless the player gains Endurance that level, in which case the player's base health will be recalculated according to this setting.
+	* Formula: Endurance * fPCBaseHealthMult * fStatsHealthStartMult
+	
+2. fStatsHealthStartMult 
+	* Default: 1.0
+	* Description: Multiplier used in the Base Health calculation
+	* Formula: Endurance * fPCBaseHealthMult * fStatsHealthStartMult
+
+1. fStatsHealthLevelMult
+	* Default: 0.1
+	* Description: The number by which the player's endurance is multiplied to calculate the amount of health to be added when the character levels up. The value produced is rounded down to the nearest whole number. If this value is set to 0.0, character health will be based directly on endurance, with no level bonuses. This only affects the player.
+	* Formula: Endurance * fStatsHealthLevelMult
+
+</details>
+
 ## Fatigue
 
 <details>
-<summary>Fatigue Game Settings</Summary>
+<summary>Fatigue Settings</Summary>
 
 [Fatigue Game Settings](https://cs.uesp.net/wiki/Fatigue_Game_Settings)
 
@@ -628,6 +674,42 @@ iMagicMaxPotionsMaster
 26. fPerkAthleticsMasterFatigueMult
 	* Default: 0.0000
 	* Description: Applies when actor's Athletics skill is greater than or equal to iSkillMasterMin.
+
+</details>
+
+## Repair
+
+<details>
+<summary>Repair Game Settings</Summary>
+
+1. fRepairArmorerBase
+	* Default: 0.0
+	* Description: Determines base amount of health repaired per swing of repair hammer.
+	* Formula: fRepairArmorerBase + (Armorer skill * fRepairArmorerMult) + (Strength * fRepairStrengthMult)
+	
+2. fRepairArmorerMult
+	* Default: 1.0
+	* Description: Determines base amount of health repaired per swing of repair hammer.
+	* Formula: fRepairArmorerBase + (Armorer skill * fRepairArmorerMult) + (Strength * fRepairStrengthMult)
+	
+3. fRepairStrengthMult
+	* Default: 0.1
+	* Description: Determines base amount of health repaired per swing of repair hammer.
+	* Formula: fRepairArmorerBase + (Armorer skill * fRepairArmorerMult) + (Strength * fRepairStrengthMult)
+	
+4. fRepairCostMult
+	* Default: 0.90
+	* Description: Multiplier used to calculate the cost of repair when paying a smith or other NPC for repairs.
+	
+5. fRepairSkillBreakBase
+	* Default: 30.0
+	* Description: Controls base break chance for repair hammers. Is used with fRepairSkillBreakMult to get the final formula.
+	* Formula: Not known.
+	
+6. fRepairSkillBreakMult
+	* Default: -0.200
+	* Description: Controls base break chance for repair hammers. Is used with fRepairSkillBreakBase to get the final formula. This setting decreases the break chance, so should always be a zero or negative number unless you want hammers to break more often than at 0 skill.
+	* Formula: Not known.
 
 </details>
 
@@ -864,7 +946,59 @@ iMagicMaxPotionsMaster
 
 </details>
 
-## Miscellaneous Settings
+## Camera
+
+<details>
+<summary>Camera Settings</summary>
+
+</details>
+
+### Vanity
+
+<details>
+<summary>Vanity Settings</summary>
+
+1. fVanityModeWheelMult
+	* Default: 0.1000
+	* Description: This value changes the multiplier that determines the speed your camera zooms in and out of Vanity Mode (or 3rd person). Increasing or decreasing the value will increase or decrease the distance traveled by one click of the scroll wheel.
+	
+2. fVanityModeWheelMax
+	* Default: 600.0
+	* Description: This is the maximum distance from the camera to the center of the player while in Vanity Mode. Distance is based on the Coordinate in the game, same on all 3 axis. Increasing the number should allow you to have the camera further than normal.
+	
+3. fVanityModeWheelMin
+	* Default: 30.00
+	* Description: This is the minimum distance from the player the camera can be set when you are in Vanity Mode. Distance is the value according to the coordinate system in the game, on all 3 Axis. Since the height of the player is more than 30, the minimum Z distance clips through the player.
+	
+4. fVanityModeXMult
+	* Default: 30.00
+	* Description: Refers to the multiplier that controls of the speed you move the camera on the X axis (The speed that the camera spins around your character while in Vanity Mode, not the same as the X axis for the Coordinate system on the map). Increasing or decreasing the multiplier will increase or decrease the distance traveled by the camera as it spins around your character.
+	
+5. fVanityModeYMult
+	* Default: 10.00
+	* Description: This setting controls the multiplier for the Y axis (Y axis meaning going up and over your character, not the same Y axis as the coordinate system on the map). Increasing or decreasing this number will increase or decrease the distance traveled by the camera while in Vanity Mode.
+	
+6. fVanityModeDelay
+	* Default: 0.50
+	* Description: This setting changes the delay period between going from 3rd person to Vanity Mode. In particular, it determines how long you hold down "R" before you make the switch. If you set it to zero, when you are in first person mode, and you press R, you will go straight to Vanity Mode, instead of 3rd person. You can still go into third person mode via the scroll wheel, but you can't use "R" for 3rd person mode once this has been set to zero.
+
+
+#### Unknown Vanity Settings
+
+1. fVanityModeAutoDelay
+	* Default: 120.0
+	* Description: Seemingly changes nothing
+	
+2. fVanityModeAutoXSpeed
+3. fVanityModeAutoYDegrees
+4. fVanityModeAutoYSpeed
+5. fVanityModeForceDefault
+6. fVanityModeWheelDeadMin
+7. fVanityModeWheelDefault
+
+</details>
+
+## Miscellaneous
 
 <details>
 <summary>Miscellaneous Settings</summary>
@@ -887,7 +1021,7 @@ iMagicMaxPotionsMaster
 
 </details>
 
-## Unknown Unused and Broken Settings
+## Unknown Unused and Broken
 
 <details>
 <summary>Unused Settings</summary>
@@ -899,7 +1033,7 @@ iMagicMaxPotionsMaster
 </details>
 
 <details>
-<summary>Unknown Use</summary>
+<summary>Unknown</summary>
 
 3. fEnchantmentEffectPointsMult
 	* Default: 0.40
@@ -929,15 +1063,15 @@ iMagicMaxPotionsMaster
 	* Default: 1.0
 	* Description: ?
 
-Unknown Sun Damage Settings
+Sun Damage Settings
 
-fMagicSunDamageBaseDamage
-fMagicSunDamageMinWeather
-fMagicSunDamagePainInitialDelay
-fMagicSunDamagePainTimer
-fMagicSunDamageScreenGlowMult
-fMagicSunDamageScreenGlowRateDown
-fMagicSunDamageScreenGlowRateUp
+1. fMagicSunDamageBaseDamage
+2. fMagicSunDamageMinWeather
+3. fMagicSunDamagePainInitialDelay
+4. fMagicSunDamagePainTimer
+5. fMagicSunDamageScreenGlowMult
+6. fMagicSunDamageScreenGlowRateDown
+7. fMagicSunDamageScreenGlowRateUp
 
 </details>
 
