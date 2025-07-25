@@ -5,6 +5,8 @@
 # Table of Contents
 
 1. [Gameplay Settings](#Gameplay)
+* [Difficulty Settings](#Difficulty)
+* [Skill Settings](#Skills)
 2. [Damage Settings](#Damage)
 
 ## Gameplay
