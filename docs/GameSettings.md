@@ -10,6 +10,31 @@
 2. [Damage Settings](#Damage)
 	* [Damage Formula](#Damage-Formula)
 	* [Power Attack](#Power-Attack)
+	* [Power Attack Maneuvers](#Power-Attack-Maneuvers)
+3. [Armor Settings](#Armor)
+4. [Stealth Settings](#Stealth)
+	* [Sneak Damage](#Sneak-Damage)
+	* [Sneak Mechanics](#Sneak-Mechanics)
+5. [Magic Settings](#Magic)
+	* [Magicka Cost](#Magicka-Cost)
+	* [Magicka Regeneration](#Magicka-Regeneration)
+	* [Enchantment](#Enchantment)
+	* [Soulgems](#Soulgems)
+	* [Alchemy](#Alchemy)
+	* [Spell Level](#Spell-Level)
+	* [Disease](#Disease)
+	* [Magic Lights](#Magic-Lights)
+	* [Uncategorized](#Uncategorized)
+6. [Fatigue Settings](#Fatigue)
+7. [NPC Settings](#NPC)
+	* [Ranged Combat](#Ranged-Combat)
+8. [Movement Settings](#Movement)
+9. [Physics Settings](#Physics)
+	* [Death Force](#Death-Force)
+	* [Explosion Force](#Explosion-Force)
+10. [Miscellaneous Settings](#Miscellaneous-Settings)
+11. [Unknown Unused and Broken Settings](#Unknown-Unused-and-Broken-Settings)
+	
 
 ## Gameplay
 
@@ -93,7 +118,7 @@ fSkillUseMinorMult
 	* Default: 0.50
 	* Description: 
 	* Description: Together with fDamageWeaponConditionMult this determines the amount of damage your weapon does based on it's current health.
-*Example:  Setting this value to 1 and fDamageWeaponConditionMult to 0 means that weapons will always deal the same amount of damage, regardless of health, up to the point of breaking.
+	* Example:  Setting this value to 1 and fDamageWeaponConditionMult to 0 means that weapons will always deal the same amount of damage, regardless of health, up to the point of breaking.
 
 8. fDamageWeaponConditionMult
 	* Default: 0.50
@@ -137,7 +162,7 @@ fSkillUseMinorMult
 
 </details>
 
-### Armor
+## Armor
 
 <details>
 <Summary>Armor Game Settings</summary>
@@ -357,12 +382,8 @@ iMagicMaxPotionsExpert
 
 iMagicMaxPotionsMaster
 	* Default (RE): 10
-
-
-
-### Magic Etc.
-
-#### Spell level
+	
+### Spell level
 
 1. fMagicSpellLevelApprenticeMin
 	* Default: 25.5
@@ -380,7 +401,7 @@ iMagicMaxPotionsMaster
 	* Default: 399.5
 	* Description: These values are the base spell costs that separate spells into mastery tiers. Any spell whose base cost is greater than a particular threshold yet below the next threshold is considered to be of a particular tier.
 
-#### Disease
+### Disease
 
 1. fMagicDiseaseTransferBase
 	* Default: 0.0
@@ -399,7 +420,7 @@ iMagicMaxPotionsMaster
 	* Description: Used in the calculation for taking damage from the sun. This setting will reduce sun damage for being submerged under water.
 
 
-#### Magic Lights
+### Magic Lights
 
 1. fMagicLightForwardOffset
 	* Default: 22.0
@@ -413,7 +434,7 @@ iMagicMaxPotionsMaster
 	* Default: 0.75
 	* Description: Affects Magic Night-Eye brightness. Higher value means brighter view.
 
-#### Uncategorized
+### Uncategorized
 
 1. fMagicFatigueDrainBase
 	* Default: 1.0
@@ -744,7 +765,7 @@ iMagicMaxPotionsMaster
 
 </details>
 
-## Physics Settings
+## Physics
 
 <details>
 
@@ -801,7 +822,7 @@ iMagicMaxPotionsMaster
 
 </details>
 
-## Unknown, Unused and broken Settings
+## Unknown Unused and Broken Settings
 
 <details>
 
