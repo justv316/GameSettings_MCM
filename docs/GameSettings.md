@@ -8,8 +8,8 @@
 	* [Difficulty Settings](#Difficulty)
 	* [Skill Settings](#Skills)
 2. [Damage Settings](#Damage)
-	* [Damage Formula](#Damage_Formula)
-	* [Power Attack](#Power_Attack)
+	* [Damage Formula](#Damage-Formula)
+	* [Power Attack](#Power-Attack)
 
 ## Gameplay
 
