@@ -2147,6 +2147,7 @@
 	* Description: This is the maximum amount of arrows that can be rendered in a quiver on the back of an actor. Increasing this beyond 20 would probably cause clipping or crowding issues.
 
 </details>
+
 ### Stars
 
 <details>
@@ -2222,7 +2223,7 @@
 </details>
 
 <details>
-<summary>Unknown</summary>
+<summary>Unknown GameSettings</summary>
 
 * These Settings do not have descriptions yet.
 
