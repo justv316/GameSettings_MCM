@@ -112,6 +112,8 @@
 3. iLowLevelNPCMaxLevel
 	* Default: 4
 	* Description: When the player level is less than or equal to this value all NPCs are classed as 'low level'. The game assigns reduced health to 'low level' NPCs to make the early part of the game less challenging. 
+	
+</details>
 
 ### World
 
