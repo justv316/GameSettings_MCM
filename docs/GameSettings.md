@@ -341,6 +341,9 @@
 
 ### Hand-To-Hand
 
+<details>
+<Summary>Hand-To-Hand GameSettings</summary>
+
 1. fHandDamageSkillBase
 	* Default: 0.00
 	* Description: Base Hand to Hand skill multiplier
@@ -385,6 +388,8 @@
 	* Default: 0.6
 	* Description: Unarmed reach (note: the default hand-to-hand reach is about 5 feet or 105 units)
 	* Formula: fHandHealthMin + (fHandHealthMax - fHandHealthMin) × (Strength / 100 × fHandDamageStrengthMult + fHandDamageStrengthBase) × (HandToHand / 100 × fHandDamageSkillMult + fHandDamageSkillBase)
+
+</details>
 
 ### Knockback
 
@@ -1635,47 +1640,45 @@
 
 ### AI
 
+<details>
+<Summary>AI GameSettings</Summary>
+
 1. fAITalktoNPCtimer
 	* Default: 60.00
 	* Description: Time in seconds that an NPC will wait after conversation with a NPC before it will attempt another conversation.
 	
-1. fAItalktoSameNPCtimer
+2. fAItalktoSameNPCtimer
 	* Default: 120.00
 	* Description: Time in seconds that a NPC will wait before engaging in a conversation with the last NPC to which it spoke.
 	
-1. fAIMaxWanderTime
+3. fAIMaxWanderTime
 	* Default: 100.000
 	* Description: Maximum time an actor walks continuously during a wander package, in seconds. After this time they will go idle for some time (probably governed by another setting). Setting this to 0 will make actors walk continuously, except when engaging in conversations with other NPC.
 
-1. fAIFleeConfBase
+4. fAIFleeConfBase
 	* Default: 30.00
 	* Description: The base chance that an opponent will flee in combat. It is modified by the opponent's confidence and health.
 	* Formula: fAIFleeConfBase + (Confidence * fAIFleeConfMult) + (unknown health factor * fAIFleeHealthMult)
 	
-1. fAIFleeConfMult
+5. fAIFleeConfMult
 	* Default: -0.500
 	* Description: A multiplier on confidence. Raising it makes NPCs less likely to flee.
 	
-1. fAIFleeHealthMult
+6. fAIFleeHealthMult
 	* Default: 10.00
 	* Description: The effect that damage has on the AI's chance to flee. Raising this parameter causes loss of health to have a greater effect on the AI and make them more likely to flee when suffering damage.
 	
-
-	
-1. iAIDefaultMeleeAlertAllowed
+6. iAIDefaultMeleeAlertAllowed
 	* Default: 0
 	* Description: Seems to have massive consequences. For instance some triggered events don't work properly because the actors might be called into action to fight, and it also seems to work for animals, not just humans. Set to 1 to increase the chance that attacking an actor will alert their nearby friends
 	
-1. iAIDefaultPowerAttackBackwardChance
+7. iAIDefaultPowerAttackBackwardChance
 	* Default: 20
 	* Description: Chance that an enemy will use the Backward Power Attack. Setting to 100 doesn't seem to make every attack a Backwards Power Attack. For instance, when the enemy runs towards you they will still use a normal attack, and will also occasionally (maybe 1/10) use normal attacks. Most likely, there's a formula used to determine if the enemy will use a normal or power attack, and if it's a power attack this (and the other Power Attack chances) determine which Power Attack is used.
 	
-1. iAINPCRacePowerChance
+8. iAINPCRacePowerChance
 	* Default: 5
 	* Description: Appears to be the chance an NPC will use their race power in battle. For instance, a Dark Elf will use "Summon Ancestral Guardian" in combat.
-
-<details>
-<Summary>AI GameSettings</Summary>
 
 </details>
 
@@ -1862,6 +1865,9 @@
 
 ### Falling
 
+<details>
+<Summary>Falling GameSettings</Summary>
+
 1. fJumpFallSkillBase
 	* Default: 1.2500
 	* Description: Final falling damage is determined based on several factors, most notably fJumpFallTimeMult.
@@ -1905,12 +1911,12 @@
 	* Default: 0.3000
 	* Description: This number is a multiplier or 'weight' that affects the fJumpMoveBase value to determine how much 'in-flight' directional control you have over your character.
 
-<details>
-<Summary>Jumping GameSettings</Summary>
-
 </details>
 
 ## Physics
+
+<details>
+<summary>Physics GameSettings</summary>
 
 1. fObjectHitWeaponReach
 	* Default: 150.000
@@ -1920,7 +1926,12 @@
 	* Default: 2.000
 	* Description: Controls the amount of power the player has when manipulating objects with the Grab key (default: Z). Increasing this number increases the rate at which an object can be moved using the grab key.
 	
+</details>
+
 ### Arrows
+
+<details>
+<summary>Arrows GameSettings</summary>
 
 1. fArrowAgeMax
 	* Default: 90.000
@@ -1991,6 +2002,8 @@
 17. iArrowMaxRefCount
 	* Default: 15
 	* Description: The maximum number of Arrow References that are kept track of in a cell caused by rebounding arrows.
+
+</details>
 
 ### Death Force
 
