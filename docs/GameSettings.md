@@ -246,10 +246,6 @@
 
 ## Combat
 
-1. fCombatHitConeAngle
-	* Default: 35.00
-	* Description: Is either the range from an actor's center that an attack can be aimed and count as a successful hit, or the vertical/horizontal range of attacks. Either way, a smaller number causes attacks to have to be aimed more accurately at an actor for them to connect. The confusion comes from the fact that, with a number of around 20 or less, attacks that strike the edge of an actor will pass through them without connecting. The number setting seems to represent degrees. A setting of 45, for example, should allow an actor within a 45 degree arc of the crosshair to be struck by the player's attack.
-
 ### Damage
 
 <details>
@@ -305,6 +301,10 @@
 	* Description: Adjusting this value, alters all weapon damage proportionately.
 	* This variable has no effect on spell damage.
 	* Example: a value of 1.5 will triple the damage of all weapons, in the game. A sword with 10 damage, will become a 30 damage sword. The altered value will display correctly in the game text.
+	
+10. fCombatHitConeAngle
+	* Default: 35.00
+	* Description: Is either the range from an actor's center that an attack can be aimed and count as a successful hit, or the vertical/horizontal range of attacks. Either way, a smaller number causes attacks to have to be aimed more accurately at an actor for them to connect. The confusion comes from the fact that, with a number of around 20 or less, attacks that strike the edge of an actor will pass through them without connecting. The number setting seems to represent degrees. A setting of 45, for example, should allow an actor within a 45 degree arc of the crosshair to be struck by the player's attack.
 	
 </details>
 
