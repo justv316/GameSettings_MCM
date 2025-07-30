@@ -71,7 +71,7 @@
 <details>
 <Summary>Difficulty GameSettings</Summary>
 
-1. fDifficultyDamageMultiplier
+1. fDifficultyDamageMultiplier (As of ObRe 1.2, this setting is technically obsolete, and has been replaced by 12 individual settings for each difficulty setting) 
 	* Default: 5.00
 	* Description: Difficulty affects how much damage the player does in combat, and how much damage they receive. Damage of all types is affected by Difficulty. 
 	* This multiplier is the maximum amount the damage the player can do when difficulty is set to Novice. It divides the amount of damage done to the player by the same value. 
@@ -81,6 +81,67 @@
 	* (Player will receive 1x normal damage and deal 1x normal damage on Adept)
 	* (Player will receive 3.5x normal damage and deal 1/3.5th normal damage on Apprentice)
 	* (Player will receive 5x normal damage and deal 1/5th normal damage on Master.) 
+	
+2. fDifficultyDamageTakenMultiplierNovice
+	* Default: -5.00
+	* Description: The Damage multiplier for Damage Taken while on Novice Difficulty.
+	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
+	
+3. fDifficultyDamageTakenMultiplierApprentice
+	* Default: -2.50
+	* Description: The Damage multiplier for Damage Taken while on Apprentice Difficulty.
+	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
+	
+4. fDifficultyDamageTakenMultiplierAdept
+	* Default: 0.00
+	* Description: The Damage multiplier for Damage Taken while on Adept Difficulty.
+	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
+	
+5. fDifficultyDamageTakenMultiplierJourneyman
+	* Default: 1.50
+	* Description: The Damage multiplier for Damage Taken while on Journeyman Difficulty.
+	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
+	
+6. fDifficultyDamageTakenMultiplierExpert
+	* Default: 2.50
+	* Description: The Damage multiplier for Damage Taken while on Expert Difficulty.
+	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
+	
+7. fDifficultyDamageTakenMultiplierMaster
+	* Default: 5.00
+	* Description: The Damage multiplier for Damage Taken while on Master Difficulty.
+	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
+	
+8. fDifficultyDamageDealtMultiplierNovice
+	* Default: -5.00
+	* Description: The Damage multiplier for Damage Dealt while on Novice Difficulty.
+	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
+	
+9. fDifficultyDamageDealtMultiplierApprentice
+	* Default: -2.50
+	* Description: The Damage multiplier for Damage Dealt while on Apprentice Difficulty.
+	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
+	
+10. fDifficultyDamageDealtMultiplierAdept
+	* Default: 0.00
+	* Description: The Damage multiplier for Damage Dealt while on Adept Difficulty.
+	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
+	
+11. fDifficultyDamageDealtMultiplierJourneyman
+	* Default: 1.50
+	* Description: The Damage multiplier for Damage Dealt while on Journeyman Difficulty.
+	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
+	
+12. fDifficultyDamageDealtMultiplierExpert
+	* Default: 2.50
+	* Description: The Damage multiplier for Damage Dealt while on Expert Difficulty.
+	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
+	
+13. fDifficultyDamageDealtMultiplierMaster
+	* Default: 5.00
+	* Description: The Damage multiplier for Damage Dealt while on Master Difficulty.
+	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
+	
 
 2. fDifficultyDefaultValue
 	* Default: 0.0
@@ -154,15 +215,15 @@
 	
 9. iAllowAlchemyDuringCombat
 	* Default: 0
-	* Description: This setting is true or false setting(1-true or 0-false). Used to determine whether you can mix alchemy potions while engaged in combat.
+	* Description: This is a true or false setting(1-true or 0-false). Used to determine whether you can mix alchemy potions while engaged in combat.
 
 10. iAllowRechargeDuringCombat
 	* Default: 1
-	* Description: This setting is true or false setting(1-true or 0-false). Used to determine whether you can recharge magic items with soulgems while engaged in combat.
+	* Description: This is a true or false setting(1-true or 0-false). Used to determine whether you can recharge magic items with soulgems while engaged in combat.
 	
 11. iAllowRepairDuringCombat
 	* Default: 0
-	* Description: This setting is true or false setting (1-true or 0-false). Used to determine whether you can use repair hammers to fix armor while engaged in combat.
+	* Description: This is a true or false setting (1-true or 0-false). Used to determine whether you can use repair hammers to fix armor while engaged in combat.
 
 12. iHoursToRespawnCell
 	* Default: 72
