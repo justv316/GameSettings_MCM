@@ -60,3 +60,7 @@ iRemoveExcessDeadComplexCount
 fRemoveExcessiveComplexDeadTime
 iRemoveExcessDeadCount
 fRemoveExcessiveDeadTime
+
+## Credits
+1. Utilizes ObScript Extender created by [MadAborModding](https://next.nexusmods.com/profile/MadAborModding)
+2. Utilizes MCM created by [MadAborModding](https://next.nexusmods.com/profile/MadAborModding)

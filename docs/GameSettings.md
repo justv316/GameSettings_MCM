@@ -70,17 +70,6 @@
 
 <details>
 <Summary>Difficulty GameSettings</Summary>
-
-1. fDifficultyDamageMultiplier (As of ObRe 1.2, this setting is technically obsolete, and has been replaced by 12 individual settings for each difficulty setting) 
-	* Default: 5.00
-	* Description: Difficulty affects how much damage the player does in combat, and how much damage they receive. Damage of all types is affected by Difficulty. 
-	* This multiplier is the maximum amount the damage the player can do when difficulty is set to Novice. It divides the amount of damage done to the player by the same value. 
-	* Difficulty GameSettings can be made more subtle by lowering this value, and more extreme by raising it.
-	* (Player will receive 1/5th normal damage and deal 5x normal damage on Novice) 
-	* (Player will receive 1/3.5th normal damage and deal 3.5x normal damage on Apprentice)
-	* (Player will receive 1x normal damage and deal 1x normal damage on Adept)
-	* (Player will receive 3.5x normal damage and deal 1/3.5th normal damage on Apprentice)
-	* (Player will receive 5x normal damage and deal 1/5th normal damage on Master.) 
 	
 2. fDifficultyDamageTakenMultiplierNovice
 	* Default: -5.00
@@ -143,18 +132,6 @@
 	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
 	
 
-2. fDifficultyDefaultValue
-	* Default: 0.0
-	* Description: The default difficulty value.
-
-3. fDifficultyMaxValue
-	* Default: 1.0
-	* Description: The maximum difficulty value.
-
-4. fDifficultyMinValue
-	* Default: -1.0
-	* Description: The minimum difficulty value.
-	
 </details>
 
 ### Level Scaling
@@ -180,14 +157,6 @@
 
 <details>
 <Summary>World GameSettings</summary>
-
-1. fAutoDoorActivateDistance
-	* Default: 150.000
-	* Description: The distance from a gate or a door from which you can activate it. 
-
-2. iActivatePickLength
-	* Default: 150
-	* Description: The distance at which the player can activate objects in the game world. This covers everything from talking to NPCs, searching containers, pickpocketing, using doors, etc.
 	
 3. fRemoveExcessiveDeadTime
 	* Default: 10.0
@@ -2235,6 +2204,42 @@
 
 
 ## Unknown Unused and Broken
+
+<details>
+<summary>Obsolete GameSettings</summary>
+
+1. fDifficultyDamageMultiplier (As of ObRe 1.2, this setting is obsolete, and has been replaced by 12 individual settings for each difficulty setting) 
+	* Default: 5.00
+	* Description: Difficulty affects how much damage the player does in combat, and how much damage they receive. Damage of all types is affected by Difficulty. 
+	* This multiplier is the maximum amount the damage the player can do when difficulty is set to Novice. It divides the amount of damage done to the player by the same value. 
+	* Difficulty GameSettings can be made more subtle by lowering this value, and more extreme by raising it.
+	* (Player will receive 1/5th normal damage and deal 5x normal damage on Novice) 
+	* (Player will receive 1/3.5th normal damage and deal 3.5x normal damage on Apprentice)
+	* (Player will receive 1x normal damage and deal 1x normal damage on Adept)
+	* (Player will receive 3.5x normal damage and deal 1/3.5th normal damage on Apprentice)
+	* (Player will receive 5x normal damage and deal 1/5th normal damage on Master.) 
+
+2. fDifficultyDefaultValue
+	* Default: 0.0
+	* Description: The default difficulty value.
+
+3. fDifficultyMaxValue
+	* Default: 1.0
+	* Description: The maximum difficulty value.
+
+4. fDifficultyMinValue
+	* Default: -1.0
+	* Description: The minimum difficulty value.
+
+5. fAutoDoorActivateDistance
+	* Default: 150.000
+	* Description: The distance from a gate or a door from which you can activate it. 
+
+6. iActivatePickLength
+	* Default: 150
+	* Description: The distance at which the player can activate objects in the game world. This covers everything from talking to NPCs, searching containers, pickpocketing, using doors, etc.
+
+</details>
 
 <details>
 <summary>Unused GameSettings</summary>
