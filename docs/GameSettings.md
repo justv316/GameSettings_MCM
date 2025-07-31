@@ -71,62 +71,62 @@
 <details>
 <Summary>Difficulty GameSettings</Summary>
 	
-2. fDifficultyDamageTakenMultiplierNovice
+1. fDifficultyDamageTakenMultiplierNovice
 	* Default: -5.00
 	* Description: The Damage multiplier for Damage Taken while on Novice Difficulty.
 	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
 	
-3. fDifficultyDamageTakenMultiplierApprentice
+2. fDifficultyDamageTakenMultiplierApprentice
 	* Default: -2.50
 	* Description: The Damage multiplier for Damage Taken while on Apprentice Difficulty.
 	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
 	
-4. fDifficultyDamageTakenMultiplierAdept
+3. fDifficultyDamageTakenMultiplierAdept
 	* Default: 0.00
 	* Description: The Damage multiplier for Damage Taken while on Adept Difficulty.
 	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
 	
-5. fDifficultyDamageTakenMultiplierJourneyman
+4. fDifficultyDamageTakenMultiplierJourneyman
 	* Default: 1.50
 	* Description: The Damage multiplier for Damage Taken while on Journeyman Difficulty.
 	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
 	
-6. fDifficultyDamageTakenMultiplierExpert
+5. fDifficultyDamageTakenMultiplierExpert
 	* Default: 2.50
 	* Description: The Damage multiplier for Damage Taken while on Expert Difficulty.
 	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
 	
-7. fDifficultyDamageTakenMultiplierMaster
+6. fDifficultyDamageTakenMultiplierMaster
 	* Default: 5.00
 	* Description: The Damage multiplier for Damage Taken while on Master Difficulty.
 	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
 	
-8. fDifficultyDamageDealtMultiplierNovice
+7. fDifficultyDamageDealtMultiplierNovice
 	* Default: -5.00
 	* Description: The Damage multiplier for Damage Dealt while on Novice Difficulty.
 	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
 	
-9. fDifficultyDamageDealtMultiplierApprentice
+8. fDifficultyDamageDealtMultiplierApprentice
 	* Default: -2.50
 	* Description: The Damage multiplier for Damage Dealt while on Apprentice Difficulty.
 	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
 	
-10. fDifficultyDamageDealtMultiplierAdept
+9. fDifficultyDamageDealtMultiplierAdept
 	* Default: 0.00
 	* Description: The Damage multiplier for Damage Dealt while on Adept Difficulty.
 	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
 	
-11. fDifficultyDamageDealtMultiplierJourneyman
+10. fDifficultyDamageDealtMultiplierJourneyman
 	* Default: 1.50
 	* Description: The Damage multiplier for Damage Dealt while on Journeyman Difficulty.
 	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
 	
-12. fDifficultyDamageDealtMultiplierExpert
+11. fDifficultyDamageDealtMultiplierExpert
 	* Default: 2.50
 	* Description: The Damage multiplier for Damage Dealt while on Expert Difficulty.
 	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
 	
-13. fDifficultyDamageDealtMultiplierMaster
+12. fDifficultyDamageDealtMultiplierMaster
 	* Default: 5.00
 	* Description: The Damage multiplier for Damage Dealt while on Master Difficulty.
 	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
@@ -158,7 +158,7 @@
 <details>
 <Summary>World GameSettings</summary>
 	
-3. fRemoveExcessiveDeadTime
+3. fRemoveExcessDeadTime
 	* Default: 10.0
 	* Description: The amount of time between checks to iRemoveExcessDeadCount. Used to remove excess corpses during periods of heavy combat between many actors, to increase performance.
 
@@ -166,7 +166,7 @@
 	* Default: 15
 	* Description: The maximum number of dead bodies allowed in the loaded area before they fade out (dissapear).
 
-5. fRemoveExcessiveComplexDeadTime
+5. fRemoveExcessComplexDeadTime
 	* Default: 2.5
 	* Description: The amount of time between checks to iRemoveExcessDeadComplexCount when SetSceneIsComplex is used. Used to remove excess corpses during periods of heavy combat between many actors, to increase performance.
 
@@ -213,64 +213,64 @@
 <details>
 <Summary>Actor GameSettings</summary>
 
-1. fActorLuckSkillMult
-	* Default: 0.400
-	* Description: One of the two game settings used to determine the Effective Skill Level. At default, Luck adds two effective skill levels for every five points of Luck past 50. 
-	* Formula:  iActorLuckSkillBase + fActorLuckSkillMult * Luck
+1. iNumberActorsAllowedToFollowPlayer
+	* Default: 6
+	* Description: Controls the number of actors allowed to follow the player.
+	
+2. iNumberActorsInCombatPlayer
+	* Default: 10
+	* Description: Controls the number of actors in "combat mode" with the player. If there are more agressive NPCs then this setting allows, they will "wait"; i.e. they will hang back.
 
-2. iActorLuckSkillBase
+3. iDeathDropWeaponChance
+	* Default: 100
+	* Description: This is the chance that a killed NPC will drop their weapon. If this is set to anything less than 100, an NPC will occasionally hold onto their weapon after death. That is, it will be part of the corpse and will have to be taken from the NPCs corpse inventory.
+	
+4. iAllyHitAllowed
+	* Default: 5
+	* Description: The maximum number of times that an NPC will tolerate "friendly hits" in combat, from one of the NPC's allies, until the NPC regards the offender as an enemy. The default is 5, meaning an NPC who is the player's ally will regard the player as an enemy after the player hits him or her at least six times. (Unconfirmed)
+	
+5. iFriendHitAllowed
+	* Default: 3
+	* Description: The maximum number of times that an NPC will tolerate "friendly hits" in combat until the NPC regards the offender as an enemy. The default is 3, meaning an NPC who is the player's friend in combat will regard the player as an enemy after the player hits him or her at least four times.
+
+6. iActorLuckSkillBase
 	* Default: -20
 	* Description: One of the two game settings used to determine the Effective Skill Level. At default, Luck adds two effective skill levels for every five points of Luck past 50. 
-	* Formula:  iActorLuckSkillBase + fActorLuckSkillMult * Luck
-	
-3. fActorStrengthEncumbranceMult
+	* Formula: iActorLuckSkillBase + fActorLuckSkillMult * Luck
+
+7. fActorLuckSkillMult
+	* Default: 0.400
+	* Description: One of the two game settings used to determine the Effective Skill Level. At default, Luck adds two effective skill levels for every five points of Luck past 50. 
+	* Formula: iActorLuckSkillBase + fActorLuckSkillMult * Luck
+
+8. fActorStrengthEncumbranceMult
 	* Default: 5.00
 	* Description: The number by which a character's strength is multiplied to get their encumbrance limit (how much weight can be carried).
 	* Formula: Strength * fActorStrengthEncumbranceMult
 	
-4. fActorSwimBreathBase
+9. fActorSwimBreathBase
 	* Default: 4.000
 	* Description: Determines the base length that any actor can stay under water.
 	
-5. fActorSwimBreathDamage
-	* Default: 0.200
-	* Description: Determines the percent of total health damage that occurs per second when you stay underwater too long.
-	
-6. fActorSwimBreathMult
+10. fActorSwimBreathMult
 	* Default: 0.300
 	* Description: Multiplier for how long an actor can stay underwater
-
-7. fActorTeleportFadeSeconds
-	* Default: 1.000
-	* Description: Controls how long an actor will fade in (or out) when going through a load door, or being moved with MoveTo.
 	
-8. fActorAnimZAdjust
-	* Default: 1.800
-	* Description: This determines an actor's, including the player character, distance off the ground. The distance is based off the coordinate system in the game, and is for the Z axis. Increasing the value means actors are always higher off the ground than normal.
-	
-9. iDeathDropWeaponChance
-	* Default: 100
-	* Description: This is the chance that a killed NPC will drop their weapon. If this is set to anything less than 100, an NPC will occasionally hold onto their weapon after death. That is, it will be part of the corpse and will have to be taken from the NPCs corpse inventory.
-	
-10. iAllyHitAllowed
-	* Default: 5
-	* Description: The maximum number of times that an NPC will tolerate "friendly hits" in combat, from one of the NPC's allies, until the NPC regards the offender as an enemy. The default is 5, meaning an NPC who is the player's ally will regard the player as an enemy after the player hits him or her at least six times. (Unconfirmed)
-	
-11. iFriendHitAllowed
-	* Default: 3
-	* Description: The maximum number of times that an NPC will tolerate "friendly hits" in combat until the NPC regards the offender as an enemy. The default is 3, meaning an NPC who is the player's friend in combat will regard the player as an enemy after the player hits him or her at least four times.
+11. fActorSwimBreathDamage
+	* Default: 0.200
+	* Description: Determines the percent of total health damage that occurs per second when you stay underwater too long.
 	
 12. iVampirismAgeOffset
 	* Default: 20
 	* Description: This controls the aging of a character that becomes a vampire. The larger the value, the older the vampire will appear. Allows negative values.
-
-13. iNumberActorsInCombatPlayer
-	* Default: 10
-	* Description: Controls the number of actors in "combat mode" with the player. If there are more agressive NPCs then this setting allows, they will "wait"; i.e. they will hang back.
-
-14. iNumberActorsAllowedToFollowPlayer
-	* Default: 6
-	* Description: Controls the number of actors allowed to follow the player.
+	
+13. fActorTeleportFadeSeconds
+	* Default: 1.000
+	* Description: Controls how long an actor will fade in (or out) when going through a load door, or being moved with MoveTo.
+	
+14. fActorAnimZAdjust
+	* Default: 1.800
+	* Description: This determines an actor's, including the player character, distance off the ground. The distance is based off the coordinate system in the game, and is for the Z axis. Increasing the value means actors are always higher off the ground than normal.
 
 </details>
 
@@ -283,15 +283,21 @@
 
 [Complete Damage Formula](https://en.uesp.net/wiki/Oblivion:The_Complete_Damage_Formula#Modifiable_Settings)
 
-1. fDamageSkillBase
+1. fDamageWeaponMult
+	* Default: 0.50
+	* Description: Adjusting this value alters all weapon damage proportionately.
+	* This variable has no effect on spell damage.
+	* Example: a value of 1.5 will triple the damage of all weapons, in the game. A sword with 10 damage, will become a 30 damage sword. The altered value will display correctly in the game text.
+
+2. fDamageSkillBase
 	* Default: 0.20
 	* Description: This value is used in the formula that determines the actual damage done by a weapon. This multiplier is used to determine the damage a weapon will do if the actor has a skill of zero. There are other factors that determine the actual damage done, such as strength, fatigue and fDamageSkillMult.
 
-2. fDamageSkillMult
+3. fDamageSkillMult
 	* Default: 1.50
 	* Description: This value is multiplied times the actor's skill as part of the calculation used to determine how much damage a weapon does in combat. Actors with a skill of 100 would get the full multiplier and actually do more damage than the weapon is rated for by default. Other factors in determining damage done by weapons are strength, fatigue and fDamageSkillBase.
 
-3. fDamageStrengthBase
+4. fDamageStrengthBase
 	* Default: 0.75
 	* Description: Used to calculate the damage-multiplier received from attributes. 
 	* For BLUNT and BLADE weapons the actor's current Strength is used
@@ -299,7 +305,7 @@
 	* Both are capped at 100, meaning that fortifying your strength over 100 won't result in more damage.
 	* Formula: fDamageStrengthBase + Attribute/100 x fDamageStrengthMult
 
-4. fDamageStrengthMult
+5. fDamageStrengthMult
 	* Default: 0.50
 	* Description: Used to calculate the damage-multiplier received from attributes.
 	* For BLUNT and BLADE weapons the actor's current Strength is used
@@ -307,30 +313,24 @@
 	* Both are capped at 100, meaning that fortifying your strength over 100 won't result in more damage.
 	* Formula: fDamageStrengthBase + Attribute/100 x fDamageStrengthMult
 
-5. fDamageToArmorPercentage
-	* Default: 9.0
-	* Description: Determines how much damage armor receives when used in combat. Might also affect how much damage it receives from the damage armor spell, needs to be tested.
-
-6. fDamageToWeaponPercentage
-	* Default: 0.06
-	* Description: Determines how much damage a weapon receives when used in combat.
-
-7. fDamageWeaponConditionBase
+6. fDamageWeaponConditionBase
 	* Default: 0.50
 	* Description: 
 	* Description: Together with fDamageWeaponConditionMult this determines the amount of damage your weapon does based on it's current health.
-	* Example:  Setting this value to 1 and fDamageWeaponConditionMult to 0 means that weapons will always deal the same amount of damage, regardless of health, up to the point of breaking.
+	* Example: Setting this value to 1 and fDamageWeaponConditionMult to 0 means that weapons will always deal the same amount of damage, regardless of health, up to the point of breaking.
 
-8. fDamageWeaponConditionMult
+7. fDamageWeaponConditionMult
 	* Default: 0.50
 	* Description: Together with fDamageWeaponConditionBase this determines the amount of damage your weapon does based on it's current health.
 	* Example: Setting this value to 0 and fDamageWeaponConditionBase to 1 means that weapons will always deal the same amount of damage, regardless of health, up to the point of breaking.
 
-9. fDamageWeaponMult
-	* Default: 0.50
-	* Description: Adjusting this value, alters all weapon damage proportionately.
-	* This variable has no effect on spell damage.
-	* Example: a value of 1.5 will triple the damage of all weapons, in the game. A sword with 10 damage, will become a 30 damage sword. The altered value will display correctly in the game text.
+8. fDamageToArmorPercentage
+	* Default: 9.0
+	* Description: Determines how much damage armor receives when used in combat. Might also affect how much damage it receives from the damage armor spell, needs to be tested.
+
+9. fDamageToWeaponPercentage
+	* Default: 0.06
+	* Description: Determines how much damage a weapon receives when used in combat.
 	
 10. fCombatHitConeAngle
 	* Default: 35.00
@@ -347,25 +347,27 @@
 	* Default: 0.3000
 	* Description: The amount of time the attack button must be held before a power attack will be executed, and also affects how long a power attack takes. 
 
-2. fDamagePowerAttackBackBonus
+2. fDamagePowerAttackBonus
 	* Default: 2.50
 	* Description: For each of the power attack maneuvers, there is a damage multiplier. The damage normally done is multiplied by this game setting before being applied to the target. Damage is always a floating point value, so decimals are not rounded.
 
-3. fDamagePowerAttackForwardBonus
+3. fDamagePowerAttackBackBonus
 	* Default: 2.50
 	* Description: For each of the power attack maneuvers, there is a damage multiplier. The damage normally done is multiplied by this game setting before being applied to the target. Damage is always a floating point value, so decimals are not rounded.
 
-4. fDamagePowerAttackSideBonus
+4. fDamagePowerAttackForwardBonus
 	* Default: 2.50
 	* Description: For each of the power attack maneuvers, there is a damage multiplier. The damage normally done is multiplied by this game setting before being applied to the target. Damage is always a floating point value, so decimals are not rounded.
 
-5. fDamagePowerAttackStandBonus
+5. fDamagePowerAttackSideBonus
+	* Default: 2.50
+	* Description: For each of the power attack maneuvers, there is a damage multiplier. The damage normally done is multiplied by this game setting before being applied to the target. Damage is always a floating point value, so decimals are not rounded.
+
+6. fDamagePowerAttackStandBonus
 	* Default: 3.00
 	* Description: For each of the power attack maneuvers, there is a damage multiplier. The damage normally done is multiplied by this game setting before being applied to the target. Damage is always a floating point value, so decimals are not rounded.
 
-6. fDamagePowerAttackBonus
-	* Default: 2.50
-	* Description: For each of the power attack maneuvers, there is a damage multiplier. The damage normally done is multiplied by this game setting before being applied to the target. Damage is always a floating point value, so decimals are not rounded.
+
 
 </details>
 
@@ -376,7 +378,7 @@
 
 1. fHandDamageSkillBase
 	* Default: 0.00
-	* Description: Base Hand to Hand skill multiplier
+	* Description: Base Hand to Hand skill value
 	* Formula: fHandHealthMin + (fHandHealthMax - fHandHealthMin) × (Strength / 100 × fHandDamageStrengthMult + fHandDamageStrengthBase) × (HandToHand / 100 × fHandDamageSkillMult + fHandDamageSkillBase)
 	
 2. fHandDamageSkillMult
@@ -386,7 +388,7 @@
 	
 3. fHandDamageStrengthBase
 	* Default: 0.0
-	* Description: Base Strength attribute multiplier
+	* Description: Base Strength attribute value
 	* Formula: fHandHealthMin + (fHandHealthMax - fHandHealthMin) × (Strength / 100 × fHandDamageStrengthMult + fHandDamageStrengthBase) × (HandToHand / 100 × fHandDamageSkillMult + fHandDamageSkillBase)
 	
 4. fHandDamageStrengthMult
@@ -444,7 +446,7 @@
 	
 5. fKnockbackForceMax
 	* Default: 512.000
-	* Description: fKnockbackForceMax is the upper cap on how fast the victim can be pushed back. This is likely the same for any kind of power attack, but with the higher damage of the power attack, the pushback effect is also stronger. The pushback effect is not applied if the victim gets staggered by the attack.
+	* Description: The upper cap on how fast the victim can be pushed back. This is likely the same for any kind of power attack, but with the higher damage of the power attack, the pushback effect is also stronger. The pushback effect is not applied if the victim gets staggered by the attack.
 	
 6. fKnockbackTime
 	* Default: 1.0
@@ -464,22 +466,52 @@
 1. fBlockMax
 	* Default: 0.7500
 	* Description: Limits the maximum effectiveness of the block skill. In simple terms, a value of 0.75 means that a block skill of 100 would reduce damage by 75% when blocking with a shield. A value of 1.0 combined with a block skill of 100 means that you block all damage when using a shield. The actual percentage effectiveness of the block skill is derived from some formula involving fBlockSkillBase, fBlockSkillMult, fBlockMax and, when using a weapon or your hands, fBlockAmountWeaponMult, and fBlockAmountHandToHandMult.
-	
-2. fBlockAmountHandToHandMult
-	* Default: 0.2500
-	* Description: The amount of damage you block when fighting hand-to-hand is governed by your block skill and this setting. This setting reduces the amount of damage blocked when you block with your hand rather than a shield. In other words, a value of 1.0 means that your hand blocks as much damage as a shield, whereas a value of 0.5 means that your hand only blocks half the damage of a shield. Note: the effectiveness of hand-to-hand for blocking is also reduced by FBlockScoreNoShieldMult.
-	
-3. fBlockAmountWeaponMult
-	* Default: 0.50
-	* Description: The amount of damage you block with a weapon is governed by your block skill and this setting. This setting reduces the amount of damage blocked when you block with a weapon rather than a shield. In other words, a value of 1.0 means that your weapon blocks as much damage as a shield, whereas a value of 0.5 means that your weapon only blocks half the damage of a shield.
 
-5. fBlockSkillBase
+2. fBlockSkillBase
 	* Default: 0.0
 	* Description: Determines the percent of damage that is disregard when an attack is blocked from block level 0. A value of 1.0 means 100%. This percentage is added to the total amount of block percentage, so with fblockmax at 1.0, a block skill of 75 and this setting at 0.25 100% of the damage will be blocked. Note that the total damage that is blocked is capped by fBlockMax. The damage blocked by hand to hand or just a weapon is also determent by fBlockAmountHandToHandMult and fBlockAmountWeaponMult respectively and by fBlockScoreNoShieldMult.
 	
-6. fBlockSkillMult
+3. fBlockSkillMult
 	* Default: 1.0
 	* Description: Determines the amount that is added to fBlockSkillBase for every increased level in block. At the default settings the percentage of damage blocked with a shield and without armor value is equal to the block level of the actor. Though it is by default capped at 75.
+	
+4. fBlockAmountHandToHandMult
+	* Default: 0.2500
+	* Description: The amount of damage you block when fighting hand-to-hand is governed by your block skill and this setting. This setting reduces the amount of damage blocked when you block with your hand rather than a shield. In other words, a value of 1.0 means that your hand blocks as much damage as a shield, whereas a value of 0.5 means that your hand only blocks half the damage of a shield. Note: the effectiveness of hand-to-hand for blocking is also reduced by FBlockScoreNoShieldMult.
+	
+5. fBlockAmountWeaponMult
+	* Default: 0.50
+	* Description: The amount of damage you block with a weapon is governed by your block skill and this setting. This setting reduces the amount of damage blocked when you block with a weapon rather than a shield. In other words, a value of 1.0 means that your weapon blocks as much damage as a shield, whereas a value of 0.5 means that your weapon only blocks half the damage of a shield.
+
+
+</details>
+
+### Armor
+
+<details>
+<Summary>Armor GameSettings</summary>
+
+1. fMaxArmorRating
+	* Default: 85.0
+	* Description: Determines the maximum amount of armor. This decimal value is used to determine the maximum armor contribution of all equipped items and effects. The default is 85.00. Since armor rating is the percentage of damage withheld from the target, the best that any combination of armor can do is remove 85% of damage done. It would be potentially dangerous to let this value get too close to 100.
+
+	* Fractional values are retained at all times. An actor's health is a floating point value, as are the weapon damage and armor rating. All calculations are made as floats. Every piece of armor contributes it's armor value directly to this value. Every % of shield and fire/shock/frost shield also adds 1 armor. A value of 0 removes the cap entirely (no limit to armor rating).
+	
+2. fArmorRatingConditionBase
+	* Default: 0.0
+	* Description: The current (percentage) condition of a piece of armor is multiplied by fArmorRatingConditionMult and added to this. The result is multiplied by the base armor rating of the piece.
+	
+3. fArmorRatingConditionMult
+	* Default: 1.0
+	* Description: The current (percentage) condition of a piece of armor is multiplied by this and added to fArmorRatingConditionBase. The result is multiplied by the base armor rating of the piece.
+	
+4. fArmorRatingBase
+	* Default: 0.0
+	* Description: This is a multiplier used to scale the armor rating of armor by skill. A skill of 100 Multiplies the armor rating by 1.0. The fArmorRatingBase value sets the lower threshold for skills of 0. The actual value is interpolated between the two. For example, a skill of 50 is 50% of the way between the min and max, which turns out to be 67.5%.
+	
+5. fArmorRatingMax
+	* Default: 1.0
+	* Description: This is a multiplier used to scale the armor rating of armor by skill. A skill of 100 Multiplies the armor rating by 1.0. The fArmorRatingBase value sets the lower threshold for skills of 0. The actual value is interpolated between the two. For example, a skill of 50 is 50% of the way between the min and max, which turns out to be 67.5%.
 
 </details>
 
@@ -498,42 +530,12 @@
 	
 3. fCombatSpeakHitThreshold
 	* Default: 0.1000
-	* Description: controls the damage (as a percentage of an NPC's total HP) necessary to trigger a combat speech when an NPC is hit by an attack. Setting it to 1.0000 means that NPCs never speak when struck unless the hit kills them. Setting it to a lower value means they can speak when struck by weaker attacks.
+	* Description: Controls the damage (as a percentage of an NPC's total HP) necessary to trigger a combat speech when an NPC is hit by an attack. Setting it to 1.0000 means that NPCs never speak when struck unless the hit kills them. Setting it to a lower value means they can speak when struck by weaker attacks.
 	
 4. fCombatSpeakPowerAttackChance
 	* Default: 1.00
 	* Description: The percentage chance that an NPC or the player will utter one of the voices defined under the Combat->Power Attack tab of the Generic quest when executing a power attack. Power Attack voices are never used while the actor is sneaking or weilding a weapon type other than Blade or Blunt.
 	
-</details>
-
-### Armor
-
-<details>
-<Summary>Armor GameSettings</summary>
-
-1. fMaxArmorRating
-	* Default: 85.0
-	* Description: Determines the maximum amount of armor. This decimal value is used to determine the maximum armor contribution of all equipped items and effects. The default is 85.00. Since armor rating is the percentage of damage withheld from the target, the best that any combination of armor can do is remove 85% of damage done. It would be potentially dangerous to let this value get too close to 100.
-
-	* Fractional values are retained at all times. An actor's health is a floating point value, as are the weapon damage and armor rating. All calculations are made as floats. Every piece of armor contributes it's armor value directly to this value. Every % of shield and fire/shock/frost shield also adds 1 armor. A value of 0 removes the cap entirely (no limit to armor rating).
-	
-	
-2. fArmorRatingConditionBase
-	* Default: 0.0
-	* Description: The current (percentage) condition of a piece of armor is multiplied by fArmorRatingConditionMult and added to this. The result is multiplied by the base armor rating of the piece.
-	
-3. fArmorRatingConditionMult
-	* Default: 1.0
-	* Description: The current (percentage) condition of a piece of armor is multiplied by this and added to fArmorRatingConditionBase. The result is multiplied by the base armor rating of the piece.
-	
-4. fArmorRatingBase
-	* Default: 0.0
-	* Description: This is a multiplier used to scale the armor rating of armor by skill. A skill of 100 Multiplies the armor rating by 1.0. The fArmorRatingBase value sets the lower threshold for skills of 0. The actual value is interpolated between the two. For example, a skill of 50 is 50% of the way between the min and max, which turns out to be 67.5%.
-	
-5. fArmorRatingMax
-	* Default: 1.0
-	* Description: This is a multiplier used to scale the armor rating of armor by skill. A skill of 100 Multiplies the armor rating by 1.0. The fArmorRatingBase value sets the lower threshold for skills of 0. The actual value is interpolated between the two. For example, a skill of 50 is 50% of the way between the min and max, which turns out to be 67.5%.
-
 </details>
 
 ## Stealth
