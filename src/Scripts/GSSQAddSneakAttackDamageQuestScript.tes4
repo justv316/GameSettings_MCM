@@ -1,0 +1,30 @@
+scn GSSQAddSneakAttackDamageQuestScript
+
+float fQuestDelayTime
+float iPhase
+float fCheckedAdditive
+float fLastCheckedAdditive
+float fNewfDamageSneakAttackMult
+float fCurrentfDamageSneakAttackMult
+
+Begin GameMode
+	set fQuestDelayTime to 0.5
+	set fCheckedAdditive to GSfDamageSneakAttackAdd
+	set iPhase to 0
+	if fCheckedAdditive != fLastCheckedAdditive
+		if iPhase == 0
+			Message "ConsoleCommand Set GSfCurrentfDamageSneakAttackMult to ((GetGameSetting fDamageSneakAttackMult))"
+			set iPhase to iPhase + 1
+		endif
+		if iPhase == 1
+			set fCurrentfDamageSneakAttackMult to GSfCurrentfDamageSneakAttackMult
+			set fNewfDamageSneakAttackMult to fCurrentfDamageSneakAttackMult + fCheckedAdditive
+			set GSfNewfDamageSneakAttackMult to fNewfDamageSneakAttackMult
+			set iPhase to iPhase + 1
+		endif
+		if iPhase == 2
+			Message "ConsoleCommand SetGameSetting fDamageSneakAttackMult ((GetGlobalValue GSfNewfDamageSneakAttackMult))"
+			set fLastCheckedAdditive to fCheckedAdditive
+		endif
+	endif
+end

@@ -3,15 +3,23 @@
 # Changelog
 0.1
 * Release of the first batch of settings. 
+
 0.2 
 * Renamed First ini file to Gameplay_GameSettings.ini
 * Added 14 actor settings
+
 0.3 
 * Up to 87 Managed Settings!!
 * Added Combat_GameSettings.ini and GameSettings_MCM.esp
 * Added 46 Combat settings
 * Added Reset to Default button that will restore all managed settings to default. Currently cannot reset the displayed values in MCM without manually clicking the reset button on the setting, waiting on MCM functionality to support that!
 * The plugin file contains the scripts used to support the Reset to Default mechanism and will be used in the future to support certain settings. 
+
+0.4
+* Renamed config Files again, sorry - Delete the old ones and use the ones that are numbered.
+* Added 0. Obsolete.ini to contain settings that no longer function but still exist.
+* Added 47 Stealth settings
+* Sneak Attack damage and Combat Damage seemingly are being calculated using different numbers than the OG settings. Sneak Attack Damage settings have been moved to Obsolete. Will continue to test combat settings.
 
 ## Description
 
@@ -26,8 +34,6 @@
 
 1. Add support for the remaining ~300 GameSettings
 2. Create documentation and support creating GameSetting profiles for Modders to easily distribute customized GameSetting profiles for their mods. 
-3. Add Restore to Default method for all Managed GameSettings (This will require an esp)
-	1. Currently, each setting has a 'Reset' button to return it back to its default value, but I will need to create a mechanism to reset all settings back to default for uninstallations, this will also help modders who use this as a resource to ensure their mods can be safely removed.
 
 ## Research
 
@@ -56,12 +62,19 @@
 0. In-Game, press your assigned hotkey to open the MCM (Default: L)
 1. Click on one of the control panels and configure your settings.
 
-### Currently Supported Settings
+### MCM Files
 
-**_Gameplay_GameSettings.ini_**
+**_0. Obsolete.ini_**
+
+Contains settings that are no longer functional in Oblivion Remastered but still exist in the game.
+
+**_1. RestoreDefault.ini_**
+
+Contains Command to restore all settings to default. This command runs after the MCM is closed. The command cannot be spammed and can only ever be queued to run once. 
+
+**_2. Gameplay.ini_**
 
 **Difficulty**
-
 fDifficultyDamageTakenMultiplierNovice
 fDifficultyDamageTakenMultiplierApprentice
 fDifficultyDamageTakenMultiplierAdept
@@ -113,10 +126,9 @@ iVampirismAgeOffset
 fActorTeleportFadeSeconds
 fActorAnimZAdjust
 
-**_Combat_GameSettings.ini_**
+**_3. Combat.ini_**
 
 **Damage**
-
 fDamageWeaponMult
 fDamageSkillBase
 fDamageSkillMult
@@ -175,6 +187,61 @@ fCombatSpeakAttackChance
 fCombatSpeakHitChance
 fCombatSpeakHitThreshold
 fCombatSpeakPowerAttackChance
+
+**_4. Stealth_**
+
+**Sneak Mechanics**
+fSneakBaseValue
+iSneakSkillUseDistance
+fSneakMaxDistance
+fSneakExteriorDistanceMult
+fSneakLightMult
+fSneakUnseenMin
+fSneakSeenMin
+fSneakSkillMult
+fSneakBootWeightBase
+fSneakBootWeightMult
+fSneakRunningMult
+fSneakSleepBonus
+fSneakSoundLosMult
+fSneakSoundsMult
+fSneakSwimmingLightMult
+fSneakTargetAttackBonus
+fSneakTargetInCombatBonus
+iAICombatMinDetection
+fDetectionTimerSetting
+fDetectionSneakLightMod
+fDetectionNightEyeBonus
+fCrimeDispAttack
+fCrimeDispMurder
+fCrimeDispPickpocket
+fCrimeDispSteal
+fCrimeDispTresspass
+fCrimeDispPersonal
+fCrimeGoldSteal
+iCrimeGoldAttackMin
+iCrimeGoldAttack
+iCrimeGoldJailBreak
+iCrimeGoldMurder
+iCrimeGoldPickpocket
+iCrimeGoldStealHorse
+iCrimeGoldTresspass
+iCrimeGoldMinValue
+iCrimeAlarmRecDistance
+iNumberGuardsCrimeResponse
+iCrimeDaysInPrisonMod
+
+**Lockpicking**
+fLockPickAutoBase
+iLockLevelMaxVeryEasy
+iLockLevelMaxEasy
+iLockLevelMaxAverage
+iLockLevelMaxHard
+iLockLevelMaxVeryHard
+
+**Pickpocket**
+fPickPocketMaxChance
+fPickPocketMinChance
 
 
 ## Credits

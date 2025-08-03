@@ -24,13 +24,12 @@
 	* [Lockpicking](#Lockpicking)
 5. [Magic](#Magic)
 	* [Magicka Cost](#Magicka-Cost)
-	* [Spellmaking](#Spellmaking)
+	* [Spellmaking & Enchantment](#Spellmaking-&-Enchantment)
+	* [Soulgems](#Soulgems)
 	* [Spell Level](#Spell-Level)
 	* [Disease](#Disease)
 	* [Magic Visuals](#Magic-Visuals)
 	* [Uncategorized Magic](#Uncategorized-Magic)
-6. [Enchantment](#Enchantment)
-	* [Soulgems](#Soulgems)
 7. [Player](#Player)
 	* [Health](#Health)
 	* [Fatigue](#Fatigue)
@@ -534,7 +533,7 @@
 	
 4. fCombatSpeakPowerAttackChance
 	* Default: 1.00
-	* Description: The percentage chance that an NPC or the player will utter one of the voices defined under the Combat->Power Attack tab of the Generic quest when executing a power attack. Power Attack voices are never used while the actor is sneaking or weilding a weapon type other than Blade or Blunt.
+	* Description: The percentage chance that an NPC or the player will utter one of the voices defined under the Combat->Power Attack tab of the Generic quest when executing a power attack. Power Attack voices are never used while the actor is sneaking or wielding a weapon type other than Blade or Blunt.
 	
 </details>
 
@@ -545,49 +544,6 @@
 <details>
 <Summary>Sneak Damage GameSettings</summary>
 
-1. fDamageSneakAttackMult
-	* Default: 4.0
-	* Description: Multiplies the base attack by this value before applying the damage to an enemy. It is activated when a player initiates an attack while in sneak mode, thus the "Sneak Attack x#" message when you perform a sneak attack on an enemy. This value is a base value for sneak attacks and is further modified by a character's sneak skill, weapon type (melee or ranged), attack direction (front, back, side, sleep), and attack type (normal or power). Each of these modifiers has its own setting.
-
-2. fPerkSneakAttackMarksmanNoviceMult
-	* Default: 2.0
-	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
-	
-3. fPerkSneakAttackMarksmanApprenticeMult
-	* Default: 3.0
-	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
-	
-4. fPerkSneakAttackMarksmanJourneymanMult
-	* Default: 3.0
-	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
-	
-5.	fPerkSneakAttackMarksmanExpertMult
-	* Default: 3.0
-	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
-	
-6. fPerkSneakAttackMarksmanMasterMult
-	* Default: 3.0
-	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
-	
-7. fPerkSneakAttackMeleeNoviceMult
-	* Default: 4.0
-	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
-	
-8. fPerkSneakAttackMeleeApprenticeMult
-	* Default: 6.0
-	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
-	
-9. fPerkSneakAttackMeleeJourneymanMult
-	* Default: 6.0
-	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
-	
-10. fPerkSneakAttackMeleeExpertMult
-	* Default: 6.0
-	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
-	
-11. fPerkSneakAttackMeleeMasterMult
-	* Default: 6.0
-	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
 	
 </details>
 
@@ -596,98 +552,92 @@
 <details>
 <Summary>Sneak Mechanic GameSettings</summary>
 
-1. fDetectionTimerSetting
-	* Default: 0.300
-	* Description: This value represents how often in seconds an actor makes detection checks against all other actors within the max detection distance.
-
-2. fDetectionSneakLightMod
-	* Default: -5.000
-	* Description: This value is added to the light level on a target during Detection calculations.
-
-3. fDetectionNightEyeBonus
-	* Default: 3.000
-	* Description: Bonus multiplier to the light level on nearby actors during detection checks.
 	
-4. fSneakBaseValue
+1. fSneakBaseValue
 	* Default: -25.000
 	* Description: This is the base value that all modifiers are added to for detection. Changing this value alters the fundamental effectiveness of sneaking. Higher values mean it's harder to sneak, lower values mean it's easier to sneak.
 	
-5. fSneakBootWeightBase
-	* Default: 14.000
-	* Description: The is the base penalty to sneaking for wearing boots of any sort. The modified weight of the boots is also factored in using fSneakBootWeightMult.
-	
-6. fSneakBootWeightMult
-	* Default: 1.000
-	* Description: The is the multiplier to the actor's boot weight used to modify sneaking. Just wearing boots modifies the sneak value, regardless of their weight or type, by the value of fSneakBootWeightBase.
-	
-7. fSneakMaxDistance
+2. iSneakSkillUseDistance
+	* Default: 1000
+	* Description: If the player is sneaking within this distance from another actor (NPC, creature) and the player is undetected then the player is actively using the sneak skill and it will eventually increase. If there are no actors within this distance of the player then the use of sneak does not count towards increasing the sneak skill.	
+
+3. fSneakMaxDistance
 	* Default: 1500.000
 	* Description: Maximum distance that an actor will detect another actor in an interior cell. Anything out of this range does not take part in sneak rolls vs. the sneaking actor. E.g. cannot be detected (not even if the sneaking player attacks). While the actor is in an exterior cell, this value is multiplied by fSneakExteriorDistanceMult.
 	
-8. fSneakExteriorDistanceMult
+4. fSneakExteriorDistanceMult
 	* Default: 2.000
 	* Description: The maximum distance that detection will operate is different for exteriors and interiors. The interior value is set by fSneakMaxDistance. That value is multipiied by fSneakExteriorDistanceMult to determine exterior ranges for detection.
 	
-9. fSneakLightMult
+5. fSneakLightMult
 	* Default: 1.400
 	* Description: This multiplier is applied to all the light based aspects of detection. It is used to regulate the relative weight of light vs. sound vs. skill in calculating the final detection value. The higher the value, the easier an actor detects another based on the light conditions.
+
 	
-10. fSneakLostMin
-	* Default: -20.000
-	* Description: Once detected, the detection value has to fall below this number for the actor to be "lost." This means that the detecting actor breaks combat and no longer searches for the actor or says the warning lines. This functionality only comes into play after the actor has been detected.
-	
-11. fSneakNoticedMin
-	* Default: -20.000
-	* Description: An undetected actor is "noticed" when the detection value exceeds this threshhold. Being noticed means that the actor will start to say things (assuming they can talk) that are marked accordingly.
-	
-12. fSneakRunningMult
-	* Default: 1.300
-	* Description: Running is noisier than walking. This multiplier is applied to the boot weight and other sound penalties if the actor is running.
-	
-13. fSneakSeenMin
+7. fSneakUnseenMin
 	* Default: 0.000
-	* Description: This is the threshold value at which the actor fades into sight and can be targeted for combat (or anything else) by other actors.When the actor attacked the sneaking actor, the sneaking actor remains visible until the value falls below fSneakLostMin. When the actor did not attack (the actor seeing You is not hostile, You did not attack or steal anything), the sneaking actor remains visible until the value falls below FSneakUnseenMin - this latter part is to be tested and confirmed.
+	* Description: This is the threshold value at which the actor fades out of sight and cannot be targeted for combat (or anything else) by other actors. This is true only however when the actor is trying to sneak around a non-hostile actor. If the actor is hostile, fSneakLostMin is used instead.
+
+9. fSneakSeenMin
+	* Default: 0.000
+	* Description: This is the threshold value at which the actor fades into sight and can be targeted for combat (or anything else) by other actors. When the actor attacked the sneaking actor, the sneaking actor remains visible until the value falls below fSneakLostMin. When the actor did not attack (the actor seeing You is not hostile, You did not attack or steal anything), the sneaking actor remains visible until the value falls below FSneakUnseenMin - this latter part is to be tested and confirmed.
 	
-14. fSneakSkillMult
+10. fSneakSkillMult
 	* Default: 0.500
 	* Description: This is the multiplier applied to the relative skill values of the actors. It is used to regulate the relative weight of light vs. sound vs. skill in the detection calculations.
+
+11. fSneakBootWeightBase
+	* Default: 14.000
+	* Description: This is the base penalty to sneaking for wearing boots of any sort. The modified weight of the boots is also factored in using fSneakBootWeightMult.
 	
-15. fSneakSleepBonus
+12. fSneakBootWeightMult
+	* Default: 1.000
+	* Description: This is the multiplier to the actor's boot weight used to modify sneaking. Just wearing boots modifies the sneak value, regardless of their weight or type, by the value of fSneakBootWeightBase.
+
+13. fSneakRunningMult
+	* Default: 1.300
+	* Description: This multiplier is applied to the boot weight and other sound penalties if the actor is running.
+	
+14. fSneakSleepBonus
 	* Default: -10.000
 	* Description: Determines the Sneak bonus an actor gets if the target is sleeping.
 	
-16. fSneakSoundLosMult
+15. fSneakSoundLosMult
 	* Default: 1.000
 	* Description: This multiplier is applied to the sound portion of the detection system if the actor does not have line of sight (LOS) to the hiding actor.
 	
-17. fSneakSoundsMult
+16. fSneakSoundsMult
 	* Default: 1.600
 	* Description: This multiplier governs the importance of sounds (and sounds only) made during sneaking. The higher it is, the harder the sneaking will be because you have to make less noise. For example, 0 means that sounds have no effect at all, while 1 means that sounds have normal effect.
 	
-18. fSneakSwimmingLightMult
+17. fSneakSwimmingLightMult
 	* Default: 0.500
 	* Description: This multiplier is applied to swimming actors, but only to the light portion of the detection system.
 	
-19. fSneakTargetAttackBonus
+18. fSneakTargetAttackBonus
 	* Default: 100.000
 	* Description: An actor that is the direct target of an attack gets this bonus to detect their attacker.
 	
-20. fSneakTargetInCombatBonus
+19. fSneakTargetInCombatBonus
 	* Default: 25.000
 	* Description: Combat is noisy. Any actor in combat, but not in combat with the detecting actor, has this penalty applied for sneaking.
-	
-21. fSneakUnseenMin
-	* Default: 0.000
-	* Description: This is the threshold value at which the actor fades out of sight and cannot be targeted for combat (or anything else) by other actors. This is true only however when the actor is trying to sneak around a non-hostile actor. If the actor is hostile, fSneakLostMin is used instead.
-	
-22. iAICombatMinDetection
+
+20. iAICombatMinDetection
 	* Default: -50
 	* Description: When an actor is in combat, the detection value has to fall below this number for the actor to lose track of their target.
 
-23. iSneakSkillUseDistance
-	* Default: 1000
-	* Description: If the player is sneaking within this distance from another actor (NPC, creature) and the player is undetected then the player is actively using the sneak skill and it will eventually increase. If there are no actors within this distance of the player then the use of sneak does not count towards increasing the sneak skill.
+21. fDetectionTimerSetting
+	* Default: 0.300
+	* Description: This value represents how often in seconds an actor makes detection checks against all other actors within the max detection distance.
 
+22. fDetectionSneakLightMod
+	* Default: -5.000
+	* Description: This value is added to the light level on a target during Detection calculations.
+
+23. fDetectionNightEyeBonus
+	* Default: 3.000
+	* Description: Bonus multiplier to the light level on nearby actors during detection checks.
+	
 </details>
 
 ### Crime
@@ -697,76 +647,76 @@
 
 1. fCrimeDispAttack
 	* Default: -10.000
-	* Description: Witnessing a crime may affect an NPC's disposition to the criminal. This is the modifier to disposition that happens when an NPC witnesses an attack on someone he likes. If the attack is against the NPC, the modifier is multiplied by fCrimeDispPersonal first, which increases the disposition penalty.
+	* Description: Witnessing a crime may affect an NPC's disposition to the criminal. This is the modifier to disposition that happens when an NPC witnesses an attack on someone they like. If the attack is against the NPC, the modifier is multiplied by fCrimeDispPersonal first, which increases the disposition penalty.
 	
 2. fCrimeDispMurder
 	* Default: -50.000
-	* Description: Witnessing a crime may affect an NPC's disposition to the criminal. This is the modifier to disposition that happens when an NPC witnesses the murder of someone he likes.
+	* Description: Witnessing a crime may affect an NPC's disposition to the criminal. This is the modifier to disposition that happens when an NPC witnesses the murder of someone they like.
 	
-3. fCrimeDispPersonal
+3. fCrimeDispPickpocket
+	* Default: -25.000
+	* Description: Witnessing a crime may affect an NPC's disposition to the criminal. This is the modifier to disposition that happens when an NPC witnesses pickpocking against someone they like. If the NPC is the one being pickpocketed, the modifier is multiplied by fCrimeDispPersonal first, which increases the disposition penalty.
+	
+4. fCrimeDispSteal
+	* Default: -0.500
+	* Description: Witnessing a crime may affect an NPC's disposition to the criminal. This is the multiplier used to modify an NPC's disposition when he witnesses a theft of someone's property that they like. This value multiplied by the gold value of the item stolen to make the modifier. If the theft is against the NPC, the modifier is multiplied by fCrimeDispPersonal first, which increases the disposition penalty.
+
+5. fCrimeDispTresspass
+	* Default: -20.000
+	* Description: Witnessing a crime may affect an NPC's disposition to the criminal. This is the modifier to disposition that happens when an NPC witnesses trespassing against someone they like. If the trespass is against the NPC, the modifier is multiplied by fCrimeDispPersonal first, which increases the disposition penalty.
+
+6. fCrimeDispPersonal
 	* Default: 2.000
 	* Description: Witnessing a crime reduces an NPC's disposition toward the criminal. If the NPC is the victim of the crime, the disposition penalty is multiplied by this setting. For example, witnessing an assault is a -10 disposition penalty toward the criminal. However, being the victim of assault is a -20 penalty (-10 time 2.0).
-	
-4. fCrimeDispPickpocket
-	* Default: -25.000
-	* Description: Witnessing a crime may affect an NPC's disposition to the criminal. This is the modifier to disposition that happens when an NPC witnesses pickpocking against someone he likes. If the NPC is the one being pickpocketed, the modifier is multiplied by fCrimeDispPersonal first, which increases the disposition penalty.
-	
-5. fCrimeDispSteal
-	* Default: -0.500
-	* Description: Witnessing a crime may affect an NPC's disposition to the criminal. This is the multiplier used to modify an NPC's disposition when he witnesses a theft of someone's property that he likes. This value multiplied by the gold value of the item stolen to make the modifier. If the theft is against the NPC, the modifier is multiplied by fCrimeDispPersonal first, which increases the disposition penalty.
 
-6. fCrimeDispTresspass
-	* Default: -20.000
-	* Description: Witnessing a crime may affect an NPC's disposition to the criminal. This is the modifier to disposition that happens when an NPC witnesses trespassing against someone he likes. If the trespass is against the NPC, the modifier is multiplied by fCrimeDispPersonal first, which increases the disposition penalty.
-	
 7. fCrimeGoldSteal
 	* Default: 0.5000
 	* Description: Acts as a multiplier to the value of the stolen item in calculating the fine for theft.
 	* Formula: is Crime Gold = itemValue * fCrimeGoldSteal.
 	
-8. iCrimeAlarmRecDistance
-	* Default: 4000
-	* Description: This sets the distance from which a crime victim's cries for help can be heard.
-	
-9. iCrimeDaysInPrisonMod
-	* Default: 100
-	* Description: This determines the number of days the player have to stay in prison when arrested. To get number of days, player bounty is divided by the value of this setting.
-	
-10. iCrimeGoldAttackMin
+8. iCrimeGoldAttackMin
 	* Default: 500
 	* Description: Sets the minimum bounty level required for guards to rush a player on sight. This is not the level that causes guards to attack.
 	
-11. iCrimeGoldAttack
+9. iCrimeGoldAttack
 	* Default: 40
 	* Description: These settings control the fine levied when the player is caught committing a crime.
 	
-12. iCrimeGoldJailBreak
+10. iCrimeGoldJailBreak
 	* Default: 50
 	* Description: These settings control the fine levied when the player is caught committing a crime.
-	
-13. iCrimeGoldMinValue
-	* Default: 50
-	* Description: These settings control the fine levied when the player is caught committing a crime.
-	
-14. iCrimeGoldMurder
+
+11. iCrimeGoldMurder
 	* Default: 1000
 	* Description: These settings control the fine levied when the player is caught committing a crime.
 	
-15. iCrimeGoldPickpocket
+12. iCrimeGoldPickpocket
 	* Default: 25
 	* Description: These settings control the fine levied when the player is caught committing a crime.
 	
-16. iCrimeGoldStealHorse
+13. iCrimeGoldStealHorse
 	* Default: 250
 	* Description: These settings control the fine levied when the player is caught committing a crime.
 	
-17. iCrimeGoldTresspass
+14. iCrimeGoldTresspass
 	* Default: 5
 	* Description: These settings control the fine levied when the player is caught committing a crime.
 
-18. iNumberGuardsCrimeResponse
+15. iCrimeGoldMinValue
+	* Default: 50
+	* Description: These settings control the fine levied when the player is caught committing a crime.
+
+16. iCrimeAlarmRecDistance
+	* Default: 4000
+	* Description: This sets the distance from which a crime victim's cries for help can be heard.
+
+17. iNumberGuardsCrimeResponse
 	* Default: 4
 	* Description: This value governs the number of guards that appear when the player commits a crime and it has been reported. If set to 0, no guard appears.
+
+18. iCrimeDaysInPrisonMod
+	* Default: 100
+	* Description: This determines the number of days the player have to stay in prison when arrested. To get number of days, player bounty is divided by the value of this setting.
 
 </details>
 
@@ -816,6 +766,65 @@
 
 </details>
 
+### Obsolute Stealth Settings
+
+<details>
+<Summary>Obsolete Stealth Settings</summary>
+
+8. fSneakNoticedMin (Missing)
+	* Default: -20.000
+	* Description: An undetected actor is "noticed" when the detection value exceeds this threshhold. Being noticed means that the actor will start to say things (assuming they can talk) that are marked accordingly.	
+	
+6. fSneakLostMin (Missing)
+	* Default: -20.000
+	* Description: Once detected, the detection value has to fall below this number for the actor to be "lost." This means that the detecting actor breaks combat and no longer searches for the actor or says the warning lines. This functionality only comes into play after the actor has been detected.
+
+1. fDamageSneakAttackMult
+	* Default: 4.0
+	* Description: Multiplies the base attack by this value before applying the damage to an enemy. It is activated when a player initiates an attack while in sneak mode, thus the "Sneak Attack x#" message when you perform a sneak attack on an enemy. This value is a base value for sneak attacks and is further modified by a character's sneak skill, weapon type (melee or ranged), attack direction (front, back, side, sleep), and attack type (normal or power). Each of these modifiers has its own setting.
+
+2. fPerkSneakAttackMarksmanNoviceMult
+	* Default: 2.0
+	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+3. fPerkSneakAttackMarksmanApprenticeMult
+	* Default: 3.0
+	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+4. fPerkSneakAttackMarksmanJourneymanMult
+	* Default: 3.0
+	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+5.	fPerkSneakAttackMarksmanExpertMult
+	* Default: 3.0
+	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+6. fPerkSneakAttackMarksmanMasterMult
+	* Default: 3.0
+	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+7. fPerkSneakAttackMeleeNoviceMult
+	* Default: 4.0
+	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+8. fPerkSneakAttackMeleeApprenticeMult
+	* Default: 6.0
+	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+9. fPerkSneakAttackMeleeJourneymanMult
+	* Default: 6.0
+	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+10. fPerkSneakAttackMeleeExpertMult
+	* Default: 6.0
+	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+11. fPerkSneakAttackMeleeMasterMult
+	* Default: 6.0
+	* Description: Critical strike damage multipliers granted by the Sneak perk for a successful Melee or Ranged Sneak attack.
+
+</details>
+
 ## Magic
 
 ### Magicka Cost
@@ -835,30 +844,96 @@
 
 3. fMagicDurMagBaseCostMult
 	* Default: 0.1
-	* Description: The spell's Effect Base Cost is multiplied by this value.	
+	* Description: Modifies how much spell Duration affects Magicka cost.
 
 4. fMagicRangeTargetCostMult
 	* Default: 1.5
-	* Description: If the spell is on Target, the total cost is multiplied by this.
+	* Description: Modifies how much spell Range affects Magicka cost.
 
 5. fMagicCasterSkillCostBase
 	* Default: 0.2
-	* Description: The minimum value of skill factor.
+	* Description: Base modifier for how much spell Caster Skill affects Magicka cost.
 
 6. fMagicCasterSkillCostMult
 	* Default: 1.2
-	* Description: The caster's effective skill (as a percentage) is multiplied by this value.
+	* Description: Modifies how much spell Caster Skill affects Magicka cost.
 
 </details>
 
-### Spellmaking
+### Spellmaking & Enchantment
 
 <details>
-<Summary>Spellmaking GameSettings</summary>
+<Summary>Spellmaking & Enchantment GameSettings</summary>
 
 1. fSpellmakingGoldMult
 	* Default: 3.00
 	* Description: The Magicka cost of a spell is multiplied by this value to determine what the spell costs in Gold to buy or create. For spell merchants this cost is then modified by barter settings.
+
+2. fMagicCEEnchantMagOffset
+	* Default: 5.0
+	* Description: Value added to constant enchantment magnitude.
+	* Formula: Magnitude = (SoulGemNumber 	* Constant Effect Enchantment Factor 	* Base Cost) + fMagicCEEnchantMagOffset
+
+3. fEnchantmentGoldMult
+	* Default: 10.0
+	* Description: Multiplier used to calculate the amount of gold to be paid for an enchantment.
+
+4. fEnchantmentPointsMult
+	* Default: 0.40
+	* Description: Multiplier used to calculate the gold value added to an enchanted item. 
+	* Formula: Max_Charge 	* fEnchantmentPointsMult + Cost_to_Use 	* fEnchantmentEffectPointsMult
+
+5. fRechargeGoldMult
+	* Default: 2.0
+	* Description: Multiplier used to calculate the recharge cost for any enchanted item when taken to an enchanter service.
+	* Formula: (Charge_Max-Charge_Current) 	* fRechargeGoldMult
+	
+</details>
+
+### Soulgems
+
+<details>
+<Summary>Soulgems GameSettings</summary>
+
+1. iSoulLevelValuePetty
+	* Default: 150
+	* Description: Charge Provided by Petty Soulgems
+
+2. iSoulLevelValueLesser
+	* Default: 300
+	* Description: Charge Provided by Lesser Soulgems
+
+3. iSoulLevelValueCommon
+	* Default: 800
+	* Description: Charge Provided by Common Soulgems
+
+4. iSoulLevelValueGreater
+	* Default: 1200
+	* Description: Charge Provided by Greater Soulgems
+
+5. iSoulLevelValueGrand
+	* Default: 1600
+	* Description: Charge Provided by Grand Soulgems
+
+6. fEnchantPettyLimit
+	* Default: 15.0
+	* Description: The maximum calculated Enchantment value. I.E. the Magicka limit for a single strike on a weapon.
+
+7. fEnchantLesserLimit
+	* Default: 25.0
+	* Description: The maximum calculated Enchantment value. I.E. the Magicka limit for a single strike on a weapon.
+
+8. fEnchantCommonLimit
+	* Default: 40.0
+	* Description: The maximum calculated Enchantment value. I.E. the Magicka limit for a single strike on a weapon.
+
+9. fEnchantGreaterLimit
+	* Default: 60.0
+	* Description: The maximum calculated Enchantment value. I.E. the Magicka limit for a single strike on a weapon.
+
+10. fEnchantGrandLimit
+	* Default: 85.0
+	* Description: The maximum calculated Enchantment value. I.E. the Magicka limit for a single strike on a weapon.
 
 </details>
 	
@@ -924,22 +999,22 @@
 3. fMagicNightEyeAmbient
 	* Default: 0.75
 	* Description: Affects Magic Night-Eye brightness. Higher value means brighter view.
-
-4. fShockCastVOffset
-	* Default: -5
-	* Description: This is the angle that the bolts come from the caster's hand. Negative values angle down, positive angles up. Unsure of the usefulness of changing this.
 	
-5. fShockBoltsRadius
-	* Default: 48
-	* Description: How wide the bolts are in a shock damage spell.
-	
-6. fChameleonMaxRefraction
+4. fChameleonMaxRefraction
 	* Default: 1.000
 	* Description: The chameleon visual is an applied refraction to the model. The degree of refraction is specified by two variables fChameleonMaxRefraction and fChameleonMinRefraction. The maximum refraction value is mapped to a chameleon setting of 1. The minimum refaction value is mapped to a chameleon setting of 100. Values that exceed 1.0 run the risk of having certain polygons become totally transparent. In practice, there is not much visual difference in the scale.
 	
-7. fChameleonMinRefraction
+5. fChameleonMinRefraction
 	* Default: 0.0100
 	* Description: The chameleon visual is an applied refraction to the model. The degree of refraction is specified by two variables fChameleonMaxRefraction and fChameleonMinRefraction. The maximum refraction value is mapped to a chameleon setting of 1. The minimum refaction value is mapped to a chameleon setting of 100. Values that exceed 1.0 run the risk of having certain polygons become totally transparent. In practice, there is not much visual difference in the scale.
+
+6. fShockCastVOffset
+	* Default: -5
+	* Description: This is the angle that the bolts come from the caster's hand. Negative values angle down, positive angles up. Unsure of the usefulness of changing this.
+	
+7. fShockBoltsRadius
+	* Default: 48
+	* Description: How wide the bolts are in a shock damage spell.
 
 </details>
 
@@ -964,79 +1039,6 @@
 	* Default: 1
 	* Description: This is the number of summoned creatures the player can control at any one time.
 	
-</details>
-
-## Enchantment
-
-<details>
-<Summary>Enchantment GameSettings</summary>
-
-1. fMagicCEEnchantMagOffset
-	* Default: 5.0
-	* Description: Value added to constant enchantment magnitude.
-	* Formula: Magnitude = (SoulGemNumber 	* Constant Effect Enchantment Factor 	* Base Cost) + fMagicCEEnchantMagOffset
-
-2. fEnchantmentGoldMult
-	* Default: 10.0
-	* Description: Multiplier used to calculate the amount of gold to be paid for an enchantment.
-
-3. fEnchantmentPointsMult
-	* Default: 0.40
-	* Description: Multiplier used to calculate the gold value added to an enchanted item. 
-	* Formula: Max_Charge 	* fEnchantmentPointsMult + Cost_to_Use 	* fEnchantmentEffectPointsMult
-
-4. fRechargeGoldMult
-	* Default: 2.0
-	* Description: Multiplier used to calculate the recharge cost for any enchanted item when taken to an enchanter service.
-	* Formula: (Charge_Max-Charge_Current) 	* fRechargeGoldMult
-
-</details>
-
-### Soulgems
-
-<details>
-<Summary>Soulgems GameSettings</summary>
-
-1. iSoulLevelValuePetty
-	* Default: 150
-	* Description: Charge Provided by Petty Soulgems
-
-2. iSoulLevelValueLesser
-	* Default: 300
-	* Description: Charge Provided by Lesser Soulgems
-
-3. iSoulLevelValueCommon
-	* Default: 800
-	* Description: Charge Provided by Common Soulgems
-
-4. iSoulLevelValueGreater
-	* Default: 1200
-	* Description: Charge Provided by Greater Soulgems
-
-5. iSoulLevelValueGrand
-	* Default: 1600
-	* Description: Charge Provided by Grand Soulgems
-
-6. fEnchantPettyLimit
-	* Default: 15.0
-	* Description: The maximum calculated Enchantment value. I.E. the Magicka limit for a single strike on a weapon.
-
-7. fEnchantLesserLimit
-	* Default: 25.0
-	* Description: The maximum calculated Enchantment value. I.E. the Magicka limit for a single strike on a weapon.
-
-8. fEnchantCommonLimit
-	* Default: 40.0
-	* Description: The maximum calculated Enchantment value. I.E. the Magicka limit for a single strike on a weapon.
-
-9. fEnchantGreaterLimit
-	* Default: 60.0
-	* Description: The maximum calculated Enchantment value. I.E. the Magicka limit for a single strike on a weapon.
-
-10. fEnchantGrandLimit
-	* Default: 85.0
-	* Description: The maximum calculated Enchantment value. I.E. the Magicka limit for a single strike on a weapon.
-
 </details>
 
 ## Player
@@ -2287,6 +2289,49 @@
 	* Description: Used with fMagicFatigueDrainBase to determine the effect of fatigue on spell effectiveness. By default, fatigue has no effect on spellcasting.
 	* Formula: spell effectiveness penalty = 1 - fMagicFatigueDrainBase - fMagicFatigueDrainMult x (fatigue / maximum fatigue)
 
+1. fDamageSneakAttackMult
+	* Default: 4.0
+	* Description: Multiplies the base attack by this value before applying the damage to an enemy. It is activated when a player initiates an attack while in sneak mode, thus the "Sneak Attack x#" message when you perform a sneak attack on an enemy. This value is a base value for sneak attacks and is further modified by a character's sneak skill, weapon type (melee or ranged), power attack direction (front, back, side, standing), and attack type (normal or power). Each of these modifiers has its own setting.
+
+2. fPerkSneakAttackMarksmanNoviceMult
+	* Default: 2.0
+	* Description: Critical strike damage multipliers granted by the Novice Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+3. fPerkSneakAttackMarksmanApprenticeMult
+	* Default: 3.0
+	* Description: Critical strike damage multipliers granted by the Apprentice Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+4. fPerkSneakAttackMarksmanJourneymanMult
+	* Default: 3.0
+	* Description: Critical strike damage multipliers granted by the Journeyman Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+5.	fPerkSneakAttackMarksmanExpertMult
+	* Default: 3.0
+	* Description: Critical strike damage multipliers granted by the Expert Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+6. fPerkSneakAttackMarksmanMasterMult
+	* Default: 3.0
+	* Description: Critical strike damage multipliers granted by the Master Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+7. fPerkSneakAttackMeleeNoviceMult
+	* Default: 4.0
+	* Description: Critical strike damage multipliers granted by the Novice Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+8. fPerkSneakAttackMeleeApprenticeMult
+	* Default: 6.0
+	* Description: Critical strike damage multipliers granted by the Apprentice Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+9. fPerkSneakAttackMeleeJourneymanMult
+	* Default: 6.0
+	* Description: Critical strike damage multipliers granted by the Journeyman Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+10. fPerkSneakAttackMeleeExpertMult
+	* Default: 6.0
+	* Description: Critical strike damage multipliers granted by the Expert Sneak perk for a successful Melee or Ranged Sneak attack.
+	
+11. fPerkSneakAttackMeleeMasterMult
+	* Default: 6.0
+	* Description: Critical strike damage multipliers granted by the Master Sneak perk for a successful Melee or Ranged Sneak attack.
 
 </details>
 
