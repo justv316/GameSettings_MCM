@@ -23,7 +23,7 @@
 
 0.5
 * Added 5. Magic.ini [41 Settings]; 6. Player.ini [21 Settings]; 7. Player Stats.ini [32 Settings]
-* 228 Managed Settings
+* Up to 228 Managed Settings
 
 ## Description
 
@@ -48,9 +48,12 @@
 	2. Copy GameSettings_MCM.esp to `\Oblivion Remastered\OblivionRemastered\Content\Dev\ObvData\Data
 2. Add GameSettings_MCM.esp to your Plugins.txt
 
+### Updating
+0. Copy all files to respective directories overwriting everything (esp and ini files). You shouldn't need to do anything In-game between updates.
+
 ### Uninstallation
 0. MCM Reset Method
-	1. While In-Game, Open the ResetDefault_Gamesettings MCM and click Run Command. Close the MCM to trigger the reset. A MessageBox will display, confirming settings have been restored to default. 
+	1. While In-Game, open the MCM, open 0. RestoreDefaults and click Run Command. Close the MCM to trigger the reset. A MessageBox will display, confirming settings have been restored to default. 
 	2. You can now safely delete the INI and ESP files.
 
 ### Usage
@@ -87,7 +90,7 @@ Contains settings that are no longer functional in Oblivion Remastered but still
 
 Contains Command to restore all settings to default. This command runs after the MCM is closed. The command cannot be spammed and can only ever be queued to run once. 
 
-**_2. Gameplay.ini_** [41 Settings]
+**_2. Gameplay.ini [41 Settings]_** 
 
 **Difficulty**
 fDifficultyDamageTakenMultiplierNovice
@@ -141,7 +144,7 @@ iVampirismAgeOffset
 fActorTeleportFadeSeconds
 fActorAnimZAdjust
 
-**_3. Combat.ini_** [46 Settings]
+**_3. Combat.ini [46 Settings]_**
 
 **Damage**
 fDamageWeaponMult
@@ -203,7 +206,7 @@ fCombatSpeakHitChance
 fCombatSpeakHitThreshold
 fCombatSpeakPowerAttackChance
 
-**_4. Stealth_** [47 Settings]
+**_4. Stealth [47 Settings]_**
 
 **Sneak Mechanics**
 fSneakBaseValue
@@ -258,7 +261,7 @@ iLockLevelMaxVeryHard
 fPickPocketMaxChance
 fPickPocketMinChance
 
-**_5. Magic** [41 Settings]
+**_5. Magic [41 Settings]_**
 
 **Magicka Cost**
 fMagicCostScale
@@ -315,7 +318,7 @@ iMagnitudeLevelAffectsAll
 fMagicUnitsPerFoot
 iMaxPlayerSummonedCreatures
 
-**_6. Player** [21 Settings]
+**_6. Player [21 Settings]_**
 
 **Skills**
 fTrainingCostMult
@@ -346,7 +349,7 @@ fAttributeClassSecondaryBonus
 **Levels**
 iLevelUpSkillCount
 
-**_7. Player Stats** [32 Settings]
+**_7. Player Stats [32 Settings]_**
 
 **Health**
 fPCBaseHealthMult
