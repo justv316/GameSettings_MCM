@@ -21,6 +21,10 @@
 * Added 47 Stealth settings
 * Sneak Attack damage and Combat Damage seemingly are being calculated using different numbers than the OG settings. Sneak Attack Damage settings have been moved to Obsolete. Will continue to test combat settings.
 
+0.5
+* Added 5. Magic.ini [41 Settings]; 6. Player.ini [21 Settings]; 7. Player Stats.ini [32 Settings]
+* 228 Managed Settings
+
 ## Description
 
 * A Mod Configuration Menu (MCM) control panel for configuring every functional GameSetting in Oblivion Remastered. 
@@ -29,15 +33,6 @@
 * Currently there is no way to reflect the current settings in the MCM. Hopefully in the future we have a bit more control over what the MCM is displaying. 
 	* The values displayed in the MCM are what is being set in INI file. When changed the MCM uses a Console Command to actually set the GameSetting.
 	* Default GameSettings are not loaded when the MCM runs.
-
-## Roadmap
-
-1. Add support for the remaining ~300 GameSettings
-2. Create documentation and support creating GameSetting profiles for Modders to easily distribute customized GameSetting profiles for their mods. 
-
-## Research
-
-* If you want to participate in GameSettings research, please feel free to post comments on this Mod's page, send me a DM on Nexus, or if you know me on Discord through one of the many modding communities I am in, ping me there with whatever your findings are!
 
 ### Prerequisites
 1. [UE4SS](https://www.nexusmods.com/oblivionremastered/mods/32)
@@ -62,6 +57,26 @@
 0. In-Game, press your assigned hotkey to open the MCM (Default: L)
 1. Click on one of the control panels and configure your settings.
 
+## Roadmap
+
+1. ~50% of Settings have been added. 
+2. (Waiting on MCM support) Create documentation and support creating GameSetting profiles for Modders to easily distribute customized GameSetting profiles for their mods. 
+
+## Research
+
+* If you want to participate in GameSettings research, please feel free to post comments on this Mod's page, send me a DM on Nexus, or if you know me on Discord through one of the many modding communities I am in, ping me there with whatever your findings are!
+
+### Perks
+* Many, if not all, of the skill and perk settings have been taken over by UE, and aren't GameSettings anymore.
+* These GameSettings have been outright deleted from the game.
+fPerkAthleticsNoviceFatigueMult 
+fPerkAthleticsApprenticeFatigueMult
+fPerkAthleticsJourneymanFatigueMult
+fPerkAthleticsExpertFatigueMult 
+fPerkAthleticsMasterFatigueMult 
+fSneakUnseenMin
+fSneakSeenMin
+
 ### MCM Files
 
 **_0. Obsolete.ini_**
@@ -72,7 +87,7 @@ Contains settings that are no longer functional in Oblivion Remastered but still
 
 Contains Command to restore all settings to default. This command runs after the MCM is closed. The command cannot be spammed and can only ever be queued to run once. 
 
-**_2. Gameplay.ini_**
+**_2. Gameplay.ini_** [41 Settings]
 
 **Difficulty**
 fDifficultyDamageTakenMultiplierNovice
@@ -126,7 +141,7 @@ iVampirismAgeOffset
 fActorTeleportFadeSeconds
 fActorAnimZAdjust
 
-**_3. Combat.ini_**
+**_3. Combat.ini_** [46 Settings]
 
 **Damage**
 fDamageWeaponMult
@@ -188,7 +203,7 @@ fCombatSpeakHitChance
 fCombatSpeakHitThreshold
 fCombatSpeakPowerAttackChance
 
-**_4. Stealth_**
+**_4. Stealth_** [47 Settings]
 
 **Sneak Mechanics**
 fSneakBaseValue
@@ -243,6 +258,133 @@ iLockLevelMaxVeryHard
 fPickPocketMaxChance
 fPickPocketMinChance
 
+**_5. Magic** [41 Settings]
+
+**Magicka Cost**
+fMagicCostScale
+fMagicAreaBaseCostMult
+fMagicDurMagBaseCostMult
+fMagicRangeTargetCostMult
+fMagicCasterSkillCostBase
+fMagicCasterSkillCostMult
+
+**Spellmaking & Enchantment**
+fSpellmakingGoldMult
+fMagicCEEnchantMagOffset
+fEnchantmentGoldMult
+fEnchantmentPointsMult
+fRechargeGoldMult
+
+**Soulgems**
+iSoulLevelValuePetty
+fEnchantPettyLimit
+iSoulLevelValueLesser
+fEnchantLesserLimit
+iSoulLevelValueCommon
+fEnchantCommonLimit
+iSoulLevelValueGreater
+fEnchantGreaterLimit
+iSoulLevelValueGrand
+fEnchantGrandLimit
+
+**Spell Level**
+fMagicSpellLevelApprenticeMin
+fMagicSpellLevelJourneymanMin
+fMagicSpellLevelExpertMin
+fMagicSpellLevelMasterMin
+
+**Disease**
+fMagicDiseaseTransferBase
+fMagicDiseaseTransferMult
+fMagicSunDamageSunHiddenScale
+fMagicSunDamageWaterScale
+
+**Magic Visuals**
+fMagicLightForwardOffset
+fMagicLightHeightOffset
+fMagicLightHeightOffset
+fMagicNightEyeAmbient
+fChameleonMaxRefraction
+fChameleonMinRefraction
+fShockCastVOffset
+fShockBoltsRadius
+
+**Uncategorized**
+fMagicLevelMagnitudeMult
+iMagnitudeLevelAffectsAll
+fMagicUnitsPerFoot
+iMaxPlayerSummonedCreatures
+
+**_6. Player** [21 Settings]
+
+**Skills**
+fTrainingCostMult
+iTrainingSkills
+fSkillUseExp
+fSkillUseFactor
+fSkillUseMajorMult
+fSkillUseMinorMult
+fSkillUseSpecMult
+iSkillApprenticeMin
+iSkillJourneymanMin
+iSkillExpertMin
+iSkillMasterMin
+
+**Perks**
+iPerkMarksmanParalyzeChance
+iPerkMarksmanKnockdownChance
+iPerkHandToHandBlockRecoilChance
+iPerkExtraBarterGoldMaster
+iPerkBlockStaggerChance
+iPerkBlockDisarmChance
+iPerkAttackDisarmChance
+
+**Attributes**
+fAttributeClassPrimaryBonus
+fAttributeClassSecondaryBonus
+
+**Levels**
+iLevelUpSkillCount
+
+**_7. Player Stats** [32 Settings]
+
+**Health**
+fPCBaseHealthMult
+fStatsHealthStartMult
+fStatsHealthLevelMult
+
+**Fatigue**
+fFatigueBase
+fFatigueMult
+fFatigueReturnBase
+fFatigueReturnMult
+fFatigueRunBase
+fFatigueRunMult
+fFatigueJumpBase
+fFatigueJumpMult
+fFatigueCastBase
+fFatigueCastMult
+fFatigueAttackWeaponBase
+fFatigueAttackWeaponMult
+fFatigueBlockBase
+fFatigueBlockMult
+fFatigueBlockSkillBase
+fFatigueBlockSkillMult
+fPowerAttackFatiguePenalty
+fMarksmanFatigueBurnPerSecond
+fMarksmanFatigueBurnPerShot
+iMarksmanFatigueBurnPerSecondSkill
+fPerkJumpFatigueExpertMult
+fPerkAthleticsNoviceFatigueMult
+fPerkAthleticsApprenticeFatigueMult
+fPerkAthleticsJourneymanFatigueMult
+fPerkAthleticsExpertFatigueMult
+fPerkAthleticsMasterFatigueMult
+
+**Magicka**
+fPCBaseMagickaMult
+fMagickaReturnBase
+fMagickaReturnMult
 
 ## Credits
 1. Utilizes ObScript Extender created by [MadAborModding](https://next.nexusmods.com/profile/MadAborModding)

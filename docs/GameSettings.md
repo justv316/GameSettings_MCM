@@ -30,14 +30,15 @@
 	* [Disease](#Disease)
 	* [Magic Visuals](#Magic-Visuals)
 	* [Uncategorized Magic](#Uncategorized-Magic)
-7. [Player](#Player)
-	* [Health](#Health)
-	* [Fatigue](#Fatigue)
-	* [Magicka](#Magicka)
+6. [Player](#Player)
 	* [Skill](#Skills)
 	* [Perks](#Perks)
 	* [Attributes](#Attributes)
 	* [Levels](#Levels)
+7. [Player Stats](#Player-Stats)
+	* [Health](#Health)
+	* [Fatigue](#Fatigue)
+	* [Magicka](#Magicka)
 9. [Speechcraft](#Speechcraft)
 	* [Barter](#Barter)
 	* [Bribery](#Bribery)
@@ -1043,6 +1044,124 @@
 
 ## Player
 
+### Skills
+
+<details>
+<Summary>Skills GameSettings</Summary>
+
+1. fTrainingCostMult
+	* Default: 10.0
+	* Description: Modifies the cost of training. A higher value means higher training costs.
+
+2. iTrainingSkills
+	* Default: 5
+	* Description: This is the limit of training sessions a player can receive per level.
+	
+3. fSkillUseExp
+	* Default: 1.5000
+	* Description: Controls the amount of experience needed to gain a level in any skill. Higher values of this setting require exponentially more experience for skills to increase. This affects experience requirements at all skill values, but will have most impact for high skill values.
+	* Formula: The experience required to increase a skill is proportional to: fSkillUseFactor x skillValue ^ fSkillUseExp
+	* This is then multiplied by fSkillUseMajorMult or fSkillUseMinorMult. For skills of the player's specialization, it is then multiplied by fSkillUseSpecMult.
+	* Reloading a saved game after changing this value will affect the amount of current experience in every skill.
+	
+4. fSkillUseFactor
+	* Default: 0.3500
+	* Description: Controls the amount of experience needed to gain a level in any skill, with higher values requiring more experience per level, and lower values requiring less experience per level. This is a linear multiplier.
+	
+5. fSkillUseMajorMult
+	* Default: 0.750
+	* Description: Modifies the number of times you need to use one of your 7 major skills in order to get a skill increase. The base number of uses depends on the level of the skill and other (unknown) factors.
+	
+6. fSkillUseMinorMult
+	* Default (OG): 1.2500
+	* Default (RE): 0.875
+	* Description: Modifies the number of times you need to use one of your 14 minor skills in order to get a skill increase. The base number of uses depends on the level of the skill and other (unknown) factors. A higher value means the skill has to be used more to get an increase.
+	
+7. fSkillUseSpecMult
+	* Default: 0.75
+	* Description: Modifies the speed that a skill, if within the chosen specialization, increases. The three specializations are Stealth, Combat, and Magic. Lower values represent increased leveling speed.
+	
+8. iSkillApprenticeMin
+	* Default: 25
+	* Description: These values define the minimum skill level required to recieve skill perks. These values apply to all skills. Spells and enchantments are not included in this calculation.
+	
+9. iSkillJourneymanMin
+	* Default: 50
+	* Description: These values define the minimum skill level required to recieve skill perks. These values apply to all skills. Spells and enchantments are not included in this calculation.
+	
+10. iSkillExpertMin
+	* Default: 75
+	* Description: These values define the minimum skill level required to recieve skill perks. These values apply to all skills. Spells and enchantments are not included in this calculation.
+	
+11. iSkillMasterMin
+	* Default: 100
+	* Description: These values define the minimum skill level required to recieve skill perks. These values apply to all skills. Spells and enchantments are not included in this calculation.
+
+</details>
+
+### Perks
+
+<details>
+<Summary>Perks GameSettings</Summary>
+
+1. iPerkMarksmanParalyzeChance
+	* Default: 5
+	* Description: The percent chance of how often a paralyzing attack can be made with a bow. Requires Master Marksman. 
+	
+2. iPerkMarksmanKnockdownChance
+	* Default: 5
+	* Description: The percent chance of knocking down their opponent with an arrow. Requires Expert Marksman. 
+
+3. iPerkHandToHandBlockRecoilChance
+	* Default: 25
+	* Description: The percent chance of an opponent recoiling after striking a character defending with their Hand-To-Hand skill.
+
+4. iPerkExtraBarterGoldMaster
+	* Default: 500
+	* Description: The amount of extra gold a merchant will have to barter with a Master of the mercantile skill.
+
+5. iPerkBlockStaggerChance
+	* Default: 25
+	* Description: The percent chance of staggering their opponent by blocking. Requires Expert Block.
+
+6. iPerkBlockDisarmChance
+	* Default: 5
+	* Description: The percent chance of disarming their opponent by blocking. Requires Master Block.
+
+7. iPerkAttackDisarmChance
+	* Default: 5
+	* Description: The percent chance of disarming their opponent by Side-Attacking. Requires Journeyman Blade or Blunt.
+
+</details>
+
+### Attributes
+
+<details>
+<Summary>Attributes GameSettings</Summary>
+
+1. fAttributeClassPrimaryBonus
+	* Default: 5.000
+	* Description: How much an attribute increases when it is selected as the first favored attribute for a class.
+	
+2. fAttributeClassSecondaryBonus
+	* Default: 5.000
+	* Description: How much an attribute increases when it is selected as the second favored attribute for a class.
+	
+</details>
+
+### Levels
+
+<details>
+<Summary>Levels GameSettings</Summary>
+
+1. iLevelUpSkillCount
+	* Default: 10
+	* Description: Number of skill increases necessary to advance to next level.
+
+</details>
+
+## Player Stats
+
 ### Health
 
 <details>
@@ -1133,7 +1252,7 @@
 
 15. fFatigueBlockSkillBase
 	* Default: 20.0
-	* Description: Fatigue burned by block base
+	* Description: Fatigue burned by block skill base
 
 16. fFatigueBlockSkillMult
 	* Default: 0.0
@@ -1161,23 +1280,23 @@
 
 22. fPerkAthleticsNoviceFatigueMult
 	* Default: 1.0000
-	* Description: Applies when actor's Athletics skill is less than iSkillApprenticeMin.
+	* Description: Applies when actors Athletics skill is less than iSkillApprenticeMin.
 
 23. fPerkAthleticsApprenticeFatigueMult
 	* Default: 0.7500
-	* Description: Applies when actor's Athletics skill ranges from iSkillApprenticeMin to iSkillJourneymanMin.
+	* Description: Applies when actors Athletics skill ranges from iSkillApprenticeMin to iSkillJourneymanMin.
 
 24. fPerkAthleticsJourneymanFatigueMult
 	* Default: 0.5000
-	* Description: Applies when actor's Athletics skill ranges from iSkillJourneymanMin to iSkillExpertMin.
+	* Description: Applies when actors Athletics skill ranges from iSkillJourneymanMin to iSkillExpertMin.
 
 25. fPerkAthleticsExpertFatigueMult
 	* Default: 0.2500
-	* Description: Applies when actor's Athletics skill ranges from iSkillExpertMin to iSkillMasterMin.
+	* Description: Applies when actors Athletics skill ranges from iSkillExpertMin to iSkillMasterMin.
 
 26. fPerkAthleticsMasterFatigueMult
 	* Default: 0.0000
-	* Description: Applies when actor's Athletics skill is greater than or equal to iSkillMasterMin.
+	* Description: Applies when actors Athletics skill is greater than or equal to iSkillMasterMin.
 
 </details>
 
@@ -1199,122 +1318,6 @@
 	* Default: 0.020
 	* Description: Multiplier used to calculate magicka regeneration rate.
 	* Formula: MagickaRegenRate = 0.01 	* (fMagickaReturnBase + fMagickaReturnMult 	* Willpower) 	* TotalMagicka
-
-</details>
-
-### Skills
-
-<details>
-<Summary>Skills GameSettings</Summary>
-
-1. fTrainingCostMult
-	* Default: 10.0
-	* Description: Modifies the cost of training. A higher value means higher training costs.
-
-2. iTrainingSkills
-	* Default: 5
-	* Description: This is the limit of training sessions a player can receive per level.
-	
-3. fSkillUseExp
-	* Default: 1.5000
-	* Description: Controls the amount of experience needed to gain a level in any skill. Higher values of this setting require exponentially more experience for skills to increase. This affects experience requirements at all skill values, but will have most impact for high skill values.
-	* Formula: The experience required to increase a skill is proportional to: fSkillUseFactor x skillValue ^ fSkillUseExp
-	* This is then multiplied by fSkillUseMajorMult or fSkillUseMinorMult. For skills of the player's specialization, it is then multiplied by fSkillUseSpecMult.
-	* Reloading a saved game after changing this value will affect the amount of current experience in every skill.
-	
-4. fSkillUseFactor
-	* Default: 0.3500
-	* Description: Controls the amount of experience needed to gain a level in any skill, with higher values requiring more experience per level, and lower values requiring less experience per level. This is a linear multiplier.
-	
-5. fSkillUseMajorMult
-	* Default: 0.750
-	* Description: Modifies the number of times you need to use one of your 7 major skills in order to get a skill increase. The base number of uses depends on the level of the skill and other (unknown) factors.
-	
-6. fSkillUseMinorMult
-	* Default (OG): 1.2500
-	* Default (RE): 0.875
-	* Description: Modifies the number of times you need to use one of your 14 minor skills in order to get a skill increase. The base number of uses depends on the level of the skill and other (unknown) factors. A higher value means the skill has to be used more to get an increase.
-	
-7. fSkillUseSpecMult
-	* Default: 0.75
-	* Description: Modifies the speed that a skill, if within the chosen specialization, increases. The three specializations are Stealth, Combat, and Magic. Lower values represent increased leveling speed.
-	
-8. iSkillApprenticeMin
-	* Default: 25
-	* Description: These values define the minimum skill level required to recieve skill perks. These values apply to all skills. Spells and enchantments are not included in this calculation.
-	
-9. iSkillJourneymanMi
-	* Default: 50
-	* Description: These values define the minimum skill level required to recieve skill perks. These values apply to all skills. Spells and enchantments are not included in this calculation.
-	
-10. iSkillExpertMin
-	* Default: 75
-	* Description: These values define the minimum skill level required to recieve skill perks. These values apply to all skills. Spells and enchantments are not included in this calculation.
-	
-11. iSkillMasterMin
-	* Default: 100
-	* Description: These values define the minimum skill level required to recieve skill perks. These values apply to all skills. Spells and enchantments are not included in this calculation.
-
-</details>
-
-### Perks
-
-<details>
-<Summary>Perks GameSettings</Summary>
-
-1. iPerkMarksmanParalyzeChance
-	* Default: 5
-	* Description: The percent chance of how often a paralyzing attack can be made with a bow. Requires Master Marksman. 
-	
-2. iPerkMarksmanKnockdownChance
-	* Default: 5
-	* Description: The percent chance of knocking down their opponent with an arrow. Requires Expert Marksman. 
-
-3. iPerkHandToHandBlockRecoilChance
-	* Default: 25
-	* Description: The percent chance of an opponent recoiling after striking a character defending with their Hand-To-Hand skill.
-
-4. iPerkExtraBarterGoldMaster
-	* Default: 500
-	* Description: The amount of extra gold a merchant will have to barter with a Master of the mercantile skill.
-
-5. iPerkBlockStaggerChance
-	* Default: 25
-	* Description: The percent chance of staggering their opponent by blocking. Requires Expert Block.
-
-6. iPerkBlockDisarmChance
-	* Default: 5
-	* Description: The percent chance of disarming their opponent by blocking. Requires Master Block.
-
-7. iPerkAttackDisarmChance
-	* Default: 5
-	* Description: The percent chance of disarming their opponent by Side-Attacking. Requires Journeyman Blade or Blunt.
-
-</details>
-
-### Attributes
-
-<details>
-<Summary>Attributes GameSettings</Summary>
-
-1. fAttributeClassPrimaryBonus
-	* Default: 5.000
-	* Description: How much an attribute increases when it is selected as the first favored attribute for a class.
-	
-2. fAttributeClassSecondaryBonus
-	* Default: 5.000
-	* Description: How much an attribute increases when it is selected as the second favored attribute for a class.
-	
-</details>
-
-### Levels
-
-<details>
-<Summary>Levels GameSettings</Summary>
-
-1. iLevelUpSkillCount
-	* Default: 10
-	* Description: Number of skill increases necessary to advance to next level.
 
 </details>
 
