@@ -296,6 +296,219 @@ Begin GameMode
 				set iPhase to iPhase + 1
 			endif
 			if iPhase == 20
+				Message "ConsoleCommand SetGameSetting fBarterBuyBase 300"
+				Message "ConsoleCommand SetGameSetting fBarterBuyMult 9.9"
+				Message "ConsoleCommand SetGameSetting fBarterSellBase -20"
+				Message "ConsoleCommand SetGameSetting fBarterSellMult 5"
+				Message "ConsoleCommand SetGameSetting fBarterDispBase 1.5"
+				Message "ConsoleCommand SetGameSetting fBarterHaggleBase 5"
+				Message "ConsoleCommand SetGameSetting fBarterHaggleCurve 0.55"
+				Message "ConsoleCommand SetGameSetting fBarterHaggleDispMult 0.50"
+				Message "ConsoleCommand SetGameSetting fBarterHaggleMax 40"
+				Message "ConsoleCommand SetGameSetting iMerchantRespawnDay1 0"
+				Message "ConsoleCommand SetGameSetting iMerchantRespawnDay2 3"
+				Message "ConsoleCommand SetGameSetting fBribeCostCurve 1.5"
+				set iPhase to iPhase + 1
+			endif
+			if iPhase == 21
+				Message "ConsoleCommand SetGameSetting fBribeScale 1.0"
+				Message "ConsoleCommand SetGameSetting fBribeCurve 0.75"
+				Message "ConsoleCommand SetGameSetting fBribeNPCLevelMult 0.10"
+				Message "ConsoleCommand SetGameSetting fBribeSpeechcraftMult 0.03"
+				Message "ConsoleCommand SetGameSetting fRepairArmorerBase 0.0"
+				Message "ConsoleCommand SetGameSetting fRepairArmorerMult 1.0"
+				Message "ConsoleCommand SetGameSetting fRepairStrengthMult 0.1"
+				Message "ConsoleCommand SetGameSetting fRepairSkillBreakBase 30"
+				Message "ConsoleCommand SetGameSetting fRepairSkillBreakMult -0.20"
+				Message "ConsoleCommand SetGameSetting fRepairCostMult 0.90"
+				Message "ConsoleCommand SetGameSetting iArmorDamageBootsChance 10"
+				Message "ConsoleCommand SetGameSetting iArmorDamageCuirassChance 25" 
+				set iPhase to iPhase + 1
+			endif
+			if iPhase == 21
+				Message "ConsoleCommand SetGameSetting iArmorDamageGauntletsChance 10"
+				Message "ConsoleCommand SetGameSetting iArmorDamageGreavesChance 15"
+				Message "ConsoleCommand SetGameSetting iArmorDamageHelmChance 10"
+				Message "ConsoleCommand SetGameSetting iArmorDamageShieldChance 30"
+				Message "ConsoleCommand SetGameSetting fPotionMortPestleMult 0.25"
+				Message "ConsoleCommand SetGameSetting fPotionT1MagMult 2.5"
+				Message "ConsoleCommand SetGameSetting fPotionT1AleDurMult -0.02"
+				Message "ConsoleCommand SetGameSetting fPotionT1AleMagMult -0.02"
+				Message "ConsoleCommand SetGameSetting fPotionT1CalMagMult 0.0035"
+				Message "ConsoleCommand SetGameSetting fPotionT1RetDurMult 0.01"
+				Message "ConsoleCommand SetGameSetting fPotionT1RetMagMult 0.005"
+				Message "ConsoleCommand SetGameSetting fPotionT2AleDurMult -0.02"
+				set iPhase to iPhase + 1
+			endif
+			if iPhase == 22
+				Message "ConsoleCommand SetGameSetting fPotionT2CalDurMult 0.0025"
+				Message "ConsoleCommand SetGameSetting fPotionT2RetDurMult 0.01"
+				Message "ConsoleCommand SetGameSetting fPotionT3AleMagMult -0.02"
+				Message "ConsoleCommand SetGameSetting fPotionT3CalMagMult 0.003"
+				Message "ConsoleCommand SetGameSetting fPotionT3RetMagMult 0.005"
+				Message "ConsoleCommand SetGameSetting fPotionGoldValueMult 0.45"
+				Message "ConsoleCommand SetGameSetting iMagicMaxPotionsNovice 4"
+				Message "ConsoleCommand SetGameSetting iMagicMaxPotionsApprentice 4"
+				Message "ConsoleCommand SetGameSetting iMagicMaxPotionsJourneyman 6"
+				Message "ConsoleCommand SetGameSetting iMagicMaxPotionsExpert 6"
+				Message "ConsoleCommand SetGameSetting iMagicMaxPotionsMaster 10"
+				Message "ConsoleCommand SetGameSetting fWortAlchMult 1.0"
+				Message "ConsoleCommand SetGameSetting fWortcraftFatigueMag 5.0"
+				Message "ConsoleCommand SetGameSetting iWortcraftMaxEffectsNovice 1"
+				Message "ConsoleCommand SetGameSetting iWortcraftMaxEffectsApprentice 2"
+				Message "ConsoleCommand SetGameSetting iWortcraftMaxEffectsJourneyman 3"
+				Message "ConsoleCommand SetGameSetting iWortcraftMaxEffectsExpert 4"
+				Message "ConsoleCommand SetGameSetting iWortcraftMaxEffectsMaster 5"
+				set iPhase to iPhase + 1
+			endif
+			if iPhase == 23
+				Message "ConsoleCommand SetGameSetting fNPCBaseMagickaMult 1.5"
+				Message "ConsoleCommand SetGameSetting fNPCAttributeHealthMult 0.5"
+				Message "ConsoleCommand SetGameSetting fEnemyHealthBarTimer 2.5"
+				Message "ConsoleCommand SetGameSetting fEssentialDeathTime 10.0"
+				Message "ConsoleCommand SetGameSetting fEssentialHealthPercentReGain 0.30"
+				Message "ConsoleCommand SetGameSetting fMinDistanceUseHorse 10000"
+				Message "ConsoleCommand SetGameSetting fFleeDistanceExterior 2000"
+				Message "ConsoleCommand SetGameSetting fFleeDistanceInterior 300"
+				Message "ConsoleCommand SetGameSetting fDistanceExteriorReactCombat 600"
+				Message "ConsoleCommand SetGameSetting fDistanceInteriorReactCombat 300"
+				Message "ConsoleCommand SetGameSetting fHostileActorExteriorDistance 3000"
+				Message "ConsoleCommand SetGameSetting fHostileActorInteriorDistance 2000"
+				Message "ConsoleCommand SetGameSetting fAITalktoNPCTimer 60"
+				Message "ConsoleCommand SetGameSetting fAITalktoSameNPCtimer 120"
+				Message "ConsoleCommand SetGameSetting fAIMaxWanderTime 100"
+				Message "ConsoleCommand SetGameSetting fAIFleeConfBase 30"
+				Message "ConsoleCommand SetGameSetting fAIFleeConfMult -0.5"
+				Message "ConsoleCommand SetGameSetting fAIFleeHealthMult 10"
+				set iPhase to iPhase + 1
+			endif
+			if iPhase == 24
+				Message "ConsoleCommand SetGameSetting iAIDefaultMeleeAlertAllowed 0"
+				Message "ConsoleCommand SetGameSetting iAIDefaultPowerAttackBackwardChance 20"
+				Message "ConsoleCommand SetGameSetting iAINPCRacePowerChance 5"
+				Message "ConsoleCommand SetGameSetting fArrowOptimalDistance 1000"
+				Message "ConsoleCommand SetGameSetting fArrowMaxDistance 2000"
+				Message "ConsoleCommand SetGameSetting fMagicBallOptimalDistance 1000"
+				Message "ConsoleCommand SetGameSetting fMagicBallMaximumDistance 2000"
+				Message "ConsoleCommand SetGameSetting fMagicBoltOptimalDistance 1000"
+				Message "ConsoleCommand SetGameSetting fMagicBoltMaximumDistance 2000"
+				Message "ConsoleCommand SetGameSetting fMagicFogOptimalDistance 1000"
+				Message "ConsoleCommand SetGameSetting fMagicFogMaximumDistance 2000"
+				Message "ConsoleCommand SetGameSetting fMagicSprayOptimalDistance 500"
+				Message "ConsoleCommand SetGameSetting fMagicSprayMaximumDistance 1000"
+				Message "ConsoleCommand SetGameSetting fMagicProjectileBaseSpeed 1000"
+				Message "ConsoleCommand SetGameSetting fMagicProjectileMaxDistance 10000"
+				Message "ConsoleCommand SetGameSetting fBlinkDelayMax 4"
+				Message "ConsoleCommand SetGameSetting fBlinkDelayMin 1.5"
+				Message "ConsoleCommand SetGameSetting fBlinkDownTime 0.20"
+				Message "ConsoleCommand SetGameSetting fBlinkUpTime 0.17"
+				set iPhase to iPhase + 1
+			endif
+			if iPhase == 25
+				Message "ConsoleCommand SetGameSetting fObjectHitWeaponReach 150"
+				Message "ConsoleCommand SetGameSetting fObjectHitWeaponReach 2"
+				Message "ConsoleCommand SetGameSetting fArrowAgeMax 90"
+				Message "ConsoleCommand SetGameSetting fArrowBounceLinearSpeed 0.1"
+				Message "ConsoleCommand SetGameSetting fArrowBounceRotateSpeed 7.5"
+				Message "ConsoleCommand SetGameSetting fArrowFakeMass 0.25"
+				Message "ConsoleCommand SetGameSetting fArrowFOVTimeChange 0.25"
+				Message "ConsoleCommand SetGameSetting fArrowFOVTimeStart 2.75"
+				Message "ConsoleCommand SetGameSetting fArrowFOVZoom 30"
+				Message "ConsoleCommand SetGameSetting fArrowGravityBase 0.30"
+				Message "ConsoleCommand SetGameSetting fArrowGravityMin 0.05"
+				Message "ConsoleCommand SetGameSetting fArrowGravityMult 0.002"
+				Message "ConsoleCommand SetGameSetting fArrowSpeedMult 1500"
+				Message "ConsoleCommand SetGameSetting fArrowBowTimerBase 0.25"
+				Message "ConsoleCommand SetGameSetting fArrowBowTimerMult 0.40"
+				Message "ConsoleCommand SetGameSetting fArrowWeakGravity 1.75"
+				set iPhase to iPhase + 1
+			endif
+			if iPhase == 26
+				Message "ConsoleCommand SetGameSetting fArrowWeakSpeed 0.01"
+				Message "ConsoleCommand SetGameSetting iArrowInventoryChance 50"
+				Message "ConsoleCommand SetGameSetting iArrowMaxRefCount 15"
+				Message "ConsoleCommand SetGameSetting fDeathForceForceMin 35"
+				Message "ConsoleCommand SetGameSetting fDeathForceForceMax 85"
+				Message "ConsoleCommand SetGameSetting fMagicExplosionPowerMin 0"
+				Message "ConsoleCommand SetGameSetting fMagicExplosionPowerMax 100"
+				Message "ConsoleCommand SetGameSetting fMagicExplosionPowerMult 0.40"
+				Message "ConsoleCommand SetGameSetting fBuoyancyWater 0.0"
+				Message "ConsoleCommand SetGameSetting fBuoyancyCloth 0.75"
+				Message "ConsoleCommand SetGameSetting fBuoyancyDirt 0.25"
+				Message "ConsoleCommand SetGameSetting fBuoyancyGlass -0.2"
+				Message "ConsoleCommand SetGameSetting fBuoyancyGrass 0.25"
+				Message "ConsoleCommand SetGameSetting fBuoyancyMetal -1.0"
+				Message "ConsoleCommand SetGameSetting fBuoyancyOrganic 0.75"
+				Message "ConsoleCommand SetGameSetting fBuoyancySkin 0.75"
+				Message "ConsoleCommand SetGameSetting fBuoyancyStone -0.75"
+				Message "ConsoleCommand SetGameSetting fBuoyancyWood 1.0"
+				Message "ConsoleCommand SetGameSetting fBuoyancyMultBody 1.0"
+				Message "ConsoleCommand SetGameSetting fBuoyancyMultExtremity -0.3"
+				set iPhase to iPhase + 1
+			endif
+			if iPhase == 27
+				Message "ConsoleCommand SetGameSetting iInventoryAskQuantityAt 3"
+				Message "ConsoleCommand SetGameSetting iMaxArrowsInQuiver 20"
+				Message "ConsoleCommand SetGameSetting fClothingArmorBase 0.0"
+				Message "ConsoleCommand SetGameSetting fClothingArmorScale 0.25"
+				Message "ConsoleCommand SetGameSetting fClothingBase 0.0"
+				Message "ConsoleCommand SetGameSetting fClothingClassScale 3.0"
+				Message "ConsoleCommand SetGameSetting fClothingJewelryBase 5.0"
+				Message "ConsoleCommand SetGameSetting fClothingJewelryScale 0.10"
+				Message "ConsoleCommand SetGameSetting fStarsRotateDays 4"
+				Message "ConsoleCommand SetGameSetting fStarsRotateXAxis 0"
+				Message "ConsoleCommand SetGameSetting fStarsRotateYAxis 0"
+				Message "ConsoleCommand SetGameSetting fStarsRotateZAxis 1.0"
+				Message "ConsoleCommand SetGameSetting fMoveCharWalkMin 90"
+				Message "ConsoleCommand SetGameSetting fMoveCharWalkMax 130"
+				Message "ConsoleCommand SetGameSetting fMoveCreatureWalkMin 5.0"
+				Message "ConsoleCommand SetGameSetting fMoveCreatureWalkMax 300"
+				Message "ConsoleCommand SetGameSetting fMoveEncumEffect 0.4"
+				Message "ConsoleCommand SetGameSetting fMoveEncumEffectNoWea 0.3"
+				Message "ConsoleCommand SetGameSetting fMoveWeightMin 0.0"
+				Message "ConsoleCommand SetGameSetting fMoveWeightMax 150.0"
+				Message "ConsoleCommand SetGameSetting fMoveNoWeaponMult 1.1"
+				set iPhase to iPhase + 1
+			endif
+			if iPhase == 28
+				Message "ConsoleCommand SetGameSetting fMoveRunMult 3.0"
+				Message "ConsoleCommand SetGameSetting fMoveRunAthleticsMult 1.0"
+				Message "ConsoleCommand SetGameSetting fMoveSneakMult 0.6"
+				Message "ConsoleCommand SetGameSetting fPerkHeavyArmorExpertSpeedMult 0.5"
+				Message "ConsoleCommand SetGameSetting fPerkHeavyArmorMasterSpeedMult 0.0"
+				Message "ConsoleCommand SetGameSetting fPerkHeavyArmorSinkGravityMult 15.0"
+				Message "ConsoleCommand SetGameSetting fPerkLightArmorExpertSpeedMult 0.0"
+				Message "ConsoleCommand SetGameSetting fArmorWeightLightMaxMod 0.6"
+				Message "ConsoleCommand SetGameSetting fMoveSwimWalkBase 0.5"
+				Message "ConsoleCommand SetGameSetting fMoveSwimWalkAthleticsMult 0.02"
+				Message "ConsoleCommand SetGameSetting fMoveSwimRunBase 0.5"
+				Message "ConsoleCommand SetGameSetting fMoveSwimRunAthleticsMult 0.1"
+				Message "ConsoleCommand SetGameSetting fSubmergedMaxSpeed 2.0"
+				Message "ConsoleCommand SetGameSetting fMoveMinFlySpeed 5"
+				Message "ConsoleCommand SetGameSetting fMoveMaxFlySpeed 300"
+				Message "ConsoleCommand SetGameSetting fJumpFallSkillBase 1.25"
+				Message "ConsoleCommand SetGameSetting fJumpFallSkillMult -0.10"
+				Message "ConsoleCommand SetGameSetting fJumpFallTimeBase 0.0"
+				Message "ConsoleCommand SetGameSetting fJumpFallTimeMin 0.20"
+				Message "ConsoleCommand SetGameSetting fJumpFallTimeMult 80.0"
+				Message "ConsoleCommand SetGameSetting fJumpFallVelocityMin 600.0"
+				set iPhase to iPhase + 1
+			endif
+			if iPhase == 29
+				Message "ConsoleCommand SetGameSetting fJumpHeightMax 164.0"
+				Message "ConsoleCommand SetGameSetting fJumpHeightMin 64.0"
+				Message "ConsoleCommand SetGameSetting fJumpMoveBase 0.0"
+				Message "ConsoleCommand SetGameSetting fJumpMoveBase 0.30"
+				Message "ConsoleCommand SetGameSetting fVanityModeWheelMult 0.10"
+				Message "ConsoleCommand SetGameSetting fVanityModeWheelMax 600.0"
+				Message "ConsoleCommand SetGameSetting fVanityModeWheelMin 30.0"
+				Message "ConsoleCommand SetGameSetting fVanityModeXMult 30.0"
+				Message "ConsoleCommand SetGameSetting fVanityModeYMult 10.0"
+				Message "ConsoleCommand SetGameSetting fVanityModeDelay 0.50"
+				Message "ConsoleCommand SetGameSetting fChase3rdPersonZUnitsPerSecond 300"
+				set iPhase to iPhase + 1
+			endif
+			if iPhase == 30
 				EnablePlayerControls
 				set GSbResetDefaultSettings to 0
 				MessageBox "Default Settings have been restored."
@@ -303,6 +516,3 @@ Begin GameMode
 		endif
 	endif
 end
-
-				
-				

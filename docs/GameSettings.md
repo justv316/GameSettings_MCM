@@ -3,7 +3,7 @@
 * [Comprehensive GameSettings List](https://cs.uesp.net/wiki/Comprehensive_Settings_List)
 
 # Table of Contents
-
+0. [Restore Default](#Restore-Defaults)
 1. [Gameplay](#Gameplay)
 	* [Difficulty](#Difficulty)
 	* [Level Scaling](#Level-Scaling)
@@ -17,12 +17,12 @@
 	* [Block](#Block)
 	* [Combat Speak](#Combat-Speak)
 	* [Armor](#Armor)
-4. [Stealth](#Stealth)
+3. [Stealth](#Stealth)
 	* [Sneak Damage](#Sneak-Damage)
 	* [Sneak Mechanics](#Sneak-Mechanics)
 	* [Crime](#Crime)
 	* [Lockpicking](#Lockpicking)
-5. [Magic](#Magic)
+4. [Magic](#Magic)
 	* [Magicka Cost](#Magicka-Cost)
 	* [Spellmaking & Enchantment](#Spellmaking-&-Enchantment)
 	* [Soulgems](#Soulgems)
@@ -30,39 +30,42 @@
 	* [Disease](#Disease)
 	* [Magic Visuals](#Magic-Visuals)
 	* [Uncategorized Magic](#Uncategorized-Magic)
-6. [Player](#Player)
+5. [Player Stats](#Player-Stats)
+	* [Health](#Health)
+	* [Fatigue](#Fatigue)
+	* [Magicka](#Magicka)
 	* [Skill](#Skills)
 	* [Perks](#Perks)
 	* [Attributes](#Attributes)
 	* [Levels](#Levels)
-7. [Player Stats](#Player-Stats)
-	* [Health](#Health)
-	* [Fatigue](#Fatigue)
-	* [Magicka](#Magicka)
-9. [Speechcraft](#Speechcraft)
+6. [Player Skills](#Player-Skills)
 	* [Barter](#Barter)
 	* [Bribery](#Bribery)
-10. [Item](#Items)
-	* [Clothing](#clothing)
 	* [Repair](#Repair)
 	* [Alchemy](#Alchemy)
 	* [Wortcraft](#Wortcraft)
-11. [NPC](#NPC)
+7. [NPC](#NPC)
 	* [AI](#AI)
 	* [Ranged Combat](#Ranged-Combat)
 	* [Blink](#Blink)
-12. [Movement](#Movement)
-	* [Falling](#Falling)
-13. [Physics](#Physics)
+8. [Physics](#Physics)
 	* [Arrows](#Arrows)
 	* [Death Force](#Death-Force)
 	* [Explosion Force](#Explosion-Force)
 	* [Buoyancy](#Buoyancy)
-14. [Camera](#Camera)
-15. [Miscellaneous](#Miscellaneous)
+9. [Miscellaneous](#Miscellaneous)
+	* [Clothing](#clothing)
 	* [Stars](#Stars)
-16. [Unknown Unused and Broken](#Unknown-Unused-and-Broken)
-	
+	* [Falling](#Falling)
+	* [Movement](#Movement)
+	* [Camera](#Camera)
+10. [Unknown Unused and Broken](#Unknown-Unused-and-Broken)
+0. [Obsolete](#Obsolete)
+
+## Restore Defaults
+
+1. Contains the Restore to Default command
+	* This command changes a global variable to 1. There is a quest script that is looking for both the MCM being closed and that variable being 1. Once it is, it will go through and set all settings back to their default settings, showing a messagebox to the player once completed.
 
 ## Gameplay
 
@@ -131,7 +134,6 @@
 	* Description: The Damage multiplier for Damage Dealt while on Master Difficulty.
 	* Formula: Final Damage = (fDDM * n) + n ; Where n = actual damage, and fDDM is the value of fDifficultyDamageTakenMultiplier<Difficulty>.
 	
-
 </details>
 
 ### Level Scaling
@@ -573,15 +575,6 @@
 5. fSneakLightMult
 	* Default: 1.400
 	* Description: This multiplier is applied to all the light based aspects of detection. It is used to regulate the relative weight of light vs. sound vs. skill in calculating the final detection value. The higher the value, the easier an actor detects another based on the light conditions.
-
-	
-7. fSneakUnseenMin
-	* Default: 0.000
-	* Description: This is the threshold value at which the actor fades out of sight and cannot be targeted for combat (or anything else) by other actors. This is true only however when the actor is trying to sneak around a non-hostile actor. If the actor is hostile, fSneakLostMin is used instead.
-
-9. fSneakSeenMin
-	* Default: 0.000
-	* Description: This is the threshold value at which the actor fades into sight and can be targeted for combat (or anything else) by other actors. When the actor attacked the sneaking actor, the sneaking actor remains visible until the value falls below fSneakLostMin. When the actor did not attack (the actor seeing You is not hostile, You did not attack or steal anything), the sneaking actor remains visible until the value falls below FSneakUnseenMin - this latter part is to be tested and confirmed.
 	
 10. fSneakSkillMult
 	* Default: 0.500
@@ -1042,7 +1035,146 @@
 	
 </details>
 
-## Player
+## Player Stats
+
+### Health
+
+<details>
+<summary>Health GameSettings</Summary>
+
+[Health](https://cs.uesp.net/wiki/Health)
+
+1. fPCBaseHealthMult
+	* Default: 2.0
+	* Description: Affects the health of the player at the start of the game. Value is multiplied by the player's endurance to calculate starting health. Has no effect on health when the player levels up unless the player gains Endurance that level, in which case the player's base health will be recalculated according to this setting.
+	* Formula: Endurance * fPCBaseHealthMult * fStatsHealthStartMult
+	
+2. fStatsHealthStartMult 
+	* Default: 1.0
+	* Description: Multiplier used in the Base Health calculation
+	* Formula: Endurance * fPCBaseHealthMult * fStatsHealthStartMult
+
+3. fStatsHealthLevelMult
+	* Default: 0.1
+	* Description: The number by which the player's endurance is multiplied to calculate the amount of health to be added when the character levels up. The value produced is rounded down to the nearest whole number. If this value is set to 0.0, character health will be based directly on endurance, with no level bonuses. This only affects the player.
+	* Formula: Endurance * fStatsHealthLevelMult
+
+</details>
+
+### Fatigue
+
+<details>
+<summary>Fatigue GameSettings</Summary>
+
+[Fatigue GameSettings](https://cs.uesp.net/wiki/Fatigue_Game_Settings)
+
+1. fFatigueBase
+	* Default: 1.0
+	* Description: Base impact of low fatigue
+
+2. fFatigueMult
+	* Default: 0.5
+	* Description: Multiplier for impact of low fatigue
+
+3. fFatigueReturnBase
+	* Default: 10.0
+	* Description: Base fatigue regenerated per second
+
+4. fFatigueReturnMult
+	* Default: 0.0
+	* Description: Fatigue regenerated per second endurance multiplier
+
+5. fFatigueRunBase
+	* Default: 8.0
+	* Description: Fatigue burned per second when running
+
+6. fFatigueRunMult
+	* Default: 0.0
+	* Description: Fatigue burned per second when running encumbrance multiplier
+
+7. fFatigueJumpBase
+	* Default (OG): 30.0
+	* Default (RE): 14.0
+	* Description: Fatigue burned by jumping
+
+8. fFatigueJumpMult
+	* Default: 0.0
+	* Description: Fatigue burned by jumping encumbrance multiplier
+
+9. fFatigueCastBase
+	* Default: 1.0
+	* Description: Fatigue burned by spell casting
+
+10. fFatigueCastMult
+	* Default: 0.0
+	* Description: Fatigue burned by spell casting multiplier, depended on the magic cost for the spell.
+
+11. fFatigueAttackWeaponBase
+	* Default: 7.0
+	* Description: Fatigue burned by attack
+
+12. fFatigueAttackWeaponMult
+	* Default: 0.1
+	* Description: Fatigue burned by attack weapon weight multiplier
+
+13. fFatigueBlockBase
+	* Default: 0.0
+	* Description: Fatigue burned by block base
+
+14. fFatigueBlockMult
+	* Default: 1.0
+	* Description: Fatigue burned by block skill/100 multiplier
+
+15. fFatigueBlockSkillBase
+	* Default: 20.0
+	* Description: Fatigue burned by block skill base
+
+16. fFatigueBlockSkillMult
+	* Default: 0.0
+	* Description: Fatigue burned by block skill multiplier
+
+17. fPowerAttackFatiguePenalty
+	* Default: 5.0
+	* Description: Fatigue burned by a power attack multiplier
+
+18. fMarksmanFatigueBurnPerSecond
+	* Default: 15.0
+	* Description: Fatigue burned per second when bow drawn by novice marksman
+
+19. fMarksmanFatigueBurnPerShot
+	* Default: 5.0
+	* Description: Fatigue burned per shot (by novice marksman???)
+
+20. iMarksmanFatigueBurnPerSecondSkill
+	* Default: 20
+	* Description: Unknown. Does not define max skill below which fMarksmanFatigueBurnPerSecond takes affect.
+
+21. fPerkJumpFatigueExpertMult
+	* Default: 0.5
+	* Description: Acrobatics Perk multiplier for fatigue burn when jumping
+
+</details>
+
+### Magicka
+
+<details>
+<Summary>Magicka GameSettings</Summary>
+
+1. fPCBaseMagickaMult
+	* Default: 1.0
+	* Description: Used to calculate the player's magicka from intelligence.
+
+2. fMagickaReturnBase
+	* Default: 0.75
+	* Description: Base value for magicka regeneration rate.
+	* Formula: MagickaRegenRate = 0.01 	* (fMagickaReturnBase + fMagickaReturnMult 	* Willpower) 	* TotalMagicka
+
+3. fMagickaReturnMult
+	* Default: 0.020
+	* Description: Multiplier used to calculate magicka regeneration rate.
+	* Formula: MagickaRegenRate = 0.01 	* (fMagickaReturnBase + fMagickaReturnMult 	* Willpower) 	* TotalMagicka
+
+</details>
 
 ### Skills
 
@@ -1160,168 +1292,7 @@
 
 </details>
 
-## Player Stats
-
-### Health
-
-<details>
-<summary>Health GameSettings</Summary>
-
-[Health](https://cs.uesp.net/wiki/Health)
-
-1. fPCBaseHealthMult
-	* Default: 2.0
-	* Description: Affects the health of the player at the start of the game. Value is multiplied by the player's endurance to calculate starting health. Has no effect on health when the player levels up unless the player gains Endurance that level, in which case the player's base health will be recalculated according to this setting.
-	* Formula: Endurance * fPCBaseHealthMult * fStatsHealthStartMult
-	
-2. fStatsHealthStartMult 
-	* Default: 1.0
-	* Description: Multiplier used in the Base Health calculation
-	* Formula: Endurance * fPCBaseHealthMult * fStatsHealthStartMult
-
-3. fStatsHealthLevelMult
-	* Default: 0.1
-	* Description: The number by which the player's endurance is multiplied to calculate the amount of health to be added when the character levels up. The value produced is rounded down to the nearest whole number. If this value is set to 0.0, character health will be based directly on endurance, with no level bonuses. This only affects the player.
-	* Formula: Endurance * fStatsHealthLevelMult
-
-</details>
-
-### Fatigue
-
-<details>
-<summary>Fatigue GameSettings</Summary>
-
-[Fatigue GameSettings](https://cs.uesp.net/wiki/Fatigue_Game_Settings)
-
-1. fFatigueBase
-	* Default: 1.0
-	* Description: Base impact of low fatigue
-
-2. fFatigueMult
-	* Default: 0.5
-	* Description: Multiplier for impact of low fatigue
-
-3. fFatigueReturnBase
-	* Default: 10.0
-	* Description: Base fatigue regenerated per second
-
-4. fFatigueReturnMult
-	* Default: 0.0
-	* Description: Fatigue regenerated per second endurance multiplier
-
-5. fFatigueRunBase
-	* Default: 8.0
-	* Description: Fatigue burned per second when running
-
-6. fFatigueRunMult
-	* Default: 0.0
-	* Description: Fatigue burned per second when running encumberance multiplier
-
-7. fFatigueJumpBase
-	* Default (OG): 30.0
-	* Default (RE): 14.0
-	* Description: Fatigue burned by jumping
-
-8. fFatigueJumpMult
-	* Default: 0.0
-	* Description: Fatigue burned by jumping encumberance multiplier
-
-9. fFatigueCastBase
-	* Default: 1.0
-	* Description: Fatigue burned by spell casting
-
-10. fFatigueCastMult
-	* Default: 0.0
-	* Description: Fatigue burned by spell casting multiplier, depended on the magic cost for the spell.
-
-11. fFatigueAttackWeaponBase
-	* Default: 7.0
-	* Description: Fatigue burned by attack
-
-12. fFatigueAttackWeaponMult
-	* Default: 0.1
-	* Description: Fatigue burned by attack weapon weight multiplier
-
-13. fFatigueBlockBase
-	* Default: 0.0
-	* Description: Fatigue burned by block base
-
-14. fFatigueBlockMult
-	* Default: 1.0
-	* Description: Fatigue burned by block skill/100 multiplier
-
-15. fFatigueBlockSkillBase
-	* Default: 20.0
-	* Description: Fatigue burned by block skill base
-
-16. fFatigueBlockSkillMult
-	* Default: 0.0
-	* Description: Fatigue burned by block skill multiplier
-
-17. fPowerAttackFatiguePenalty
-	* Default: 5.0
-	* Description: Fatigue burned by a power attack multiplier
-
-18. fMarksmanFatigueBurnPerSecond
-	* Default: 15.0
-	* Description: Fatigue burned per second when bow drawn by novice marksman
-
-19. fMarksmanFatigueBurnPerShot
-	* Default: 5.0
-	* Description: Fatigue burned per shot (by novice marksman???)
-
-20. iMarksmanFatigueBurnPerSecondSkill
-	* Default: 20
-	* Description: Unknown. Does not define max skill below which fMarksmanFatigueBurnPerSecond takes affect.
-
-21. fPerkJumpFatigueExpertMult
-	* Default: 0.5
-	* Description: Acrobatics Perk multiplier for fatigue burn when jumping
-
-22. fPerkAthleticsNoviceFatigueMult
-	* Default: 1.0000
-	* Description: Applies when actors Athletics skill is less than iSkillApprenticeMin.
-
-23. fPerkAthleticsApprenticeFatigueMult
-	* Default: 0.7500
-	* Description: Applies when actors Athletics skill ranges from iSkillApprenticeMin to iSkillJourneymanMin.
-
-24. fPerkAthleticsJourneymanFatigueMult
-	* Default: 0.5000
-	* Description: Applies when actors Athletics skill ranges from iSkillJourneymanMin to iSkillExpertMin.
-
-25. fPerkAthleticsExpertFatigueMult
-	* Default: 0.2500
-	* Description: Applies when actors Athletics skill ranges from iSkillExpertMin to iSkillMasterMin.
-
-26. fPerkAthleticsMasterFatigueMult
-	* Default: 0.0000
-	* Description: Applies when actors Athletics skill is greater than or equal to iSkillMasterMin.
-
-</details>
-
-### Magicka
-
-<details>
-<Summary>Magicka GameSettings</Summary>
-
-1. fPCBaseMagickaMult
-	* Default: 1.0
-	* Description: Used to calculate the player's magicka from intelligence.
-
-2. fMagickaReturnBase
-	* Default: 0.75
-	* Description: Base value for magicka regeneration rate.
-	* Formula: MagickaRegenRate = 0.01 	* (fMagickaReturnBase + fMagickaReturnMult 	* Willpower) 	* TotalMagicka
-
-3. fMagickaReturnMult
-	* Default: 0.020
-	* Description: Multiplier used to calculate magicka regeneration rate.
-	* Formula: MagickaRegenRate = 0.01 	* (fMagickaReturnBase + fMagickaReturnMult 	* Willpower) 	* TotalMagicka
-
-</details>
-
-## Speechcraft
+## Player Skills
 
 ### Barter
 
@@ -1334,43 +1305,43 @@
 
 2. fBarterBuyMult
 	* Default: 9.9000
-	* Description: How dramatically the difference in the merchants and players merchantile skill affects the price.
+	* Description: How dramatically the difference in the merchants and players mercantile skill affects the price.
 
-3. fBarterDispBase
-	* Default: 1.5000
-	* Description: Used to control how much effect the mechant's disposition has.
-
-4. fBarterHaggleBase
-	* Default: 5.0000
-	* Description: Affects the maximum haggle value the merchant will accept.
-
-5. fBarterHaggleCurve
-	* Default: 0.5500
-	* Description: Affects the maximum haggle value the merchant will accept.
-
-6. fBarterHaggleDispMult
-	* Default: 0.5000
-	* Description: How much influence the merchant's disposition to the player has on the maximum haggle value the merchant will accept.
-
-7. fBarterHaggleMax
-	* Default: 40.0000
-	* Description: Limits the total effect haggling can have on the price.
-
-8. fBarterSellBase
+3. fBarterSellBase
 	* Default: -20.0000
 	* Description: Offset added to the value of items sold to merchants.
 
-9. fBarterSellMult
+4. fBarterSellMult
 	* Default: 5.0000
 	* Description: How dramatically the difference in the merchants and players merchantile skill affects the price.
 
+5. fBarterDispBase
+	* Default: 1.5000
+	* Description: Used to control how much effect the mechant's disposition has.
+
+6. fBarterHaggleBase
+	* Default: 5.0000
+	* Description: Affects the maximum haggle value the merchant will accept.
+
+7. fBarterHaggleCurve
+	* Default: 0.5500
+	* Description: Affects the maximum haggle value the merchant will accept.
+
+8. fBarterHaggleDispMult
+	* Default: 0.5000
+	* Description: How much influence the merchant's disposition to the player has on the maximum haggle value the merchant will accept.
+
+9. fBarterHaggleMax
+	* Default: 40.0000
+	* Description: Limits the total effect haggling can have on the price.
+
 10. iMerchantRespawnDay1
 	* Default: 0
-	* Description: Vendors restock their wares based upon what day of the week it is. Each day is represented as a number, beginning with 0 as Sunday/Sundas and ending with 6 as Saturday/Loredas. As there are only two MerchantRespawnDay entries, venddors can thus only restock their wares twice a week.
+	* Description: Vendors restock their wares based upon what day of the week it is. Each day is represented as a number, beginning with 0 as Sunday/Sundas and ending with 6 as Saturday/Loredas. As there are only two MerchantRespawnDay entries, vendors can thus only restock their wares twice a week.
 
 11. iMerchantRespawnDay2
 	* Default: 3
-	* Description: Vendors restock their wares based upon what day of the week it is. Each day is represented as a number, beginning with 0 as Sunday/Sundas and ending with 6 as Saturday/Loredas. As there are only two MerchantRespawnDay entries, venddors can thus only restock their wares twice a week.
+	* Description: Vendors restock their wares based upon what day of the week it is. Each day is represented as a number, beginning with 0 as Sunday/Sundas and ending with 6 as Saturday/Loredas. As there are only two MerchantRespawnDay entries, vendors can thus only restock their wares twice a week.
 
 </details>
 
@@ -1382,55 +1353,22 @@
 1. fBribeCostCurve
 	* Default: 1.5000
 	* Description: Controls how steep the non-linear increase of the price will be, as determined by the actors' Speechcraft scores.
+
+2. fBribeScale
+	* Default: 1.0000
+	* Description: A global multipler that increases or decreases all bribe costs proportionally (1.0 is 100% of normal, 2.0 is 200% of normal, etc.).
 	
-2. fBribeCurve
+3. fBribeCurve
 	* Default: 0.7500
 	* Description: Controls how steep the non-linear increase of the disposition bonus will be.
 	
-3. fBribeNPCLevelMult
+4. fBribeNPCLevelMult
 	* Default: 0.1000
 	* Description: Determines how much weight the NPC's level has relative to the player's level.
-	
-4. fBribeScale
-	* Default: 1.0000
-	* Description: A global multipler that increases or decreases all bribe costs proportionally (1.0 is 100% of normal, 2.0 is 200% of normal, etc.).
 	
 5. fBribeSpeechcraftMult
 	* Default: 0.0300
 	* Description: Determines how much impact the relative Speechcraft values have compared to the actor's levels.
-	
-</details>
-
-## Items
-
-### Clothing
-
-<details>
-<Summary>Clothing GameSettings</Summary>
-
-1. fClothingArmorBase
-	* Default: 0.000
-	* Description: One of several settings that control the "clothing value" returned by GetClothingValue. This is the multiplier for the monetary value of any jewelry worn.
-	
-2. fClothingArmorScale
-	* Default: 0.250
-	* Description: One of several settings that control the "clothing value" returned by GetClothingValue. This is the multiplier for the monetary value of any jewelry worn.
-	
-3. fClothingBase
-	* Default: 0.000
-	* Description: One of several settings that control the "clothing value" returned by GetClothingValue. This is the multiplier for the monetary value of any jewelry worn.
-	
-4. fClothingClassScale
-	* Default: 3.000
-	* Description: One of several settings that control the "clothing value" returned by GetClothingValue. This is the multiplier for the monetary value of any jewelry worn.
-	
-5. fClothingJewelryBase
-	* Default: 5.0000
-	* Description: One of several settings that control the "clothing value" returned by GetClothingValue. This is the multiplier for the monetary value of any jewelry worn.
-	
-6. fClothingJewelryScale
-	* Default: 0.1000
-	* Description: One of several settings that control the "clothing value" returned by GetClothingValue. This is the multiplier for the monetary value of any jewelry worn.
 	
 </details>
 
@@ -1454,20 +1392,20 @@
 	* Description: Determines base amount of health repaired per swing of repair hammer.
 	* Formula: fRepairArmorerBase + (Armorer skill * fRepairArmorerMult) + (Strength * fRepairStrengthMult)
 	
-4. fRepairCostMult
-	* Default: 0.90
-	* Description: Multiplier used to calculate the cost of repair when paying a smith or other NPC for repairs.
-	
-5. fRepairSkillBreakBase
+4. fRepairSkillBreakBase
 	* Default: 30.0
 	* Description: Controls base break chance for repair hammers. Is used with fRepairSkillBreakMult to get the final formula.
 	* Formula: Not known.
 	
-6. fRepairSkillBreakMult
+5. fRepairSkillBreakMult
 	* Default: -0.200
 	* Description: Controls base break chance for repair hammers. Is used with fRepairSkillBreakBase to get the final formula. This setting decreases the break chance, so should always be a zero or negative number unless you want hammers to break more often than at 0 skill.
 	* Formula: Not known.
 	
+6. fRepairCostMult
+	* Default: 0.90
+	* Description: Multiplier used to calculate the cost of repair when paying a smith or other NPC for repairs.
+
 7. iArmorDamageBootsChance
 	* Default: 10
 	* Description: Determine the percentage of damage that will be absorbed by a piece of armor. Note: Values should sum to 100 otherwise damage will be "lost"
@@ -1508,10 +1446,6 @@
 	* Default: 2.5
 	* Description: Multiplier used to calculate the Magnitude and Duration of any type 1 effects on all player made potions. Type 1 effects are those with both magnitude and duration (e.g. Damage Magicka). With other default game settings, increasing it will increase the strength and decrease the duration of the effect, and decreasing it will decrease the strength and increase duration.
 
-3. fPotionGoldValueMult
-	* Default: 0.45
-	* Description: Multiplier used to caluclate the amount of gold Player made potions are worth. 
-
 4. fPotionT1AleDurMult
 	* Default: -0.0200
 	* Description: Multiplier used to calculate the Duration of hostile type 1 effects on player made potions made with an Alembic. Type 1 effects are those with both magnitude and duration (e.g. Damage Magicka). Increasing it will decrease the strength of the effect, and decreasing it will increase the strength.
@@ -1519,10 +1453,6 @@
 5. fPotionT1AleMagMult
 	* Default: -0.0200
 	* Description: Multiplier used to calculate the Duration of hostile type 1 effects on player made potions made with an Alembic. Type 1 effects are those with both magnitude and duration (e.g. Damage Magicka). Increasing it will decrease the strength of the effect, and decreasing it will increase the strength.
-
-6. fPotionT1CalDurMult
-	* Default: 0.0100
-	* Description: This Setting has no effect on potion strength.
 
 7. fPotionT1CalMagMult
 	* Default: 0.0035
@@ -1559,26 +1489,30 @@
 15. fPotionT3RetMagMult
 	* Default: 0.0050
 	* Description: Multiplier used to calculate the Magnitude of beneficial type 3 effects on player made potions made with a Retort. Type 3 effects are those with no duration (e.g. Dispel). Increasing it will increase the strength of the effect, and decreasing it will decrease the strength.
+
+16. fPotionGoldValueMult
+	* Default: 0.45
+	* Description: Multiplier used to calculate the amount of gold Player made potions are worth. 
 	
-16. iMagicMaxPotionsNovice
+17. iMagicMaxPotionsNovice
 	* Default: 4
 	* Description: The maximum number of potions a Novice of alchemy may drink at once.
 	
-17. iMagicMaxPotionsApprentice
+18. iMagicMaxPotionsApprentice
 	* Default: 4
 	* Description: The maximum number of potions a Apprentice of alchemy may drink at once.
 
-18. iMagicMaxPotionsJourneyman
+19. iMagicMaxPotionsJourneyman
 	* Default: 4
 	* Default (RE): 6
 	* Description: The maximum number of potions a Journeyman of alchemy may drink at once.
 	
-19. iMagicMaxPotionsExpert
+20. iMagicMaxPotionsExpert
 	* Default: 4
 	* Default (RE): 6
 	* Description: The maximum number of potions a Expert of alchemy may drink at once.
 	
-20. iMagicMaxPotionsMaster
+21. iMagicMaxPotionsMaster
 	* Default: 4
 	* Default (RE): 10
 	* Description: The maximum number of potions a Master of alchemy may drink at once.
@@ -1633,43 +1567,43 @@
 	* Default: 0.500
 	* Description: Affects how the health of the NPC is calculated based on level and endurance. Increasing this value gives NPCs more health.
 
-1. fEnemyHealthBarTimer
+3. fEnemyHealthBarTimer
 	* Default: 2.5
-	* Description: This is a measure of the amount of time in seconds that the health bar of an enemy displays after the cursor moves away.
+	* Description: This is the amount of time in seconds that the health bar of an enemy displays after the cursor moves away.
 
-2. fEssentialDeathTime
+4. fEssentialDeathTime
 	* Default: 10.0
 	* Description: The time that an NPC marked essential will remain unconscious before getting back up.
 
-3. fEssentialHealthPercentReGain
+5. fEssentialHealthPercentReGain
 	* Default: 0.30
 	* Description: The percent of maximum health an essential NPC will have remaining upon recovery.
 
-4. fMinDistanceUseHorse
+6. fMinDistanceUseHorse
 	* Default: 10000.00
 	* Description: When told to go to a point farther away than this distance, an NPC will use a horse if one is available. Any point closer than this distance, and they will simply walk.
 
-5. fFleeDistanceExterior
+7. fFleeDistanceExterior
 	* Default: 2000.00
 	* Description: Controls how far away an actor (NPC, creature) will run when it flees. Once the actor reaches this distance it will stop fleeing and, usually, just stand there. If you close the distance the actor will continue to flee to this maximum distance.
 
-6. fFleeDistanceInterior
+8. fFleeDistanceInterior
 	* Default: 300.00
 	* Description: Controls how far away an actor (NPC, creature) will run when it flees. Once the actor reaches this distance it will stop fleeing and, usually, just stand there. If you close the distance the actor will continue to flee to this maximum distance.
 
-7. fDistanceExteriorReactCombat
+9. fDistanceExteriorReactCombat
 	* Default: 600.00
 	* Description: The distance at which a hostile actor (NPC, creature) will attack, assuming the actor has detected the player.
 
-8. fDistanceInteriorReactCombat
+10. fDistanceInteriorReactCombat
 	* Default: 300.00
 	* Description: The distance at which a hostile actor (NPC, creature) will attack, assuming the actor has detected the player.
 	
-9. fHostileActorExteriorDistance
+11. fHostileActorExteriorDistance
 	* Default: 3000.00
 	* Description: The distance in game units at which a hostile actor (NPC, creature) is considered close enough to disable fast traveling, waiting, or sleeping for the player.
 
-10. fHostileActorInteriorDistance
+12. fHostileActorInteriorDistance
 	* Default: 2000.00
 	* Description: The distance in game units at which a hostile actor (NPC, creature) is considered close enough to disable fast traveling, waiting, or sleeping for the player.
 
@@ -1680,11 +1614,11 @@
 <details>
 <Summary>AI GameSettings</Summary>
 
-1. fAITalktoNPCtimer
+1. fAITalktoNPCTimer
 	* Default: 60.00
 	* Description: Time in seconds that an NPC will wait after conversation with a NPC before it will attempt another conversation.
 	
-2. fAItalktoSameNPCtimer
+2. fAITalktoSameNPCTimer
 	* Default: 120.00
 	* Description: Time in seconds that a NPC will wait before engaging in a conversation with the last NPC to which it spoke.
 	
@@ -1797,7 +1731,261 @@
 
 </details>
 
-## Movement
+## Physics
+
+<details>
+<summary>Physics GameSettings</summary>
+
+1. fObjectHitWeaponReach
+	* Default: 150.000
+	* Description: Dictates how far ALL weapons reach to hit any object such as a tree. Unlike hitting actors, Weapon Range will not effect how far you can reach with your weapon to hit objects.
+	
+2. fGrabPower
+	* Default: 2.000
+	* Description: Controls the amount of power the player has when manipulating objects with the Grab key (default: Z). Increasing this number increases the rate at which an object can be moved using the grab key.
+	
+</details>
+
+### Arrows
+
+<details>
+<summary>Arrows GameSettings</summary>
+
+1. fArrowAgeMax
+	* Default: 90.000
+	* Description: The number of seconds an arrow remains on the ground, or stuck into a world object, after impact. This setting does not apply to arrows striking an actor, these arrows remain in the actor's inventory until removed (sold, used, stolen, removed by script, etc). Recovery chance is determined by IArrowInventoryChance.
+
+2. fArrowBounceLinearSpeed
+	* Default: 0.100
+	* Description: This controls the speed at which arrows bounce back (i.e., if you set this to 1.0000, and shoot an arrow at a stone wall, the arrow will bounce back at you at the same speed it was fired). Setting this to 0.5000 will set it to bounce back at 1/2 speed. Setting it to 0 will (in theory) stop it from bouncing back.
+
+3. fArrowBounceRotateSpeed
+	* Default: 7.500
+	* Description: This setting controls how much the arrow rotates after it bounces off of something (i.e., if you set this to 0.0500, the arrow will not rotate very much after bouncing off something).
+
+4. fArrowFakeMass
+	* Default: 0.2500
+	* Description: How "heavy" an arrow is considered to be for purposes of calculating havoc functions. Probably used mostly when arrows impact havoc objects.
+
+5. fArrowFOVTimeChange
+	* Default: 0.250
+	* Description: It is an increment (or decrement) of some sort that affects zoom speed.
+
+6. fArrowFOVTimeStart
+	* Default: 2.750
+	* Description: It is believed to be the base value for zooming speed. See fArrowFOVTimeChange to determine how zooming can be speed up.
+
+7. fArrowFOVZoom
+	* Default: 30.000
+	* Description: This is the FOV setting towards which the current FOV is adjusted (and where it stops). See fArrowFOVTimeStart and fArrowFOVTimeChange to determine the speed of zoom effect.
+
+8. fArrowGravityBase
+	* Default: 0.300
+	* Description: Believed to be the base force pulling the arrow towards the ground - for arc calculation. The smaller the value, the staighter the arrow's arc.
+
+9. fArrowGravityMin
+	* Default: 0.0500
+	* Description: Changing this setting did not appear to do anything to arrows. While keeping the gravity multiplier at the same setting, going from a GravityMin value of 0.001 to 90,000 did nothing to change the arc of the arrow.
+
+10. fArrowGravityMult
+	* Default: 0.0020
+	* Description: This multiplier determines the gravity on arrows. If you increase this amount, arrows will fly straight for a longer period of time. If you decrease the amount, arrows will go straight for a much shorter period of time.
+
+11. fArrowSpeedMult
+	* Default: 1500.000
+	* Description: The base speed at which fired arrows fly in units/sec.
+	* Formula: (Speed prop. of Arrow) * fArrowSpeedMult * (fArrowWeakSpeed + (1 - fArrowWeakSpeed)*DrawMult
+	* DrawMult = fArrowBowTimerBase + fArrowBowTimerMult * DrawTime  ,  or 1.0 (whichever is less)
+	
+12. fArrowBowTimerBase
+	* Default: 0.2500
+	* Description: The speed of arrows that haven't been drawn back all of the way.
+
+13. fArrowBowTimerMult
+	* Default: 0.400
+	* Description: Determines the rate at which the arrow is drawn back while the fire button is held. 
+
+14. fArrowWeakGravity
+	* Default: 1.750
+	* Description: This setting determines the gravity effect on arrows that haven't been held back for the proper length of time (not a power shot). Decreasing this setting means that your "weak" arrows will have a straighter arc than normal (travel in a straight line for a longer period of time).
+
+15. fArrowWeakSpeed
+	* Default: 0.0100
+	* Description: Determines the minimum speed, as a fraction of the base speed, for arrows that aren't drawn back all of the way. See the full speed formula for details.
+
+16. iArrowInventoryChance
+	* Default: 50
+	* Description: The percent chance that an arrow that struck its target will be added to the target's inventory.
+	
+17. iArrowMaxRefCount
+	* Default: 15
+	* Description: The maximum number of Arrow References that are kept track of in a cell caused by rebounding arrows.
+
+</details>
+
+### Death Force
+
+<details>
+<summary>Death Force GameSettings</summary>
+
+1. fDeathForceForceMin
+	* Default: 35.0
+	* Description: This, along with fDeathForceForceMax, determines how much force is allowed when someone dies.
+
+2. fDeathForceForceMax
+	* Default: 85.0
+	* Description: This, along with fDeathForceForceMin, determines how much force is allowed when someone dies.
+
+</details>
+
+### Explosion Force
+
+<details>
+<summary>Explosion Force GameSettings</summary>
+
+1. fMagicExplosionPowerMin
+	* Default: 0.0
+	* Description: Like fMagicExplosionPowerMax, this value seems to deal with the minimum force applied to an actor with magic. The game will use this absolute minimum if a calculated value falls below this range.
+
+2. fMagicExplosionPowerMax
+	* Default: 100.00
+	* Description: This value has to do with the maximum "kick" an explosion of magic uses. This is how far an actor of any type will be moved by magic. This seems to only affect actors that are dead or paralyzed. This also seems to affect movable in-game items, however they accelerate at a much greater distance and speed, so weight must be a factor too. This value is used as a maximum upper end if the game calculates a higher value. (My value is 128.000 which seems to be more than sufficient.)
+
+3. fMagicExplosionPowerMult
+	* Default: 0.40
+	* Description: This setting is likely part of a formula the game uses to determine what "kick" a magic bolt or explosion has. The formula appears to be based on: The damage the spell does, the area of the spell, this value, and the weight of the object. This only seems to work when the target is paralyzed, dead, or a moveable object.
+
+</details>
+
+### Buoyancy
+
+<details>
+<summary>Buoyancy GameSettings</summary>
+
+* All of the fBuoyancy settings control the buoyancy (how fast or slow an object will sink when dropped in a pool of water) of some type of material in the game. A setting of -1.000 means the material will sink immediately to the bottom of the water. A setting of 0.000 means the material will slowly settle into a mid-level height in the water. A setting of +1.000 means the material will float on top of the water. Other values control the speed at which the material will sink and the height at which it floats
+	
+1. fBuoyancyWater
+	* Default: 0.00
+	* Description: A reference value. It sets the buoyancy of water. Setting it to 1.0000 makes everything sink. Setting it to -1.0000 makes everything float and could possibly induce a permanent "water-walk" effect for all characters.
+
+2. fBuoyancyCloth
+	* Default: 0.75
+	* Description: Buoyancy value for materials of the Cloth category.
+	
+3. fBuoyancyDirt
+	* Default: 0.25
+	* Description: Buoyancy value for materials of the Dirt category.
+	
+4. fBuoyancyGlass
+	* Default: -0.200
+	* Description: Buoyancy value for materials of the Glass category.
+	
+5. fBuoyancyGrass
+	* Default: 0.25
+	* Description: Buoyancy value for materials of the Grass category.
+	
+6. fBuoyancyMetal
+	* Default: -1.00
+	* Description: Buoyancy value for materials of the Metal category.
+	
+7. fBuoyancyOrganic
+	* Default: 0.75
+	* Description: Buoyancy value for materials of the Organic category.
+	
+8. fBuoyancySkin
+	* Default: 0.75
+	* Description: Buoyancy value for materials of the skin category.
+	
+9. fBuoyancyStone
+	* Default: -0.75
+	* Description: Buoyancy value for materials of the stone category. Rocks, granite, slate, pebbles, and such.
+
+10. fBuoyancyWood
+	* Default: 1.00
+	* Description:  Buoyancy value for materials of the wood category. These include chairs, desks, barrels, and other furniture. Also, driftwood and any items you find that are made of wood.
+	
+11. fBuoyancyMultBody
+	* Default: 1.00
+	* Description: The multiplier that applies to the main body of the object.
+	
+12. fBuoyancyMultExtremity
+	* Default: -0.3000
+	* Description: The multiplier for the fBuoyancy setting of a given material. Multiplying the MultExtremity value by the "Material" value will produce the final buoyancy of the object. 
+	
+
+</details>
+
+## Miscellaneous
+
+<details>
+<summary>Miscellaneous GameSettings</summary>
+
+1. iInventoryAskQuantityAt
+	* Default: 3
+	* Description: Setting that determines when to show the amount slider for selecting multiple items when items are selected in the inventory menu.
+
+2. iMaxArrowsInQuiver
+	* Default: 20
+	* Description: This is the maximum amount of arrows that can be rendered in a quiver on the back of an actor. Increasing this beyond 20 would probably cause clipping or crowding issues.
+
+</details>
+
+### Clothing
+
+<details>
+<Summary>Clothing GameSettings</Summary>
+
+1. fClothingArmorBase
+	* Default: 0.000
+	* Description: One of several settings that control the "clothing value" returned by GetClothingValue. This is the multiplier for the monetary value of any jewelry worn.
+	
+2. fClothingArmorScale
+	* Default: 0.250
+	* Description: One of several settings that control the "clothing value" returned by GetClothingValue. This is the multiplier for the monetary value of any jewelry worn.
+	
+3. fClothingBase
+	* Default: 0.000
+	* Description: One of several settings that control the "clothing value" returned by GetClothingValue. This is the multiplier for the monetary value of any jewelry worn.
+	
+4. fClothingClassScale
+	* Default: 3.000
+	* Description: One of several settings that control the "clothing value" returned by GetClothingValue. This is the multiplier for the monetary value of any jewelry worn.
+	
+5. fClothingJewelryBase
+	* Default: 5.0000
+	* Description: One of several settings that control the "clothing value" returned by GetClothingValue. This is the multiplier for the monetary value of any jewelry worn.
+	
+6. fClothingJewelryScale
+	* Default: 0.1000
+	* Description: One of several settings that control the "clothing value" returned by GetClothingValue. This is the multiplier for the monetary value of any jewelry worn.
+	
+</details>
+
+### Stars
+
+<details>
+<summary>Stars GameSettings</summary>
+
+1. fStarsRotateDays
+	* Default: 4.0
+	* Description: This setting dictates how often the stars rotate in the sky. In particular, this setting is in days. If you set this to a very small setting, the stars will rotate far faster than normal. The speed of their rotation is determined using the other 3 variables, each dictating the number of rotations per period (for each axis). If you set RotateDays to 0.0004, and each of the Axis to 1, then, all 3 axis will make one full rotation every second (roughly).
+	* If all three rotation variables are set to zero, then the stars will fade in and out based on this setting.
+
+2. fStarsRotateXAxis
+	* Default: 0.0
+	* Description: Determines how many rotations are made on the X axis per period (period is defined by FStarsRotateDays). The X axis will move around you like you are in a barrel (A curved pattern, going from right to left across the screen).
+	
+3. fStarsRotateYAxis
+	* Default: 0.0
+	* Description: Determines how many rotations are made on the Y axis per period (period is defined by FStarsRotateDays). The Y axis will move around you like you are in a barrel (A curved pattern, going from right to left across the screen, depending on where you are facing).
+	
+4. fStarsRotateZAxis
+	* Default: 1.0
+	* Description: Determines how many rotations are made on the X axis per period (period is defined by FStarsRotateDays). The Z axis will spin around above you, counterclockwise.
+	
+</details>
+
+### Movement
 
 <details>
 <Summary>Movement GameSettings</Summary>
@@ -1820,19 +2008,19 @@
 
 5. fMoveEncumEffect
 	* Default: 0.4
-	* Description: Worn armor/weapons encuberence affect with weapon ready
+	* Description: Worn armor/weapons encumbrance effect with weapon ready
 
 6. fMoveEncumEffectNoWea
 	* Default: 0.3
-	* Description: Worn armor/weapons encuberence affect without weapon ready
+	* Description: Worn armor/weapons encumbrance effect without weapon ready
 
 7. fMoveWeightMin
 	* Default: 0.0
-	* Description: Movement encumberance minimum worn weight
+	* Description: Movement encumbrance minimum worn weight
 
 8. fMoveWeightMax
 	* Default: 150.0
-	* Description: Movement encumberance maximum worn weight
+	* Description: Movement encumbrance maximum worn weight
 
 9. fMoveNoWeaponMult
 	* Default: 1.1
@@ -1860,7 +2048,7 @@
 
 15. fPerkHeavyArmorSinkGravityMult
 	* Default: 15.0
-	* Description: Unknown impact perk
+	* Description: Unknown impact setting
 
 16. fPerkLightArmorExpertSpeedMult
 	* Default: 0.0
@@ -1950,195 +2138,10 @@
 
 </details>
 
-## Physics
+### Camera
 
 <details>
-<summary>Physics GameSettings</summary>
-
-1. fObjectHitWeaponReach
-	* Default: 150.000
-	* Description: Dictates how far ALL weapons reach to hit any object such as a tree. Unlike hitting actors, Weapon Range will not effect how far you can reach with your weapon to hit objects.
-	
-2. fGrabPower
-	* Default: 2.000
-	* Description: Controls the amount of power the player has when manipulating objects with the Grab key (default: Z). Increasing this number increases the rate at which an object can be moved using the grab key.
-	
-</details>
-
-### Arrows
-
-<details>
-<summary>Arrows GameSettings</summary>
-
-1. fArrowAgeMax
-	* Default: 90.000
-	* Description: The number of seconds an arrow remains on the ground, or stuck into a world object, after impact. This setting does not apply to arrows striking an actor, these arrows remain in the actor's inventory until removed (sold, used, stolen, removed by script, etc). Recovery chance is determined by IArrowInventoryChance.
-
-2. fArrowBounceLinearSpeed
-	* Default: 0.100
-	* Description: This controls the speed at which arrows bounce back (i.e., if you set this to 1.0000, and shoot an arrow at a stone wall, the arrow will bounce back at you at the same speed it was fired). Setting this to 0.5000 will set it to bounce back at 1/2 speed. Setting it to 0 will (in theory) stop it from bouncing back.
-
-3. fArrowBounceRotateSpeed
-	* Default: 7.500
-	* Description: This setting controls how much the arrow rotates after it bounces off of something (i.e., if you set this to 0.0500, the arrow will not rotate very much after bouncing off something).
-
-4. fArrowFakeMass
-	* Default: 0.2500
-	* Description: How "heavy" an arrow is considered to be for purposes of calculating havoc functions. Probably used mostly when arrows impact havoc objects.
-
-5. fArrowFOVTimeChange
-	* Default: 0.250
-	* Description: it is an increment (or decrement) of some sort that affects zoom speed.
-
-6. fArrowFOVTimeStart
-	* Default: 2.750
-	* Description: It is believed to be the base value for zooming speed. See fArrowFOVTimeChange to determine how zooming can be speed up.
-
-7. fArrowFOVZoom
-	* Default: 30.000
-	* Description: This is the FOV setting towards which the current FOV is adjusted (and where it stops). See fArrowFOVTimeStart and fArrowFOVTimeChange to determine the speed of zoom effect.
-
-8. fArrowGravityBase
-	* Default: 0.300
-	* Description: Believed to be the base force pulling the arrow towards the ground - for arc calculation. The smaller the value, the staighter the arrow's arc.
-
-9. fArrowGravityMin
-	* Default: 0.0500
-	* Description: Changing this setting did not appear to do anything to arrows. While keeping the gravity multiplier at the same setting, going from a GravityMin value of 0.001 to 90,000 did nothing to change the arc of the arrow.
-
-10. fArrowGravityMult
-	* Default: 0.0020
-	* Description: This multiplier determines the gravity on arrows. If you increase this amount, arrows will fly straight for a longer period of time. If you decrease the amount, arrows will go straight for a much shorter period of time.
-
-11. fArrowSpeedMult
-	* Default: 1500.000
-	* Description: The base speed at which fired arrows fly in units/sec.
-	* Formula: (Speed prop. of Arrow) * fArrowSpeedMult * (fArrowWeakSpeed + (1 - fArrowWeakSpeed)*DrawMult
-	* DrawMult = fArrowBowTimerBase + fArrowBowTimerMult * DrawTime  ,  or 1.0 (whichever is less)
-	
-12. fArrowBowTimerBase
-	* Default: 0.2500
-	* Description: The speed of arrows that haven't been drawn back all of the way.
-
-13. fArrowBowTimerMult
-	* Default: 0.400
-	* Description: Determines the rate at which the arrow is drawn back while the fire button is held. 
-
-14. fArrowWeakGravity
-	* Default: 1.750
-	* Description: This setting determines the gravity effect on arrows that haven't been held back for the proper length of time (not a power shot). Decreasing this setting means that your "weak" arrows will have a straighter arc than normal (travel in a straight line for a longer period of time).
-
-15. fArrowWeakSpeed
-	* Default: 0.0100
-	* Description: Determines the minimum speed, as a fraction of the base speed, for arrows that aren't drawn back all of the way. See the full speed formula for details.
-
-16. iArrowInventoryChance
-	* Default: 50
-	* Description: The percent chance that an arrow that struck its target will be added to the target's inventory.
-	
-17. iArrowMaxRefCount
-	* Default: 15
-	* Description: The maximum number of Arrow References that are kept track of in a cell caused by rebounding arrows.
-
-</details>
-
-### Death Force
-
-<details>
-<summary>Death Force GameSettings</summary>
-
-1. fDeathForceForceMin
-	* Default: 35.0
-	* Description: This, along with fDeathForceForceMax, determines how much force is allowed when someone dies.
-
-2. fDeathForceForceMax
-	* Default: 85.0
-	* Description: This, along with fDeathForceForceMin, determines how much force is allowed when someone dies.
-
-</details>
-
-### Explosion Force
-
-<details>
-<summary>Explosion Force GameSettings</summary>
-
-1. fMagicExplosionPowerMax
-	* Default: 100.00
-	* Description: This value has to do with the maximum "kick" an explosion of magic uses. This is how far an actor of any type will be moved by magic. This seems to only affect actors that are dead or paralyzed. This also seems to affect movable in-game items, however they accelerate at a much greater distance and speed, so weight must be a factor too. This value is used as a maximum upper end if the game calculates a higher value. (My value is 128.000 which seems to be more than sufficient.)
-
-2. fMagicExplosionPowerMin
-	* Default: 0.0
-	* Description: Like fMagicExplosionPowerMax, this value seems to deal with the minimum force applied to an actor with magic. The game will use this absolute minimum if a calculated value falls below this range.
-
-3. fMagicExplosionPowerMult
-	* Default: 0.40
-	* Description: This setting is likely part of a formula the game uses to determine what "kick" a magic bolt or explosion has. The formula appears to be based on: The damage the spell does, the area of the spell, this value, and the weight of the object. This only seems to work when the target is paralyzed, dead, or a moveable object.
-
-</details>
-
-### Buoyancy
-
-<details>
-<summary>Buoyancy GameSettings</summary>
-
-* All of the fBuoyancy settings control the buoyancy (how fast or slow an object will sink when dropped in a pool of water) of some type of material in the game. A setting of -1.000 means the material will sink immediately to the bottom of the water. A setting of 0.000 means the material will slowly settle into a mid-level height in the water. A setting of +1.000 means the material will float on top of the water. Other values control the speed at which the material will sink and the height at which it floats
-
-1. fBuoyancyCloth
-	* Default: 0.75
-	* Description: Buoyancy value for materials of the Cloth category.
-	
-2. fBuoyancyDirt
-	* Default: 0.25
-	* Description: Buoyancy value for materials of the Dirt category.
-	
-3. fBuoyancyGlass
-	* Default: -0.200
-	* Description: Buoyancy value for materials of the Glass category.
-	
-4. fBuoyancyGrass
-	* Default: 0.25
-	* Description: Buoyancy value for materials of the Grass category.
-	
-5. fBuoyancyMetal
-	* Default: -1.00
-	* Description: Buoyancy value for materials of the Metal category.
-	
-6. fBuoyancyMultBody
-	* Default: 1.00
-	* Description: The fBuoyancyMultBody setting is the multiplier that applies to the main body of the object.
-	
-7. fBuoyancyMultExtremity
-	* Default: -0.3000
-	* Description: The fBuoyancyMultExtremity is a multiplier for the fBuoyancy setting of a given material. Multiplying the MultExtremity value by the "Material" value will produce the final buoyancy of the object. 
-	
-8. fBuoyancyOrganic
-	* Default: 0.75
-	* Description: Buoyancy value for materials of the Organic category.
-	
-9. fBuoyancySkin
-	* Default: 0.75
-	* Description: Buoyancy value for materials of the skin category.
-	
-10. fBuoyancyStone
-	* Default: -0.75
-	* Description: Buoyancy value for materials of the stone category. Rocks, granite, slate, pebbles, and such.
-	
-11. fBuoyancyWater
-	* Default: 0.00
-	* Description: fBuoyancyWater is like a reference value. It sets the buoyancy of water. Setting it to 1.0000 makes everything sink. Setting it to -1.0000 makes everything float and could possibly induce a permanent "water-walk" effect for all characters.
-
-12. fBuoyancyWood
-	* Default: 1.00
-	* Description:  Buoyancy value for materials of the wood category. These include chairs, desks, barrels, and other furniture. Also, driftwood and any items you find that are made of wood.
-
-</details>
-
-## Camera
-
-### Vanity
-
-<details>
-<summary>Vanity GameSettings</summary>
+<summary>Camera GameSettings</summary>
 
 1. fVanityModeWheelMult
 	* Default: 0.1000
@@ -2170,50 +2173,47 @@
 
 </details>
 
-## Miscellaneous
-
-<details>
-<summary>Miscellaneous GameSettings</summary>
-
-1. iInventoryAskQuantityAt
-	* Default: 3
-	* Description: Setting that determines when to show the amount slider for selecting multiple items when items are selected in the inventory menu.
-
-2. iMaxArrowsInQuiver
-	* Default: 20
-	* Description: This is the maximum amount of arrows that can be rendered in a quiver on the back of an actor. Increasing this beyond 20 would probably cause clipping or crowding issues.
-
-</details>
-
-### Stars
-
-<details>
-<summary>Stars GameSettings</summary>
-
-1. fStarsRotateDays
-	* Default: 4.0
-	* Description: This setting dictates how often the stars rotate in the sky. In particular, this setting is in days. If you set this to a very small setting, the stars will rotate far faster than normal. The speed of their rotation is determined using the other 3 variables, each dictating the number of rotations per period (for each axis). If you set RotateDays to 0.0004, and each of the Axis to 1, then, all 3 axis will make one full rotation every second (roughly).
-	* If all three rotation variables are set to zero, then the stars will fade in and out based on this setting.
-
-2. fStarsRotateXAxis
-	* Default: 0.0
-	* Description: Determines how many rotations are made on the X axis per period (period is defined by FStarsRotateDays). The X axis will move around you like you are in a barrel (A curved pattern, going from right to left across the screen).
-	
-3. fStarsRotateYAxis
-	* Default: 0.0
-	* Description: Determines how many rotations are made on the Y axis per period (period is defined by FStarsRotateDays). The Y axis will move around you like you are in a barrel (A curved pattern, going from right to left across the screen, depending on where you are facing).
-	
-4. fStarsRotateZAxis
-	* Default: 1.0
-	* Description: Determines how many rotations are made on the X axis per period (period is defined by FStarsRotateDays). The Z axis will spin around above you, counterclockwise.
-	
-</details>
-
-
 ## Unknown Unused and Broken
 
+### Settings Deleted by Remaster
+
 <details>
-<summary>Obsolete GameSettings</summary>
+<summary>Deleted</summary>
+
+7. fSneakUnseenMin
+	* Default: 0.000
+	* Description: This is the threshold value at which the actor fades out of sight and cannot be targeted for combat (or anything else) by other actors. This is true only however when the actor is trying to sneak around a non-hostile actor. If the actor is hostile, fSneakLostMin is used instead.
+
+9. fSneakSeenMin
+	* Default: 0.000
+	* Description: This is the threshold value at which the actor fades into sight and can be targeted for combat (or anything else) by other actors. When the actor attacked the sneaking actor, the sneaking actor remains visible until the value falls below fSneakLostMin. When the actor did not attack (the actor seeing You is not hostile, You did not attack or steal anything), the sneaking actor remains visible until the value falls below FSneakUnseenMin - this latter part is to be tested and confirmed.
+
+22. fPerkAthleticsNoviceFatigueMult
+	* Default: 1.0000
+	* Description: Applies when actors Athletics skill is less than iSkillApprenticeMin.
+
+23. fPerkAthleticsApprenticeFatigueMult
+	* Default: 0.7500
+	* Description: Applies when actors Athletics skill ranges from iSkillApprenticeMin to iSkillJourneymanMin.
+
+24. fPerkAthleticsJourneymanFatigueMult
+	* Default: 0.5000
+	* Description: Applies when actors Athletics skill ranges from iSkillJourneymanMin to iSkillExpertMin.
+
+25. fPerkAthleticsExpertFatigueMult
+	* Default: 0.2500
+	* Description: Applies when actors Athletics skill ranges from iSkillExpertMin to iSkillMasterMin.
+
+26. fPerkAthleticsMasterFatigueMult
+	* Default: 0.0000
+	* Description: Applies when actors Athletics skill is greater than or equal to iSkillMasterMin.
+	
+</details>
+
+### Settings Defunct by Remaster
+
+<details>
+<summary>Defunct</summary>
 
 1. fDifficultyDamageMultiplier (As of ObRe 1.2, this setting is obsolete, and has been replaced by 12 individual settings for each difficulty setting) 
 	* Default: 5.00
@@ -2248,8 +2248,14 @@
 
 </details>
 
+### Unused
+
 <details>
 <summary>Unused GameSettings</summary>
+
+6. fPotionT1CalDurMult
+	* Default: 0.0100
+	* Description: This Setting has no effect on potion strength.
 
 1. fDemandMult
 2. fDemandBase
@@ -2337,6 +2343,8 @@
 	* Description: Critical strike damage multipliers granted by the Master Sneak perk for a successful Melee or Ranged Sneak attack.
 
 </details>
+
+### Unknown
 
 <details>
 <summary>Unknown GameSettings</summary>
@@ -2541,6 +2549,8 @@ fAlchemyGoldMult
 7. fVanityModeWheelDefault
 
 </details>
+
+### Broken
 
 <details>
 <summary>Broken GameSettings</summary>

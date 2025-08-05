@@ -1,5 +1,8 @@
 # Oblivion Remastered Comprehensive GameSettings MCM
 
+# Brief Overview
+* A Mod Configuration Menu (MCM) control panel for configuring every functional GameSetting in Oblivion Remastered. 
+
 # Changelog
 0.1
 * Release of the first batch of settings. 
@@ -25,11 +28,16 @@
 * Added 5. Magic.ini [41 Settings]; 6. Player.ini [21 Settings]; 7. Player Stats.ini [32 Settings]
 * Up to 228 Managed Settings
 
+0.6
+* Updated ini file names: Delete old files and copy new.
+* Added 6. Player Skills.ini [54 Settings]; 7. NPC.ini [37 Settings]; 8. Physics.ini [36 Settings]; 9. Miscellaneous.ini [53 Settings]
+* Up to 408 Managed Settings
+
 ## Description
 
-* A Mod Configuration Menu (MCM) control panel for configuring every functional GameSetting in Oblivion Remastered. 
-* Designed as a research project into Oblivion Remastered's GameSettings.
-	* This project will continue to be updated as settings are checked to see if they are still functional in Oblivion Remastered.
+[GameSettings Index](https://github.com/justv316/GameSettings_MCM/blob/main/docs/GameSettings.md)
+
+* A research project into Oblivion Remastered's GameSettings.
 * Currently there is no way to reflect the current settings in the MCM. Hopefully in the future we have a bit more control over what the MCM is displaying. 
 	* The values displayed in the MCM are what is being set in INI file. When changed the MCM uses a Console Command to actually set the GameSetting.
 	* Default GameSettings are not loaded when the MCM runs.
@@ -62,8 +70,8 @@
 
 ## Roadmap
 
-1. ~50% of Settings have been added. 
-2. (Waiting on MCM support) Create documentation and support creating GameSetting profiles for Modders to easily distribute customized GameSetting profiles for their mods. 
+1. (Waiting on MCM support) Support creating GameSetting profiles for Modders to easily distribute customized GameSetting profiles for their mods. 
+2. Continue investigating GameSettings that haven't been defined.
 
 ## Research
 
@@ -82,15 +90,15 @@ fSneakSeenMin
 
 ### MCM Files
 
-**_0. Obsolete.ini_**
+**__. Obsolete.ini_**
 
 Contains settings that are no longer functional in Oblivion Remastered but still exist in the game.
 
-**_1. RestoreDefault.ini_**
+**_0. RestoreDefault.ini_**
 
 Contains Command to restore all settings to default. This command runs after the MCM is closed. The command cannot be spammed and can only ever be queued to run once. 
 
-**_2. Gameplay.ini [41 Settings]_** 
+**_1. Gameplay.ini [41 Settings]_** 
 
 **Difficulty**
 fDifficultyDamageTakenMultiplierNovice
@@ -144,7 +152,7 @@ iVampirismAgeOffset
 fActorTeleportFadeSeconds
 fActorAnimZAdjust
 
-**_3. Combat.ini [46 Settings]_**
+**_2. Combat.ini [46 Settings]_**
 
 **Damage**
 fDamageWeaponMult
@@ -206,7 +214,7 @@ fCombatSpeakHitChance
 fCombatSpeakHitThreshold
 fCombatSpeakPowerAttackChance
 
-**_4. Stealth [47 Settings]_**
+**_3. Stealth.ini [47 Settings]_**
 
 **Sneak Mechanics**
 fSneakBaseValue
@@ -261,7 +269,7 @@ iLockLevelMaxVeryHard
 fPickPocketMaxChance
 fPickPocketMinChance
 
-**_5. Magic [41 Settings]_**
+**_4. Magic.ini [41 Settings]_**
 
 **Magicka Cost**
 fMagicCostScale
@@ -318,38 +326,7 @@ iMagnitudeLevelAffectsAll
 fMagicUnitsPerFoot
 iMaxPlayerSummonedCreatures
 
-**_6. Player [21 Settings]_**
-
-**Skills**
-fTrainingCostMult
-iTrainingSkills
-fSkillUseExp
-fSkillUseFactor
-fSkillUseMajorMult
-fSkillUseMinorMult
-fSkillUseSpecMult
-iSkillApprenticeMin
-iSkillJourneymanMin
-iSkillExpertMin
-iSkillMasterMin
-
-**Perks**
-iPerkMarksmanParalyzeChance
-iPerkMarksmanKnockdownChance
-iPerkHandToHandBlockRecoilChance
-iPerkExtraBarterGoldMaster
-iPerkBlockStaggerChance
-iPerkBlockDisarmChance
-iPerkAttackDisarmChance
-
-**Attributes**
-fAttributeClassPrimaryBonus
-fAttributeClassSecondaryBonus
-
-**Levels**
-iLevelUpSkillCount
-
-**_7. Player Stats [32 Settings]_**
+**_5. Player Stats.ini [53 Settings]_**
 
 **Health**
 fPCBaseHealthMult
@@ -388,6 +365,263 @@ fPerkAthleticsMasterFatigueMult
 fPCBaseMagickaMult
 fMagickaReturnBase
 fMagickaReturnMult
+
+**Skills**
+fTrainingCostMult
+iTrainingSkills
+fSkillUseExp
+fSkillUseFactor
+fSkillUseMajorMult
+fSkillUseMinorMult
+fSkillUseSpecMult
+iSkillApprenticeMin
+iSkillJourneymanMin
+iSkillExpertMin
+iSkillMasterMin
+
+**Perks**
+iPerkMarksmanParalyzeChance
+iPerkMarksmanKnockdownChance
+iPerkHandToHandBlockRecoilChance
+iPerkExtraBarterGoldMaster
+iPerkBlockStaggerChance
+iPerkBlockDisarmChance
+iPerkAttackDisarmChance
+
+**Attributes**
+fAttributeClassPrimaryBonus
+fAttributeClassSecondaryBonus
+
+**Levels**
+iLevelUpSkillCount
+
+**_6. Player Skill.ini [54 Settings]_**
+
+**Barter**
+fBarterBuyBase
+fBarterBuyMult
+fBarterSellBase
+fBarterSellMult
+fBarterDispBase
+fBarterHaggleBase
+fBarterHaggleCurve
+fBarterHaggleDispMult
+fBarterHaggleMax
+iMerchantRespawnDay1
+iMerchantRespawnDay2
+
+**Bribery**
+fBribeCostCurve
+fBribeScale
+fBribeCurve
+fBribeNPCLevelMult
+fBribeSpeechcraftMult
+
+**Repair**
+fRepairArmorerBase
+fRepairArmorerMult
+fRepairStrengthMult
+fRepairSkillBreakBase
+fRepairSkillBreakMult
+fRepairCostMult
+iArmorDamageBootsChance
+iArmorDamageCuirassChance
+iArmorDamageGauntletsChance
+iArmorDamageGreavesChance
+iArmorDamageHelmChance
+iArmorDamageShieldChance
+
+**Alchemy**
+fPotionMortPestleMult
+fPotionT1MagMult
+fPotionT1AleDurMult
+fPotionT1AleMagMult
+fPotionT1CalMagMult
+fPotionT1RetDurMult
+fPotionT1RetMagMult
+fPotionT2AleDurMult
+fPotionT2CalDurMult
+fPotionT2RetDurMult
+fPotionT3AleMagMult
+fPotionT3CalMagMult
+fPotionT3RetMagMult
+fPotionGoldValueMult
+iMagicMaxPotionsNovice
+iMagicMaxPotionsApprentice
+iMagicMaxPotionsJourneyman
+iMagicMaxPotionsExpert
+iMagicMaxPotionsMaster
+
+**Wortcraft**
+fWortAlchMult
+fWortcraftFatigueMag
+iWortcraftMaxEffectsNovice
+iWortcraftMaxEffectsApprentice
+iWortcraftMaxEffectsJourneyman
+iWortcraftMaxEffectsExpert
+iWortcraftMaxEffectsMaster
+
+**_7. NPC.ini [37 Settings]_**
+
+**NPC**
+VarName=fNPCBaseMagickaMult
+VarName=fNPCAttributeHealthMult
+VarName=fEnemyHealthBarTimer
+VarName=fEssentialDeathTime
+VarName=fEssentialHealthPercentReGain
+VarName=fMinDistanceUseHorse
+VarName=fFleeDistanceExterior
+VarName=fFleeDistanceInterior
+VarName=fDistanceExteriorReactCombat
+VarName=fDistanceInteriorReactCombat
+VarName=fHostileActorExteriorDistance
+VarName=fHostileActorInteriorDistance
+
+**AI**
+VarName=fAITalktoNPCTimer
+VarName=fAITalktoSameNPCtimer
+VarName=fAIMaxWanderTime
+VarName=fAIFleeConfBase
+VarName=fAIFleeConfMult
+VarName=fAIFleeHealthMult
+VarName=iAIDefaultMeleeAlertAllowed
+VarName=iAIDefaultPowerAttackBackwardChance
+VarName=iAINPCRacePowerChance
+
+**Ranged Combat**
+VarName=fArrowOptimalDistance
+VarName=fArrowMaxDistance
+VarName=fMagicBallOptimalDistance
+VarName=fMagicBallMaximumDistance
+VarName=fMagicBoltOptimalDistance
+VarName=fMagicBoltMaximumDistance
+VarName=fMagicFogOptimalDistance
+VarName=fMagicFogMaximumDistance
+VarName=fMagicSprayOptimalDistance
+VarName=fMagicSprayMaximumDistance
+VarName=fMagicProjectileBaseSpeed
+VarName=fMagicProjectileMaxDistance
+
+**Blink**
+VarName=fBlinkDelayMax
+VarName=fBlinkDelayMin
+VarName=fBlinkDownTime
+VarName=fBlinkUpTime
+
+**_8. Physics.ini [36 Settings]_**
+
+**Physics**
+fObjectHitWeaponReach
+fObjectHitWeaponReach
+
+**Arrows**
+fArrowAgeMax
+fArrowBounceLinearSpeed
+fArrowBounceRotateSpeed
+fArrowFakeMass
+fArrowFOVTimeChange
+fArrowFOVTimeStart
+fArrowFOVZoom
+fArrowGravityBase
+fArrowGravityMin
+fArrowGravityMult
+fArrowSpeedMult
+fArrowBowTimerBase
+fArrowBowTimerBase
+fArrowWeakGravity
+fArrowWeakSpeed
+iArrowInventoryChance
+iArrowMaxRefCount
+
+**Death Force**
+fDeathForceForceMin
+fDeathForceForceMax
+
+**Explosion Force**
+fMagicExplosionPowerMin
+fMagicExplosionPowerMax
+fMagicExplosionPowerMult
+
+**Buoyancy**
+fBuoyancyWater
+fBuoyancyCloth
+fBuoyancyDirt
+fBuoyancyGlass
+fBuoyancyGrass
+fBuoyancyMetal
+fBuoyancyOrganic
+fBuoyancySkin
+fBuoyancyStone
+fBuoyancyWood
+fBuoyancyMultBody
+fBuoyancyMultExtremity
+
+**_9. Miscellaneous.ini [53 Settings]_**
+
+**Miscellaneous**
+VarName=iInventoryAskQuantityAt
+VarName=iMaxArrowsInQuiver
+
+**Clothing**
+VarName=fClothingArmorBase
+VarName=fClothingArmorScale
+VarName=fClothingBase
+VarName=fClothingClassScale
+VarName=fClothingJewelryBase
+VarName=fClothingJewelryScale
+
+**Stars**
+VarName=fStarsRotateDays
+VarName=fStarsRotateXAxis
+VarName=fStarsRotateYAxis
+VarName=fStarsRotateZAxis
+
+**Movement**
+VarName=fMoveCharWalkMin
+VarName=fMoveCharWalkMax
+VarName=fMoveCreatureWalkMin
+VarName=fMoveCreatureWalkMax
+VarName=fMoveEncumEffect
+VarName=fMoveEncumEffectNoWea
+VarName=fMoveWeightMin
+VarName=fMoveWeightMax
+VarName=fMoveNoWeaponMult
+VarName=fMoveRunMult
+VarName=fMoveRunAthleticsMult
+VarName=fMoveSneakMult
+VarName=fPerkHeavyArmorExpertSpeedMult
+VarName=fPerkHeavyArmorMasterSpeedMult
+VarName=fPerkHeavyArmorSinkGravityMult
+VarName=fPerkLightArmorExpertSpeedMult
+VarName=fArmorWeightLightMaxMod
+VarName=fMoveSwimWalkBase
+VarName=fMoveSwimWalkAthleticsMult
+VarName=fMoveSwimRunBase
+VarName=fMoveSwimRunAthleticsMult
+VarName=fSubmergedMaxSpeed
+VarName=fMoveMinFlySpeed
+VarName=fMoveMaxFlySpeed
+
+**Falling**
+VarName=fJumpFallSkillBase
+VarName=fJumpFallSkillMult
+VarName=fJumpFallTimeBase
+VarName=fJumpFallTimeMin
+VarName=fJumpFallTimeMult
+VarName=fJumpFallVelocityMin
+VarName=fJumpHeightMax
+VarName=fJumpHeightMin
+VarName=fJumpMoveBase
+VarName=fJumpMoveBase
+
+**Camera**
+VarName=fVanityModeWheelMult
+VarName=fVanityModeWheelMax
+VarName=fVanityModeWheelMin
+VarName=fVanityModeXMult
+VarName=fVanityModeYMult
+VarName=fVanityModeDelay
+VarName=fChase3rdPersonZUnitsPerSecond
 
 ## Credits
 1. Utilizes ObScript Extender created by [MadAborModding](https://next.nexusmods.com/profile/MadAborModding)
