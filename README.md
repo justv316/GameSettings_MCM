@@ -32,15 +32,21 @@
 * Updated ini file names: Delete old files and copy new.
 * Added 6. Player Skills.ini [54 Settings]; 7. NPC.ini [37 Settings]; 8. Physics.ini [36 Settings]; 9. Miscellaneous.ini [53 Settings]
 * Up to 408 Managed Settings
+* All of the settings defined in the Construction Set Wiki have been added
 
 ## Description
-
-[GameSettings Index](https://github.com/justv316/GameSettings_MCM/blob/main/docs/GameSettings.md)
 
 * A research project into Oblivion Remastered's GameSettings.
 * Currently there is no way to reflect the current settings in the MCM. Hopefully in the future we have a bit more control over what the MCM is displaying. 
 	* The values displayed in the MCM are what is being set in INI file. When changed the MCM uses a Console Command to actually set the GameSetting.
 	* Default GameSettings are not loaded when the MCM runs.
+	
+### Compatibility
+
+* The settings in the MCM will only take priority if you manually change them in the MCM, this will update the value in the INI file, forcing it to load that value on future loads. 
+* For example, if using my Dynamic Difficulty Multipliers (DDM-MCM) mod, the script will run and set the necessary values depending on whatever your Damage Difficulty Multiplier is set to in that MCM. If you then went into the GameSettings_MCM -> Gameplay ini and changed a difficulty setting, that setting will now take priority and will be set OnLoad of the game. If DDM-MCM is changed again, the new multiplier will be calculated and set the manually set setting as expected. Currently, there is no way for the menu to automatically update values to match what the GameSettings actually are. 
+
+[GameSettings Index](https://github.com/justv316/GameSettings_MCM/blob/main/docs/GameSettings.md)
 
 ### Prerequisites
 1. [UE4SS](https://www.nexusmods.com/oblivionremastered/mods/32)
@@ -464,49 +470,49 @@ iWortcraftMaxEffectsMaster
 **_7. NPC.ini [37 Settings]_**
 
 **NPC**
-VarName=fNPCBaseMagickaMult
-VarName=fNPCAttributeHealthMult
-VarName=fEnemyHealthBarTimer
-VarName=fEssentialDeathTime
-VarName=fEssentialHealthPercentReGain
-VarName=fMinDistanceUseHorse
-VarName=fFleeDistanceExterior
-VarName=fFleeDistanceInterior
-VarName=fDistanceExteriorReactCombat
-VarName=fDistanceInteriorReactCombat
-VarName=fHostileActorExteriorDistance
-VarName=fHostileActorInteriorDistance
+fNPCBaseMagickaMult
+fNPCAttributeHealthMult
+fEnemyHealthBarTimer
+fEssentialDeathTime
+fEssentialHealthPercentReGain
+fMinDistanceUseHorse
+fFleeDistanceExterior
+fFleeDistanceInterior
+fDistanceExteriorReactCombat
+fDistanceInteriorReactCombat
+fHostileActorExteriorDistance
+fHostileActorInteriorDistance
 
 **AI**
-VarName=fAITalktoNPCTimer
-VarName=fAITalktoSameNPCtimer
-VarName=fAIMaxWanderTime
-VarName=fAIFleeConfBase
-VarName=fAIFleeConfMult
-VarName=fAIFleeHealthMult
-VarName=iAIDefaultMeleeAlertAllowed
-VarName=iAIDefaultPowerAttackBackwardChance
-VarName=iAINPCRacePowerChance
+fAITalktoNPCTimer
+fAITalktoSameNPCtimer
+fAIMaxWanderTime
+fAIFleeConfBase
+fAIFleeConfMult
+fAIFleeHealthMult
+iAIDefaultMeleeAlertAllowed
+iAIDefaultPowerAttackBackwardChance
+iAINPCRacePowerChance
 
 **Ranged Combat**
-VarName=fArrowOptimalDistance
-VarName=fArrowMaxDistance
-VarName=fMagicBallOptimalDistance
-VarName=fMagicBallMaximumDistance
-VarName=fMagicBoltOptimalDistance
-VarName=fMagicBoltMaximumDistance
-VarName=fMagicFogOptimalDistance
-VarName=fMagicFogMaximumDistance
-VarName=fMagicSprayOptimalDistance
-VarName=fMagicSprayMaximumDistance
-VarName=fMagicProjectileBaseSpeed
-VarName=fMagicProjectileMaxDistance
+fArrowOptimalDistance
+fArrowMaxDistance
+fMagicBallOptimalDistance
+fMagicBallMaximumDistance
+fMagicBoltOptimalDistance
+fMagicBoltMaximumDistance
+fMagicFogOptimalDistance
+fMagicFogMaximumDistance
+fMagicSprayOptimalDistance
+fMagicSprayMaximumDistance
+fMagicProjectileBaseSpeed
+fMagicProjectileMaxDistance
 
 **Blink**
-VarName=fBlinkDelayMax
-VarName=fBlinkDelayMin
-VarName=fBlinkDownTime
-VarName=fBlinkUpTime
+fBlinkDelayMax
+fBlinkDelayMin
+fBlinkDownTime
+fBlinkUpTime
 
 **_8. Physics.ini [36 Settings]_**
 
@@ -559,69 +565,69 @@ fBuoyancyMultExtremity
 **_9. Miscellaneous.ini [53 Settings]_**
 
 **Miscellaneous**
-VarName=iInventoryAskQuantityAt
-VarName=iMaxArrowsInQuiver
+iInventoryAskQuantityAt
+iMaxArrowsInQuiver
 
 **Clothing**
-VarName=fClothingArmorBase
-VarName=fClothingArmorScale
-VarName=fClothingBase
-VarName=fClothingClassScale
-VarName=fClothingJewelryBase
-VarName=fClothingJewelryScale
+fClothingArmorBase
+fClothingArmorScale
+fClothingBase
+fClothingClassScale
+fClothingJewelryBase
+fClothingJewelryScale
 
 **Stars**
-VarName=fStarsRotateDays
-VarName=fStarsRotateXAxis
-VarName=fStarsRotateYAxis
-VarName=fStarsRotateZAxis
+fStarsRotateDays
+fStarsRotateXAxis
+fStarsRotateYAxis
+fStarsRotateZAxis
 
 **Movement**
-VarName=fMoveCharWalkMin
-VarName=fMoveCharWalkMax
-VarName=fMoveCreatureWalkMin
-VarName=fMoveCreatureWalkMax
-VarName=fMoveEncumEffect
-VarName=fMoveEncumEffectNoWea
-VarName=fMoveWeightMin
-VarName=fMoveWeightMax
-VarName=fMoveNoWeaponMult
-VarName=fMoveRunMult
-VarName=fMoveRunAthleticsMult
-VarName=fMoveSneakMult
-VarName=fPerkHeavyArmorExpertSpeedMult
-VarName=fPerkHeavyArmorMasterSpeedMult
-VarName=fPerkHeavyArmorSinkGravityMult
-VarName=fPerkLightArmorExpertSpeedMult
-VarName=fArmorWeightLightMaxMod
-VarName=fMoveSwimWalkBase
-VarName=fMoveSwimWalkAthleticsMult
-VarName=fMoveSwimRunBase
-VarName=fMoveSwimRunAthleticsMult
-VarName=fSubmergedMaxSpeed
-VarName=fMoveMinFlySpeed
-VarName=fMoveMaxFlySpeed
+fMoveCharWalkMin
+fMoveCharWalkMax
+fMoveCreatureWalkMin
+fMoveCreatureWalkMax
+fMoveEncumEffect
+fMoveEncumEffectNoWea
+fMoveWeightMin
+fMoveWeightMax
+fMoveNoWeaponMult
+fMoveRunMult
+fMoveRunAthleticsMult
+fMoveSneakMult
+fPerkHeavyArmorExpertSpeedMult
+fPerkHeavyArmorMasterSpeedMult
+fPerkHeavyArmorSinkGravityMult
+fPerkLightArmorExpertSpeedMult
+fArmorWeightLightMaxMod
+fMoveSwimWalkBase
+fMoveSwimWalkAthleticsMult
+fMoveSwimRunBase
+fMoveSwimRunAthleticsMult
+fSubmergedMaxSpeed
+fMoveMinFlySpeed
+fMoveMaxFlySpeed
 
 **Falling**
-VarName=fJumpFallSkillBase
-VarName=fJumpFallSkillMult
-VarName=fJumpFallTimeBase
-VarName=fJumpFallTimeMin
-VarName=fJumpFallTimeMult
-VarName=fJumpFallVelocityMin
-VarName=fJumpHeightMax
-VarName=fJumpHeightMin
-VarName=fJumpMoveBase
-VarName=fJumpMoveBase
+fJumpFallSkillBase
+fJumpFallSkillMult
+fJumpFallTimeBase
+fJumpFallTimeMin
+fJumpFallTimeMult
+fJumpFallVelocityMin
+fJumpHeightMax
+fJumpHeightMin
+fJumpMoveBase
+fJumpMoveBase
 
 **Camera**
-VarName=fVanityModeWheelMult
-VarName=fVanityModeWheelMax
-VarName=fVanityModeWheelMin
-VarName=fVanityModeXMult
-VarName=fVanityModeYMult
-VarName=fVanityModeDelay
-VarName=fChase3rdPersonZUnitsPerSecond
+fVanityModeWheelMult
+fVanityModeWheelMax
+fVanityModeWheelMin
+fVanityModeXMult
+fVanityModeYMult
+fVanityModeDelay
+fChase3rdPersonZUnitsPerSecond
 
 ## Credits
 1. Utilizes ObScript Extender created by [MadAborModding](https://next.nexusmods.com/profile/MadAborModding)
