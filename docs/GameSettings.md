@@ -59,7 +59,8 @@
 	* [Falling](#Falling)
 	* [Movement](#Movement)
 	* [Camera](#Camera)
-10. [Unknown Unused and Broken](#Unknown-Unused-and-Broken)
+10. [Undefined Settings](Undefined-Settings)
+11. [Unknown Unused and Broken](#Unknown-Unused-and-Broken)
 0. [Obsolete](#Obsolete)
 
 ## Restore Defaults
@@ -2173,6 +2174,358 @@
 
 </details>
 
+## Undefined Settings
+These are Settings that have been set in the Master files, but have not been defined by the Construction Set Wiki. These Settings do not have descriptions yet and are only loosely organized.
+
+### Player
+
+iPCStartSpellSkillLevel
+	* Default: 25
+	
+### AI
+
+fAIDefaultAttackDuringRecoilStaggerBonus
+	* Default: 30
+fAIDefaultAttackSkillMult
+	* Default: 20
+fAIDefaultBlockDuringAttackMult
+	* Default: 2
+fAIDefaultBlockNoAttackMult
+	* Default: 1
+fAIDefaultBlockSkillMult
+	* Default: 20
+fAIMaxHeadTrackDistance
+	* Default: 300
+fAIMaxSmileDistance
+	* Default: 128
+fAIPowerAttackRecoilBonus
+	* Default: 25
+fAISocialRadiusToTriggerConversation
+	* Default: 1800
+fAISocialchanceForConversation
+	* Default: 100
+fAITrespassWarningTimer
+	* Default: 30
+fAIYieldBase
+	* Default: -20
+iAIDefaultAttackChance
+	* Default: 40
+iAIDefaultBlockChance
+	* Default: 30
+fIdleChatterCommentTimer
+	* Default: 100
+fPathAvoidanceCreatureIntLimit
+	* Default: 25
+
+### NPC
+
+fNPCGeneticVariation
+	* Default: 0.5
+fLowLevelNPCBaseHealthMult
+	* Default: 0.4
+iNPCBasePerLevelHealthMult
+	* Default: 4
+fDialogSpeachDelay
+	* Default: 0.15
+iLowResponsiblityLevel
+	* Default: 30
+fSpeechDelay
+	* Default: 0.11
+fFightAggrBase
+	* Default: -55
+fFightFriendDispBase
+	* Default: -25
+
+### Combat
+
+fKnockdownDamageMult
+	* Default: 0.3
+fCombatGiantCreatureReachMult
+	* Default: 2.2
+fCombatSoundArmorPct
+	* Default: 0.9
+fCombatSoundFleshPct
+	* Default: 0.9
+fCombatSoundWeaponPct
+	* Default: 0.9
+
+### Armor
+
+fActorArmorDesirabilityDamageMult
+	* Default: 0
+iArmorWeightHelmet
+	* Default: 10
+iArmorWeightShield
+	* Default: 20
+
+### Movement
+
+fJumpDoubleMult
+	* Default: 0
+
+### world
+
+fRegionGenTexGenMatch
+	* Default: 1.1
+fRegionGenTexGenNotMatch
+	* Default: 0.95
+fRegionGenTexPlacedMatch
+	* Default: 1
+fRegionGenTexPlacedNotMatch
+	* Default: 1
+fAutoDoorActivateDistance
+	* Default: 150
+
+### Trees
+
+fLeafRockAmountSwayInfluence
+	* Default: 0.01
+fLeafRockSpeedSwayInfluence
+	* Default: 0.85
+fLeafRockTimeScale
+	* Default: 1
+fLeafRustleAmountSwayInfluence
+	* Default: 0.01
+fLeafRustleSpeedSwayInfluence
+	* Default: 1.5
+fLeafRustleTimeScale
+	* Default: 0.75
+fTreeFarDistanceBase
+	* Default: 8192
+fTreeNearDistanceBase
+	* Default: 512
+fTreeWindVariance
+	* Default: 0.05
+	
+### Crime
+
+fCrimeAlarmRespMult
+	* Default: 2
+fInfamyBountyMod
+	* Default: 500
+
+### Bribery
+
+4. fBribeBase
+	* Default: 2.0000
+	* Description: Unused setting. Sets the lowest bribe value and is used as an offset.
+	
+### Pickpocket
+	
+fPickPocketActorSkillBase
+	* Default: 40
+fPickPocketActorSkillMult
+	* Default: 0.6
+fPickPocketAmountMult
+	* Default: -0.1
+fPickPocketTargetSkillMult
+	* Default: -0.6
+
+### Lockpicking
+
+fLockPickAutoDifficulty
+	* Default: 0.3
+
+### Persuasion
+
+fPersuasionCurve
+	* Default: 1.3
+fPersuasionMod
+	* Default: 0.3
+fPersuasionReactionDislike
+	* Default: -50
+fPersuasionReactionHate
+	* Default: -150
+
+### Sneaking
+
+fSpellCastingDetectionMod
+	* Default: 20
+fDetectionCommentTimer
+	* Default: 30
+fDistanceProjectileExplosionDetection
+	* Default: 600
+
+### Magic
+
+1. fMagicFatigueDrainBase
+	* Default: 1.0
+	* Description: Used with fMagicFatigueDrainMult to determine the effect of fatigue on spell effectiveness. By default, fatigue has no effect on spellcasting.
+	* Formula: spell effectiveness penalty = 1 - fMagicFatigueDrainBase - fMagicFatigueDrainMult x (fatigue / maximum fatigue)
+
+2. fMagicFatigueDrainMult
+	* Default: 0.0
+	* Description: Used with fMagicFatigueDrainBase to determine the effect of fatigue on spell effectiveness. By default, fatigue has no effect on spellcasting.
+	* Formula: spell effectiveness penalty = 1 - fMagicFatigueDrainBase - fMagicFatigueDrainMult x (fatigue / maximum fatigue)
+	
+fMagicExplosionAgilityMult
+	* Default: 0.5
+fMagicLightRadiusBase
+	* Default: 0
+fMagicTelekinesiDistanceMult
+	* Default: 2
+fMagicTelekinesisLiftPowerMult
+	* Default: 1
+fAbsorbCoreColorB
+	* Default: 0
+fAbsorbCoreColorG
+	* Default: 0.64
+fAbsorbCoreColorR
+	* Default: 0.95
+fAbsorbGlowColorB
+	* Default: 0
+fAbsorbGlowColorG
+	* Default: 0
+fAbsorbGlowColorR
+	* Default: 0.625
+
+### Alchemy
+
+6. fPotionT1CalDurMult
+	* Default: 0.0100
+	* Description: This Setting has no effect on potion strength.
+
+### Wortcraft
+
+fWortcraftChanceIntDenom
+	* Default: 0
+fWortcraftChanceLuckDenom
+	* Default: 0
+
+### Sky
+
+fSunAlphaTransTime
+	* Default: 0.5
+fSunMinimumGlareScale
+	* Default: 0.175
+fSunReduceGlareSpeed
+	* Default: 6
+fDaytimeColorExtension
+	* Default: 1
+
+### Celestial
+
+fMasserAngleFadeEnd
+	* Default: 75
+fMasserAngleFadeStart
+	* Default: 60
+fMasserAngleShadowEarlyFade
+	* Default: 4
+iMasserSize
+	* Default: 100
+fSecundaAngleFadeEnd
+	* Default: 65
+fSecundaAngleFadeStart
+	* Default: 80
+fSecundaAngleShadowEarlyFade
+	* Default: 4
+fSecundaSpeed
+	* Default: 0.3
+
+### Weather
+
+fWeatherFlashAmbient
+	* Default: 0.05
+fWeatherFlashDuration
+	* Default: 0.3
+fWeatherTransMax
+	* Default: 0.99
+
+### Camera
+
+fVanityModeAutoDelay
+	* Default: 120
+fFirstPersonCameraMult
+	* Default: 0.5
+fChase3rdPersonXYMult
+	* Default: 4
+
+### Uncategorized
+
+fDispActorPerMult
+	* Default: 1.5
+fDispTargetFactionRankBase
+	* Default: 1
+fDispTargetPerMult
+	* Default: 0.5
+fDyingTimer
+	* Default: 2
+fImpactShaderMaxMagnitude
+	* Default: 2
+fTorchLightLevelMorning
+	* Default: 0.8
+fTorchLightLevelNight
+	* Default: 0.8
+
+
+### Furniture
+
+fFurnitureMarker01DeltaX
+	* Default: -7.9917
+fFurnitureMarker01DeltaY
+	* Default: 71.368698
+fFurnitureMarker01DeltaZ
+	* Default: -25.164
+fFurnitureMarker01HeadingDelta
+	* Default: -1.5708
+fFurnitureMarker02DeltaX
+	* Default: 13.1044
+fFurnitureMarker02DeltaY
+	* Default: 70.594101
+fFurnitureMarker02DeltaZ
+	* Default: -25.164
+fFurnitureMarker02HeadingDelta
+	* Default: 1.5708
+fFurnitureMarker03DeltaX
+	* Default: 2.5828
+fFurnitureMarker03DeltaY
+	* Default: 75.516403
+fFurnitureMarker03DeltaZ
+	* Default: -56.495998
+fFurnitureMarker03HeadingDelta
+	* Default: -1.5708
+fFurnitureMarker04DeltaX
+	* Default: 2.5828
+fFurnitureMarker04DeltaY
+	* Default: 108.770401
+fFurnitureMarker04DeltaZ
+	* Default: -56.495998
+fFurnitureMarker04HeadingDelta
+	* Default: 0
+fFurnitureMarker11DeltaX
+	* Default: 2.6068
+fFurnitureMarker11DeltaY
+	* Default: 53.960999
+fFurnitureMarker11DeltaZ
+	* Default: -28.948
+fFurnitureMarker11HeadingDelta
+	* Default: -1.5708
+fFurnitureMarker12DeltaX
+	* Default: 2.6669
+fFurnitureMarker12DeltaY
+	* Default: 53.6492
+fFurnitureMarker12DeltaZ
+	* Default: -28.948
+fFurnitureMarker12HeadingDelta
+	* Default:1.5708
+fFurnitureMarker13DeltaX
+	* Default: 2.7927
+fFurnitureMarker13DeltaY
+	* Default: 57.417301
+fFurnitureMarker13DeltaZ
+	* Default: -28.948
+fFurnitureMarker13HeadingDelta
+	* Default: 0
+fFurnitureMarker14DeltaX
+	* Default: 2.4809
+fFurnitureMarker14DeltaY
+	* Default: 57.357201
+fFurnitureMarker14DeltaZ
+	* Default: -28.948
+fFurnitureMarker14HeadingDelta
+	* Default: 3.1416
+
+
 ## Unknown Unused and Broken
 
 ### Settings Deleted by Remaster
@@ -2253,10 +2606,6 @@
 <details>
 <summary>Unused GameSettings</summary>
 
-6. fPotionT1CalDurMult
-	* Default: 0.0100
-	* Description: This Setting has no effect on potion strength.
-
 1. fDemandMult
 2. fDemandBase
 
@@ -2264,10 +2613,6 @@
 	* Default: 0.3000
 	* Description: Unused setting. Multiplier times the combined levels and skills of the two actors.
 
-4. fBribeBase
-	* Default: 2.0000
-	* Description: Unused setting. Sets the lowest bribe value and is used as an offset.
-	
 5. fBlockScoreNoShieldMult
 	* Default: 0.5
 	* Description: Limits the effectiveness of your block skill when you are blocking with a weapon or hand-to-hand. In crude terms, a value of 0.5 means that your block skill is halved when you block with a weapon or hand-to-hand. A value of 1.0 means that blocking with a weapon or hand-to-hand uses the same effective block skill as when you use a shield. The actual formula is more complicated than that and is not fully known. This setting also affects blocking by NPCs and creatures. However, testing suggests that this setting has no actual effect. It is likely a setting that was deprecated when it was replaced by FBlockAmountWeaponMult and FBlockAmountWeaponMult.
@@ -2287,16 +2632,6 @@
 2. iLevelUpXXMult
 	* Default: 2
 	* Description: Attribute increases are no longer determined by the specific skills the player has raised. Instead, a new system has been implemented:
-
-1. fMagicFatigueDrainBase
-	* Default: 1.0
-	* Description: Used with fMagicFatigueDrainMult to determine the effect of fatigue on spell effectiveness. By default, fatigue has no effect on spellcasting.
-	* Formula: spell effectiveness penalty = 1 - fMagicFatigueDrainBase - fMagicFatigueDrainMult x (fatigue / maximum fatigue)
-
-2. fMagicFatigueDrainMult
-	* Default: 0.0
-	* Description: Used with fMagicFatigueDrainBase to determine the effect of fatigue on spell effectiveness. By default, fatigue has no effect on spellcasting.
-	* Formula: spell effectiveness penalty = 1 - fMagicFatigueDrainBase - fMagicFatigueDrainMult x (fatigue / maximum fatigue)
 
 1. fDamageSneakAttackMult
 	* Default: 4.0
