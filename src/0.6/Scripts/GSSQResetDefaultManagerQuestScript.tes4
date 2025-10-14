@@ -1,0 +1,11 @@
+scn GSSQResetDefaultManagerQuestScript
+
+float fQuestDelayTime
+
+Begin GameMode
+	set fQuestDelayTime to 1
+	if GSbMCMOpen == 0
+		StartQuest GSQQResetDefaultSettingsQuest
+		set GSQQResetDefaultSettingsQuest.bEnabled to 1
+	endif
+end

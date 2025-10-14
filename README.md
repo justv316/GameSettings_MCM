@@ -4,35 +4,19 @@
 * A Mod Configuration Menu (MCM) control panel for configuring every functional GameSetting in Oblivion Remastered. 
 
 # Changelog
-0.1
-* Release of the first batch of settings. 
-
-0.2 
-* Renamed First ini file to Gameplay_GameSettings.ini
-* Added 14 actor settings
-
-0.3 
-* Up to 87 Managed Settings!!
-* Added Combat_GameSettings.ini and GameSettings_MCM.esp
-* Added 46 Combat settings
-* Added Reset to Default button that will restore all managed settings to default. Currently cannot reset the displayed values in MCM without manually clicking the reset button on the setting, waiting on MCM functionality to support that!
-* The plugin file contains the scripts used to support the Reset to Default mechanism and will be used in the future to support certain settings. 
-
-0.4
-* Renamed config Files again, sorry - Delete the old ones and use the ones that are numbered.
-* Added 0. Obsolete.ini to contain settings that no longer function but still exist.
-* Added 47 Stealth settings
-* Sneak Attack damage and Combat Damage seemingly are being calculated using different numbers than the OG settings. Sneak Attack Damage settings have been moved to Obsolete. Will continue to test combat settings.
-
-0.5
-* Added 5. Magic.ini [41 Settings]; 6. Player.ini [21 Settings]; 7. Player Stats.ini [32 Settings]
-* Up to 228 Managed Settings
-
 0.6
 * Updated ini file names: Delete old files and copy new.
 * Added 6. Player Skills.ini [54 Settings]; 7. NPC.ini [37 Settings]; 8. Physics.ini [36 Settings]; 9. Miscellaneous.ini [53 Settings]
 * Up to 408 Managed Settings
 * All of the settings defined in the Construction Set Wiki have been added
+
+0.6a
+* Hotfix
+
+0.7
+* Mad MCM v4 now allows us to get and display actual values in game. This requires Dicene's ConsoleUtils.
+* On Update: You may need to change a value or two for the menu to properly display current values. 
+* You can now click on a value to manually type in a number using the keyboard. 
 
 ## Description
 
@@ -50,8 +34,9 @@
 
 ### Prerequisites
 1. [UE4SS](https://www.nexusmods.com/oblivionremastered/mods/32)
-	1. [Mad OBScript Extender v2.0a or Later](https://www.nexusmods.com/oblivionremastered/mods/4819)
-	2. [Mad Config Menu MCM v3.6 or Later](https://www.nexusmods.com/oblivionremastered/mods/4810)
+	1. [Mad OBScript Extender v3 or Later](https://www.nexusmods.com/oblivionremastered/mods/4819)
+	2. [Mad Config Menu MCM v4 or Later](https://www.nexusmods.com/oblivionremastered/mods/4810)
+	3. [ConsoleUtils - UE4SS](https://www.nexusmods.com/oblivionremastered/mods/5021)
 2. [OBSE](https://www.nexusmods.com/oblivionremastered/mods/282)
 	1. [NL-Tag Remover](https://www.nexusmods.com/oblivionremastered/mods/473)
 	
@@ -632,3 +617,4 @@ fChase3rdPersonZUnitsPerSecond
 ## Credits
 1. Utilizes ObScript Extender created by [MadAborModding](https://next.nexusmods.com/profile/MadAborModding)
 2. Utilizes MCM created by [MadAborModding](https://next.nexusmods.com/profile/MadAborModding)
+3. Utilizes ConsoleUtils created by [Dicene](https://next.nexusmods.com/profile/dicene)

@@ -1,0 +1,10 @@
+scn GSSQMCMQuestScript
+
+; I dont think I need these scripts anymore.
+; But it's nice to know when the MCM is open ^^
+
+Begin GameMode
+	if GSbMCMOpen == 1
+	elseif GSbMCMOpen == 0
+	endif
+end
